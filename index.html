@@ -289,12 +289,12 @@ h1.name{font-size:clamp(46px,7.2vw,92px);line-height:.98;letter-spacing:-.045em;
   <div class="wrap nav-in">
     <a class="brand" href="#top"><i>MM</i> Mustafa Mahmoud</a>
     <div class="links" id="links">
+      <a href="#trust">TRUST</a>
       <a href="#work">Platform</a>
       <a href="#pipeline">Pipeline</a>
-      <a href="#trust">TRUST</a>
+      <a href="#agents">AI workflow</a>
       <a href="#capabilities">Capabilities</a>
       <a href="#rigor">Engineering</a>
-      <a href="#agents">AI workflow</a>
       <a href="#cases">Case studies</a>
       <a href="#experience">Experience</a>
       <a href="#contact">Contact</a>
@@ -312,9 +312,10 @@ h1.name{font-size:clamp(46px,7.2vw,92px);line-height:.98;letter-spacing:-.045em;
       <p class="loc">Cairo, Egypt &nbsp;·&nbsp; Open to remote and relocation</p>
       <h1 class="name">Mustafa Mahmoud</h1>
       <p class="role-line">Revenue Operations Analyst <span>&amp;</span> Analytics Engineer</p>
-      <p class="sub">I design the metrics, build the platforms and run the release process that show a revenue team where money is won or lost. I work by <strong>TRUST</strong>, a framework I created to prove AI-assisted numbers are right.</p>
+      <p class="sub">I design the metrics, build the platforms and run the release process that show a revenue team where money is won or lost. I build AI-native: coding agents do the heavy lifting, and <strong>TRUST</strong>, the framework I created, is how the numbers stay right.</p>
       <div class="cta">
-        <a class="btn primary" href="#work">See the platform</a>
+        <a class="btn primary" href="#trust">How I work: TRUST</a>
+        <a class="btn" href="#work">Platform</a>
         <a class="btn" href="https://www.linkedin.com/in/mustafa-mahmoud-0bbb10228" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn" href="mailto:mustafasalah5321@gmail.com">Email</a>
       </div>
@@ -339,13 +340,33 @@ h1.name{font-size:clamp(46px,7.2vw,92px);line-height:.98;letter-spacing:-.045em;
       <h2>Commercial judgement, built into software.</h2>
       <p>Most analysts hand over a report. I hand over the <strong>instrument</strong>: a platform that recomputes every rate from filtered numerators and denominators, reconciles itself against its own totals, and tells the team what to do next.</p>
       <p>Four years across operations, quality and commercial analytics in Egypt, China and the Gulf taught me where revenue actually leaks. I now design the metrics, build the pipelines and direct AI coding agents to ship them under strict controls.</p>
-      <p><strong>Not a dashboard decorator.</strong> I define attribution rules, audit other people's calculations and refuse to publish a number I can't reconcile. That discipline is <strong>TRUST</strong>, the framework I created and apply to every analysis and build.</p>
+      <p><strong>Not a dashboard decorator.</strong> I define attribution rules, audit other people's calculations and refuse to publish a number I can't reconcile. That discipline is <strong>TRUST</strong>, the framework I created and apply to every analysis and build, and it is what lets me use AI agents reliably at speed.</p>
     </div>
     <div class="roles rv">
       <div class="role"><div><b>Revenue Operations Analyst</b><span>Funnel economics, targets and pacing, channel and routing decisions</span></div></div>
       <div class="role"><div><b>Analytics Engineer</b><span>Governed metric layer, pipelines, tests and release gates</span></div></div>
       <div class="role"><div><b>BI / Decision-Systems Developer</b><span>Interactive platforms with drill-downs, forecasting and bilingual UX</span></div></div>
       <div class="role"><div><b>Automation &amp; AI Workflow Builder</b><span>Scheduled pipelines, n8n routing, agent-driven delivery</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section id="trust">
+  <div class="wrap">
+    <div class="eyebrow">My framework</div>
+    <h2>TRUST: how I make AI-assisted numbers trustworthy</h2>
+    <p class="lede">TRUST is the working method I created and use on every analysis and build. AI makes the work fast. TRUST makes sure the speed never costs accuracy.</p>
+    <div class="trust rv">
+      <div><i>T</i><b>Trace</b><span>Profile the sources before writing logic: schemas, join keys and cardinality, grain, timezones, and what each column actually encodes.</span></div>
+      <div><i>R</i><b>Record</b><span>Cleaning steps, join logic and metric definitions live in a versioned working document that the agents read as their spec. Agents implement written rules; they do not infer them.</span></div>
+      <div><i>U</i><b>Underwrite</b><span>Control totals against the source, row-level spot checks, range and impossible-value assertions, and a diff against a manually verified reference dataset whenever a calculation rule changes. Release is blocked until every difference is explained.</span></div>
+      <div><i>S</i><b>Ship</b><span>The deliverable is built only after the checks pass, then goes through the release gate: tests, real-browser validation and documentation sync.</span></div>
+      <div><i>T</i><b>Track</b><span>Freshness checks, failure alerts and idempotent retries watch every daily run. Each incident is written back into the record and, where possible, becomes a permanent test.</span></div>
+    </div>
+    <div class="grid g3" style="margin-top:34px">
+      <div class="card rv"><h3>194.5%</h3><p>An unmatched-consultant fallback leaked orders into one region and produced an impossible conversion rate. A reference comparison caught it, and the fix shipped with a regression check.</p></div>
+      <div class="card rv"><h3>0 mismatches</h3><p>A new daily dashboard was diffed cell by cell against the reports it replaced before it became the official view.</p></div>
+      <div class="card rv"><h3>Specs, not guesses</h3><p>Metric definitions sit in a versioned spec, so a fresh agent session reproduces the same numbers instead of a plausible approximation.</p></div>
     </div>
   </div>
 </section>
@@ -460,22 +481,25 @@ ORDER BY day, template_name;</pre></div>
   </div>
 </section>
 
-<section id="trust">
+<section id="agents">
   <div class="wrap">
-    <div class="eyebrow">My framework</div>
-    <h2>TRUST: how I make AI-assisted numbers trustworthy</h2>
-    <p class="lede">TRUST is the working method I created and use on every analysis and build. AI makes the work fast. TRUST makes sure the speed never costs accuracy.</p>
-    <div class="trust rv">
-      <div><i>T</i><b>Trace</b><span>Profile the sources before writing logic: schemas, join keys and cardinality, grain, timezones, and what each column actually encodes.</span></div>
-      <div><i>R</i><b>Record</b><span>Cleaning steps, join logic and metric definitions live in a versioned working document that the agents read as their spec. Agents implement written rules; they do not infer them.</span></div>
-      <div><i>U</i><b>Underwrite</b><span>Control totals against the source, row-level spot checks, range and impossible-value assertions, and a diff against a manually verified reference dataset whenever a calculation rule changes. Release is blocked until every difference is explained.</span></div>
-      <div><i>S</i><b>Ship</b><span>The deliverable is built only after the checks pass, then goes through the release gate: tests, real-browser validation and documentation sync.</span></div>
-      <div><i>T</i><b>Track</b><span>Freshness checks, failure alerts and idempotent retries watch every daily run. Each incident is written back into the record and, where possible, becomes a permanent test.</span></div>
+    <div class="eyebrow">AI-native workflow</div>
+    <h2>AI-native, and accountable: I run coding agents like an engineering lead runs a team</h2>
+    <p class="lede">The leverage is in the contract, not the prompt: who owns what, what must never change, and how a fresh session recovers context without guessing.</p>
+    <div class="split">
+      <div class="agent rv"><div class="who"><i style="background:var(--accent)"></i>Agent A · Product engineering</div>
+        <ul><li>Features, calculations and build code</li><li>Validators, tests and deployment tooling</li><li>Debugging and data logic</li></ul></div>
+      <div class="agent rv"><div class="who"><i style="background:var(--accent2)"></i>Agent B · Visual design</div>
+        <ul><li>Layout, spacing, typography and colour</li><li>Responsive and accessible presentation</li><li>Never touches calculations or release tooling</li></ul></div>
     </div>
-    <div class="grid g3" style="margin-top:34px">
-      <div class="card rv"><h3>194.5%</h3><p>An unmatched-consultant fallback leaked orders into one region and produced an impossible conversion rate. A reference comparison caught it, and the fix shipped with a regression check.</p></div>
-      <div class="card rv"><h3>0 mismatches</h3><p>A new daily dashboard was diffed cell by cell against the reports it replaced before it became the official view.</p></div>
-      <div class="card rv"><h3>Specs, not guesses</h3><p>Metric definitions sit in a versioned spec, so a fresh agent session reproduces the same numbers instead of a plausible approximation.</p></div>
+    <div class="rule rv"><b>Rule:</b> two agents never edit the same branch. Functional work merges first, then the visual pass starts from a fresh branch off <code>main</code>.</div>
+    <div class="grid g3" style="margin-top:22px">
+      <div class="card rv"><h3>Memoryless handoff</h3><p>A new session must produce a recovery summary (objective, privacy boundary, plan, open decisions) and wait for approval before writing code.</p></div>
+      <div class="card rv"><h3>Invariants as rules</h3><p>Month-keyed targets, no hard-coded paths, generated folders never treated as source, and docs updated in the same change as logic.</p></div>
+      <div class="card rv"><h3>Skills &amp; memory</h3><p>Custom skills for analysis contracts, report styling and meeting-to-action automation, backed by a curated, cross-linked memory of working rules.</p></div>
+      <div class="card rv"><h3>Verify, don't trust</h3><p>Screenshot QA before any deploy, minimal reproductions for recurring alerts, and metrics checked against the documented formula, not a neighbouring row.</p></div>
+      <div class="card rv"><h3>Clean-room delivery</h3><p>A synthetic twin of the platform built from seeded generators, with source-lineage records and privacy checks before any claim of parity.</p></div>
+      <div class="card rv"><h3>Parallel agent runs</h3><p>Work fans out to sub-agents in batches, with evidence checked at each stage. Runs are priced before launch so one job cannot exhaust the working budget.</p></div>
     </div>
   </div>
 </section>
@@ -524,29 +548,6 @@ ORDER BY day, template_name;</pre></div>
   </div>
 </section>
 
-<section id="agents">
-  <div class="wrap">
-    <div class="eyebrow">AI-agent workflow</div>
-    <h2>I direct coding agents the way an engineering lead runs a team</h2>
-    <p class="lede">The leverage is in the contract, not the prompt: who owns what, what must never change, and how a fresh session recovers context without guessing.</p>
-    <div class="split">
-      <div class="agent rv"><div class="who"><i style="background:var(--accent)"></i>Agent A · Product engineering</div>
-        <ul><li>Features, calculations and build code</li><li>Validators, tests and deployment tooling</li><li>Debugging and data logic</li></ul></div>
-      <div class="agent rv"><div class="who"><i style="background:var(--accent2)"></i>Agent B · Visual design</div>
-        <ul><li>Layout, spacing, typography and colour</li><li>Responsive and accessible presentation</li><li>Never touches calculations or release tooling</li></ul></div>
-    </div>
-    <div class="rule rv"><b>Rule:</b> two agents never edit the same branch. Functional work merges first, then the visual pass starts from a fresh branch off <code>main</code>.</div>
-    <div class="grid g3" style="margin-top:22px">
-      <div class="card rv"><h3>Memoryless handoff</h3><p>A new session must produce a recovery summary (objective, privacy boundary, plan, open decisions) and wait for approval before writing code.</p></div>
-      <div class="card rv"><h3>Invariants as rules</h3><p>Month-keyed targets, no hard-coded paths, generated folders never treated as source, and docs updated in the same change as logic.</p></div>
-      <div class="card rv"><h3>Skills &amp; memory</h3><p>Custom skills for analysis contracts, report styling and meeting-to-action automation, backed by a curated, cross-linked memory of working rules.</p></div>
-      <div class="card rv"><h3>Verify, don't trust</h3><p>Screenshot QA before any deploy, minimal reproductions for recurring alerts, and metrics checked against the documented formula, not a neighbouring row.</p></div>
-      <div class="card rv"><h3>Clean-room delivery</h3><p>A synthetic twin of the platform built from seeded generators, with source-lineage records and privacy checks before any claim of parity.</p></div>
-      <div class="card rv"><h3>Cost awareness</h3><p>Parallel sub-agents are priced before launch, and cheaper options are tried first so one job cannot exhaust the working budget.</p></div>
-    </div>
-  </div>
-</section>
-
 <section class="showcase" id="cases">
   <div class="wrap">
     <div class="eyebrow">Case studies</div>
@@ -555,8 +556,6 @@ ORDER BY day, template_name;</pre></div>
     <div class="rv">
       <div class="case"><div><div class="k">Agent instructions</div><div class="n sm">Less is more<small>short, ordered, direct steps</small></div></div>
         <div><h3>Rebuilding an agent skill that failed</h3><p>The first approach put one large, unstructured instruction file inside an existing assistant, and the target customers never came through. The assistant's database was not built for the sales data, and the skill was too long for the agent to follow.</p><p>After studying how practitioners write agent instructions, I rebuilt the skill as short, direct steps and, with the colleague who built the assistant, restructured how the data enters its database. Since then the daily run has finished without a failure, in 20 to 40 minutes.</p></div></div>
-      <div class="case"><div><div class="k">Revenue drivers</div><div class="n">Volume<small>not closing rate, not price</small></div></div>
-        <div><h3>What actually moves referral revenue</h3><p>Decomposed referral GMV into leads, closing and order value. Value per sale was flat and closing had risen and held, so <b>lead volume was the swing factor</b>, and one customer segment closed markedly better than another.</p><p>Output was a control loop: watch lead supply and segment mix weekly, with a closing-rate floor, knowing revenue lags leads by three to four weeks.</p></div></div>
       <div class="case"><div><div class="k">Metric audit</div><div class="n">3 defects<small>found, fixed and re-deployed</small></div></div>
         <div><h3>Auditing a live platform's calculations</h3><p>Compared a production dashboard against a manually reconciled workbook. An unmatched-consultant fallback was leaking orders into one region and producing an <b>impossible 194.5% conversion rate</b>.</p><p>Fixed on a branch with a pull request, covered by a visible QA check, and the daily pipeline was re-linked to the corrected build.</p></div></div>
       <div class="case"><div><div class="k">Messaging reachability</div><div class="n">66→80%<small>within three weeks</small></div></div>
@@ -572,7 +571,7 @@ ORDER BY day, template_name;</pre></div>
     <div class="eyebrow">Experience</div>
     <h2>Four years, one thread: make performance measurable</h2>
     <div class="tl rv" style="margin-top:34px">
-      <div class="job"><div class="d">Jul 2026 – Present</div><h3>Sales Strategy, Analytics Systems and AI Automation Specialist</h3><p>Online education company. Designed and built the regional commercial analytics platform, its attribution rules, reconciliation controls and automated reporting, and shaped referral growth initiatives for stakeholders across Egypt, China and the Gulf.</p></div>
+      <div class="job"><div class="d">Jul 2026 – Present</div><h3>Sales Strategy, Analytics Systems and AI Automation Specialist</h3><p>Online education company. Designed and built the regional commercial analytics platform, its attribution rules, reconciliation controls and automated reporting, for stakeholders across Egypt, China and the Gulf.</p></div>
       <div class="job"><div class="d">Aug 2025 – May 2026</div><h3>Quality and Data Analyst · Creo Global (remote, Dubai)</h3><p>Built the measurement framework behind a reachability improvement, plus a daily KPI and weekly close-out system for a multi-timezone team.</p></div>
       <div class="job"><div class="d">Aug 2021 – Jan 2026</div><h3>Quality Evaluator · Concentrix</h3><p>Turned recurring performance problems into analyses and decision tools, and built automated Excel systems with multi-source validation.</p></div>
     </div>
@@ -615,7 +614,6 @@ ORDER BY day, template_name;</pre></div>
   var shots=[
     {id:'overview',t:'Command Center',p:'Ranked action centre and headline KPIs against the target and benchmark, with every figure naming its calculation scope.'},
     {id:'funnel',t:'Funnel Performance',p:'Unique persons through lead, attendance and payment, with loss at each step and cohort windows that exclude immature data.'},
-    {id:'referral',t:'Referral Growth',p:'Share of GMV against goal, the daily lead rate needed to close the gap, and momentum charts on dual axes.'},
     {id:'forecasting',t:'Forecasting',p:'Backtested next-month plan with an 80% range and a sustain-or-improve recommendation per measure.'},
     {id:'ccperf',t:'Sales Performance',p:'Team and individual productivity with sortable comparison tables and contribution to the total.'},
     {id:'gmvdrivers',t:'GMV Drivers',p:'Contribution breakdown showing which team and segment moved the number, and by how much.'}
@@ -671,7 +669,7 @@ ORDER BY day, template_name;</pre></div>
   }
 
   // active link
-  var secs=['work','pipeline','trust','capabilities','rigor','agents','cases','experience','contact'];
+  var secs=['trust','work','pipeline','agents','capabilities','rigor','cases','experience','contact'];
   var so=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){[].forEach.call(links.children,function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'-45% 0px -50% 0px'});
   secs.forEach(function(id){var el=document.getElementById(id);el&&so.observe(el)});
 })();
