@@ -184,6 +184,38 @@ body[data-cards=impact] .proof,body[data-cards=impact] .facts,body[data-cards=im
  section{padding:60px 0}.win{box-shadow:6px 6px 0 var(--ink)}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+/* kinetic typography */
+.kin h1 .w{display:inline-block;white-space:nowrap}
+.kin h1 .ch{display:inline-block;will-change:transform;
+  animation:chIn .75s cubic-bezier(.2,.9,.25,1.2) backwards;animation-delay:calc(var(--i)*45ms + 120ms);
+  transform:translateY(calc(var(--d,0)*-16px)) rotate(calc(var(--d,0)*-7deg));transition:transform .18s ease-out}
+@keyframes chIn{from{opacity:0;transform:translateY(.7em) rotate(10deg) scale(.7)}to{opacity:1}}
+.kin .role{animation:roleIn .6s cubic-bezier(.2,.9,.25,1.1) .9s backwards}
+@keyframes roleIn{from{opacity:0;transform:translateX(-24px) rotate(-2deg)}}
+.marq{border-top:3px solid var(--ink);background:var(--yellow);overflow:hidden;padding:14px 0 10px;user-select:none}
+.marq .row{display:flex;width:max-content;white-space:nowrap}
+.marq .row+.row{margin-top:2px}
+.marq .trk{display:flex;flex:none;animation:mq 38s linear infinite}
+.marq .row.rev .trk{animation-direction:reverse;animation-duration:46s}
+.marq span{font-weight:900;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(34px,6vw,76px);line-height:1.05;padding-right:.45em}
+.marq .row.o span{color:#fff;text-shadow:4px 4px 0 var(--ink)}
+.marq i{font-style:normal;color:var(--pink);text-shadow:none!important;padding-right:.45em;font-size:.7em;align-self:center}
+@keyframes mq{to{transform:translateX(-100%)}}
+.kin h2 .rwo{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
+.kin h2 .rwi{display:inline-block;transform:translateY(108%) rotate(4deg);transform-origin:0 100%;
+  transition:transform .7s cubic-bezier(.2,.9,.25,1) calc(var(--i)*55ms)}
+.kin h2.in .rwi{transform:none}
+.kin .trust .win{opacity:0;transform:translateY(34px);transition:opacity .5s ease calc(var(--k)*90ms),transform .6s cubic-bezier(.2,.9,.25,1.1) calc(var(--k)*90ms),box-shadow .2s}
+.kin .trust .win.in{opacity:1;transform:none}
+.kin .trust .win.in:hover{transform:translate(-3px,-3px)}
+.kin .trust .win.in .letter{animation:pop .85s cubic-bezier(.2,.9,.25,1.3) calc(var(--k)*90ms + 150ms) backwards}
+@keyframes pop{from{opacity:0;transform:scale(.2) rotate(-28deg) translateY(30px)}}
+@media (prefers-reduced-motion:reduce){
+ .kin h1 .ch,.kin .role,.marq .trk,.kin .trust .win .letter{animation:none!important}
+ .kin h1 .ch{transform:none!important}
+ .kin h2 .rwi{transform:none!important;transition:none!important}
+ .kin .trust .win{opacity:1!important;transform:none!important;transition:none!important}
+}
 .demo{margin-top:44px}.demo h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.demo p{max-width:780px;font-weight:600}
 </style>
 </head>
@@ -226,6 +258,11 @@ body[data-cards=impact] .proof,body[data-cards=impact] .facts,body[data-cards=im
     </div>
   </div>
 </header>
+
+<div class="marq" aria-hidden="true">
+  <div class="row"><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div></div>
+  <div class="row o rev"><div class="trk"><span>Agents in production</span><i>✦</i><span>0 mismatches</span><i>✦</i><span>194.5% caught</span><i>✦</i></div><div class="trk"><span>Agents in production</span><i>✦</i><span>0 mismatches</span><i>✦</i><span>194.5% caught</span><i>✦</i></div></div>
+</div>
 
 <section id="trust" class="dark">
   <div class="wrap">
@@ -411,6 +448,52 @@ ORDER BY day, template_name;</pre>
     .replace(/('[^']*')/g,'<span class="s">$1</span>')
     .replace(/\b(WITH|AS|SELECT|FROM|WHERE|AND|OR|IN|GROUP BY|ORDER BY)\b/g,'<span class="k">$1</span>')
     .replace(/\b(min|max|sum|uniqExact|tuple|toDateTime|toDate|countIf)(?=\()/g,'<span class="p">$1</span>');
+})();
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.body.classList.add('kin');
+  /* hero name: split into letters */
+  var h1=document.querySelector('h1');
+  if(h1){
+    var words=h1.innerHTML.split('<br>'),n=0;
+    h1.setAttribute('aria-label',words.join(' ').replace(/\s+/g,' ').trim());
+    h1.innerHTML=words.map(function(w){
+      return '<span class="w" aria-hidden="true">'+w.split('').map(function(c){return '<span class="ch" style="--i:'+(n++)+'">'+c+'</span>'}).join('')+'</span>';
+    }).join('<br>');
+    if(!reduce && window.matchMedia('(hover:hover)').matches){
+      var chs=[].slice.call(h1.querySelectorAll('.ch')),raf=0,mx=0,my=0,on=false;
+      function frame(){raf=0;
+        chs.forEach(function(c){var r=c.getBoundingClientRect(),dx=mx-(r.left+r.width/2),dy=my-(r.top+r.height/2),d=Math.sqrt(dx*dx+dy*dy);
+          c.style.setProperty('--d',d<170?((1-d/170)).toFixed(3):0)});
+      }
+      document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(!raf)raf=requestAnimationFrame(frame)});
+      h1.addEventListener('mouseleave',function(){chs.forEach(function(c){c.style.setProperty('--d',0)})});
+    }
+  }
+  /* headings: words rise into place on scroll */
+  var heads=[].slice.call(document.querySelectorAll('h2')).filter(function(h){return !h.children.length});
+  heads.forEach(function(h){
+    var txt=h.textContent;h.setAttribute('aria-label',txt);
+    h.innerHTML=txt.split(' ').map(function(w,i){return '<span class="rwo" aria-hidden="true"><span class="rwi" style="--i:'+i+'">'+w+'</span></span>'}).join(' ');
+  });
+  var tw=[].slice.call(document.querySelectorAll('.trust .win'));
+  tw.forEach(function(w,i){w.style.setProperty('--k',i)});
+  var targets=heads.concat(tw);
+  if('IntersectionObserver' in window && !reduce){
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25,rootMargin:'0px 0px -6% 0px'});
+    targets.forEach(function(t){io.observe(t)});
+  }else{targets.forEach(function(t){t.classList.add('in')})}
+  /* marquee speeds up with scroll velocity */
+  if(!reduce){
+    var last=window.scrollY,rate=1,tick=0;
+    function loop(){
+      var y=window.scrollY,v=Math.abs(y-last);last=y;
+      var target=1+Math.min(v/6,7);rate+=(target-rate)*(target>rate?.25:.04);
+      document.querySelectorAll('.marq .trk').forEach(function(el){el.getAnimations().forEach(function(a){a.playbackRate=rate})});
+      requestAnimationFrame(loop);
+    }
+    requestAnimationFrame(loop);
+  }
 })();
 </script>
 </body>
