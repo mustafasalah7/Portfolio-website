@@ -66,7 +66,7 @@ h2{font-size:clamp(30px,4.2vw,50px);font-weight:900;line-height:1.02;letter-spac
 .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;border:3px solid var(--ink);background:var(--white)}
 .proof div{padding:18px 20px;border-right:3px solid var(--ink)}
 .proof div:last-child{border-right:0}
-.proof b{display:block;font-size:26px;font-weight:900;letter-spacing:-.02em}
+.proof b{display:block;font-size:24px;line-height:1.15;margin-bottom:8px;font-weight:900;letter-spacing:-.02em}
 .proof span{font-size:14px;font-weight:600}
 /* platform */
 .tabs{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 22px}
@@ -276,7 +276,7 @@ body[data-cards=impact] .trust .win:hover{box-shadow:0 0 0 1px var(--acc),0 0 22
 
 <div class="marq" aria-hidden="true">
   <div class="row"><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div></div>
-  <div class="row o rev"><div class="trk"><span>Agents in production</span><i>✦</i><span>0 mismatches</span><i>✦</i><span>194.5% caught</span><i>✦</i></div><div class="trk"><span>Agents in production</span><i>✦</i><span>0 mismatches</span><i>✦</i><span>194.5% caught</span><i>✦</i></div></div>
+  <div class="row o rev"><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i></div><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i></div></div>
 </div>
 
 <section id="trust" class="dark">
@@ -292,9 +292,9 @@ body[data-cards=impact] .trust .win:hover{box-shadow:0 0 0 1px var(--acc),0 0 22
       <div class="win c-white"><div class="hd"><span>Track</span></div><div class="bd"><div class="letter">T</div><p>Freshness checks, failure alerts and idempotent retries watch every daily run. Each incident is written back into the record and, where possible, becomes a permanent test.</p></div></div>
     </div>
     <div class="proof" style="color:var(--ink)">
-      <div><b>194.5%</b><span>An unmatched-consultant fallback produced an impossible conversion rate. A reference comparison caught it, and the fix shipped with a regression check.</span></div>
-      <div><b>0 mismatches</b><span>A new daily dashboard was diffed cell by cell against the reports it replaced before it became the official view.</span></div>
-      <div><b>Specs, not guesses</b><span>Metric definitions sit in a versioned spec, so a fresh agent session reproduces the same numbers.</span></div>
+      <div><b>Org-wide pipelines</b><span>The daily numbers a whole sales organisation works from come out of pipelines I built and run: scheduled, unattended and monitored.</span></div>
+      <div><b>Stakeholder management</b><span>I take requests from managers and leadership across Egypt, China and the Gulf and turn them into metrics and views that people agree on and use.</span></div>
+      <div><b>Presentation-grade data</b><span>Findings delivered as designed dashboards and narrated video built with Remotion, so decision-makers see the story, not a spreadsheet.</span></div>
     </div>
   </div>
 </section>
