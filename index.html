@@ -231,6 +231,12 @@ body[data-cards=impact] .trust .letter{text-shadow:0 0 8px var(--acc),0 0 30px c
 body[data-cards=impact] .trust .win:hover{box-shadow:0 0 0 1px var(--acc),0 0 22px color-mix(in srgb,var(--acc) 60%,transparent),0 0 60px color-mix(in srgb,var(--acc) 35%,transparent)}
 .marq .row.o span{text-shadow:4px 4px 0 var(--ink),0 0 18px rgba(255,255,255,.9),0 0 42px rgba(255,102,163,.6)}
 @media (prefers-reduced-motion:reduce){.dark h2,.kin .trust .win.in .letter{animation:none!important}}
+/* halftone dots */
+.hero,section,.contact{position:relative}
+.hero,section{overflow:hidden}
+.hero>.wrap,section>.wrap{position:relative;z-index:1}
+canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
+@media (prefers-reduced-motion:reduce){canvas.ht{opacity:.9}}
 .demo{margin-top:44px}.demo h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.demo p{max-width:780px;font-weight:600}
 </style>
 </head>
@@ -403,7 +409,6 @@ ORDER BY day, template_name;</pre>
     <h2>From ambiguous problem to a decision</h2>
     <div class="ledger">
       <div class="row"><div><span class="sticker c-yellow" style="color:var(--ink)">Less is more</span><small>short, ordered, direct steps</small></div><div><h3>Rebuilding an agent skill that failed</h3><p>The first approach put one large, unstructured instruction file inside an existing assistant, and the target customers never came through. The assistant's database was not built for the sales data, and the skill was too long for the agent to follow.</p><p>After studying how practitioners write agent instructions, I rebuilt the skill as short, direct steps and restructured how the data enters its database with the colleague who built the assistant. The daily run has finished without a failure since, in 20 to 40 minutes.</p></div></div>
-      <div class="row"><div><span class="sticker c-pink" style="color:var(--ink)">3 defects</span><small>found, fixed, re-deployed</small></div><div><h3>Auditing a live platform's calculations</h3><p>Compared a production dashboard against a manually reconciled workbook. An unmatched-consultant fallback was leaking orders into one region and producing an impossible 194.5% conversion rate.</p><p>Fixed on a branch with a pull request, covered by a visible QA check, and the daily pipeline was re-linked to the corrected build.</p></div></div>
       <div class="row"><div><span class="sticker c-mint" style="color:var(--ink)">66 → 80%</span><small>within three weeks</small></div><div><h3>Diagnosing a WhatsApp reachability ceiling</h3><p>Built a measurement framework that quantified contribution by failure type and exposed recurring platform defects, then drove the fix through a daily KPI and weekly close-out loop.</p></div></div>
       <div class="row"><div><span class="sticker c-blue" style="color:var(--ink)">Minutes → seconds</span><small>per lead, from 15–20 minutes</small></div><div><h3>AI-assisted lead qualification</h3><p>An n8n workflow connecting capture, eligibility checks, programme routing, tailored email, logging and model-assisted recommendations for sales review.</p></div></div>
     </div>
@@ -509,6 +514,59 @@ ORDER BY day, template_name;</pre>
     }
     requestAnimationFrame(loop);
   }
+})();
+/* halftone dot fields (canvas): dot size follows a gradient from a corner */
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fields=[];
+  function mk(host,anchors,interactive){
+    var c=document.createElement('canvas');c.className='ht';c.setAttribute('aria-hidden','true');
+    host.insertBefore(c,host.firstChild);
+    var f={host:host,c:c,ctx:c.getContext('2d'),anchors:anchors,mx:-999,my:-999,interactive:interactive,w:0,h:0};
+    fields.push(f);return f;
+  }
+  function draw(f){
+    var host=f.host,w=host.clientWidth,h=host.clientHeight,dpr=Math.min(window.devicePixelRatio||1,2);
+    if(f.w!==w||f.h!==h){f.w=w;f.h=h;f.c.width=w*dpr;f.c.height=h*dpr}
+    var x=f.ctx;x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);
+    var s=w<700?13:17,rowH=s*0.866,diag=Math.sqrt(w*w+h*h);
+    for(var ai=0;ai<f.anchors.length;ai++){
+      var a=f.anchors[ai],ax=a.x*w,ay=a.y*h,reach=a.reach*diag,maxR=s*0.52*(a.size||1);
+      x.fillStyle=a.color;
+      var r0=Math.floor(h/rowH)+1,c0=Math.floor(w/s)+1;
+      for(var j=0;j<=r0;j++){
+        var py=j*rowH,off=(j%2)*s/2;
+        if(Math.abs(py-ay)>reach)continue;
+        for(var i=0;i<=c0;i++){
+          var px=i*s+off,dx=px-ax,dy=py-ay,d=Math.sqrt(dx*dx+dy*dy);
+          var tt=1-d/reach;if(tt<=0)continue;
+          var rad=maxR*Math.pow(tt,1.15);
+          if(f.interactive){var mx=px-f.mx,my=py-f.my,md=Math.sqrt(mx*mx+my*my);if(md<150){rad=Math.min(maxR*1.05,rad+maxR*0.8*(1-md/150))}}
+          if(rad<0.4)continue;
+          x.beginPath();x.arc(px,py,rad,0,6.2832);x.fill();
+        }
+      }
+    }
+  }
+  function drawAll(){fields.forEach(draw)}
+  var hero=document.querySelector('.hero');
+  var P='#ff66a3',Y='#ffd84d',B='#8db4ff',I='#111';
+  if(hero){
+    var hf=mk(hero,[{x:1,y:0,reach:.52,color:P,size:1.1},{x:0,y:1,reach:.3,color:Y,size:.8}],true);
+    if(!reduce && window.matchMedia('(hover:hover)').matches){
+      var raf=0;
+      hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hf.mx=e.clientX-r.left;hf.my=e.clientY-r.top;if(!raf)raf=requestAnimationFrame(function(){raf=0;draw(hf)})});
+      hero.addEventListener('mouseleave',function(){hf.mx=hf.my=-999;draw(hf)});
+    }
+  }
+  var cfg={trust:[{x:1,y:0,reach:.5,color:'rgba(255,102,163,.55)'},{x:0,y:1,reach:.4,color:'rgba(141,180,255,.45)'}],
+           pipeline:[{x:0,y:0,reach:.5,color:'rgba(110,231,183,.45)'},{x:1,y:1,reach:.4,color:'rgba(255,216,77,.4)'}],
+           cases:[{x:1,y:0,reach:.5,color:'rgba(141,180,255,.5)'},{x:0,y:1,reach:.4,color:'rgba(255,102,163,.45)'}],
+           contact:[{x:1,y:1,reach:.55,color:'rgba(17,17,17,.9)',size:1},{x:0,y:0,reach:.3,color:'rgba(255,255,255,.7)',size:.8}]};
+  Object.keys(cfg).forEach(function(id){var el=document.getElementById(id);if(el)mk(el,cfg[id],false)});
+  drawAll();
+  var rt=0;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawAll,120)});
+  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawAll);
 })();
 </script>
 </body>
