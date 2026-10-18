@@ -216,6 +216,21 @@ body[data-cards=impact] .proof,body[data-cards=impact] .facts,body[data-cards=im
  .kin h2 .rwi{transform:none!important;transition:none!important}
  .kin .trust .win{opacity:1!important;transform:none!important;transition:none!important}
 }
+/* neon glow */
+.kin h1 .ch{color:color-mix(in srgb,var(--pink) min(100%,calc(var(--d,0)*200%)),var(--ink));
+  text-shadow:0 0 calc(var(--d,0)*10px) color-mix(in srgb,var(--pink) 90%,transparent),0 0 calc(var(--d,0)*28px) color-mix(in srgb,var(--pink) 70%,transparent),0 0 calc(var(--d,0)*60px) color-mix(in srgb,var(--pink) 45%,transparent);
+  transition:transform .18s ease-out,color .18s ease-out,text-shadow .18s ease-out}
+.dark h2{text-shadow:0 0 6px rgba(255,102,163,.55),0 0 22px rgba(255,102,163,.35),0 0 48px rgba(141,180,255,.25);animation:neonBreath 4.5s ease-in-out infinite}
+@keyframes neonBreath{50%{text-shadow:0 0 4px rgba(255,102,163,.35),0 0 14px rgba(255,102,163,.2),0 0 32px rgba(141,180,255,.15)}}
+.dark .tag{box-shadow:0 0 0 2px var(--ink),0 0 14px 3px rgba(255,216,77,.55),0 0 34px rgba(255,216,77,.3)}
+body[data-cards=impact] .trust .letter{text-shadow:0 0 8px var(--acc),0 0 30px color-mix(in srgb,var(--acc) 70%,transparent),0 0 70px color-mix(in srgb,var(--acc) 50%,transparent)}
+.kin .trust .win.in .letter{animation:pop .85s cubic-bezier(.2,.9,.25,1.3) calc(var(--k)*90ms + 150ms) backwards,
+  neonFlick 1.1s steps(1,end) calc(var(--k)*90ms + 250ms) backwards,neonPulse 3.6s ease-in-out calc(var(--k)*400ms + 1.5s) infinite}
+@keyframes neonFlick{0%{opacity:0}12%{opacity:1}22%{opacity:.25}34%{opacity:1}46%{opacity:.5}58%,100%{opacity:1}}
+@keyframes neonPulse{50%{text-shadow:0 0 5px var(--acc),0 0 18px color-mix(in srgb,var(--acc) 55%,transparent),0 0 40px color-mix(in srgb,var(--acc) 30%,transparent)}}
+body[data-cards=impact] .trust .win:hover{box-shadow:0 0 0 1px var(--acc),0 0 22px color-mix(in srgb,var(--acc) 60%,transparent),0 0 60px color-mix(in srgb,var(--acc) 35%,transparent)}
+.marq .row.o span{text-shadow:4px 4px 0 var(--ink),0 0 18px rgba(255,255,255,.9),0 0 42px rgba(255,102,163,.6)}
+@media (prefers-reduced-motion:reduce){.dark h2,.kin .trust .win.in .letter{animation:none!important}}
 .demo{margin-top:44px}.demo h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.demo p{max-width:780px;font-weight:600}
 </style>
 </head>
