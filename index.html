@@ -122,6 +122,7 @@ h2{font-size:clamp(30px,4.2vw,50px);font-weight:900;line-height:1.02;letter-spac
 .job h3{font-size:19px;font-weight:900}
 .job p{font-weight:600;font-size:15.5px;margin-top:4px;max-width:760px}
 .chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
+.skillgrid{margin-top:34px}.cg{margin-top:22px}.cg h4{font-family:var(--mono);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em}.cg .chips{margin-top:10px}
 .chips span{border:3px solid var(--ink);background:var(--white);padding:5px 12px;font-weight:800;font-size:14px;box-shadow:3px 3px 0 var(--ink)}
 /* contact */
 .contact .win{max-width:760px;margin-top:34px}
@@ -282,7 +283,7 @@ canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 
 <div class="marq" aria-hidden="true">
   <div class="row"><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div></div>
-  <div class="row o rev"><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i></div><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i></div></div>
+  <div class="row o rev"><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i><span>No API? Found a way</span><i>✦</i></div><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i><span>No API? Found a way</span><i>✦</i></div></div>
 </div>
 
 <section id="trust" class="dark">
@@ -338,8 +339,8 @@ canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
     <div class="fail" style="color:var(--ink)"><b>On failure:</b> classify the cause, alert the owner with evidence, keep completed work, and never replay a send that was accepted or is uncertain.</div>
     <div class="two">
       <div>
-        <h3>Authenticated SQL extraction</h3>
-        <p style="color:#e8e4d8;font-weight:600">A Python query builder drives a signed-in browser session and runs a bounded SQL query against the BI platform's own workbench. Each extraction takes about <b>8 seconds</b>.</p>
+        <h3>Direct BI access, no API, no browser</h3>
+        <p style="color:#e8e4d8;font-weight:600">The BI platform offered no API. I reverse-engineered the data calls its own interface makes and rebuilt them on the backend, so a Python query builder runs bounded SQL with no browser session open. Each extraction takes about <b>8 seconds</b>. <a href="#no-api" style="color:var(--yellow)">The full story ↓</a></p>
         <ul style="color:#e8e4d8">
           <li>Date-bounded windows, inclusive start and exclusive end, in the source's timezone</li>
           <li>Accepted only if schema, date coverage, row count and control totals all agree</li>
@@ -408,6 +409,7 @@ ORDER BY day, template_name;</pre>
     <span class="tag">Case studies</span>
     <h2>From ambiguous problem to a decision</h2>
     <div class="ledger">
+      <div class="row" id="no-api"><div><span class="sticker c-pink" style="color:var(--ink)">No API</span><small>my biggest unlock</small></div><div><h3>The data nobody could see. Now it arrives every morning.</h3><p><b>Dead end:</b> I had no API access to the BI platform, and nobody could see WhatsApp data on a daily basis. Nobody knew what to do, and the usual answer was that it couldn't be done.</p><p><b>The move:</b> I traced how the platform's own interface loads its data, then rebuilt those calls on the backend. My agent now reads the platform directly, with no browser session open, nobody logging in and no API.</p><p><b>Now:</b> WhatsApp data lands every morning, on a schedule, in front of the team. Each extraction takes about 8 seconds and is accepted only if schema, dates, row counts and control totals agree.</p></div></div>
       <div class="row"><div><span class="sticker c-yellow" style="color:var(--ink)">Less is more</span><small>short, ordered, direct steps</small></div><div><h3>Rebuilding an agent skill that failed</h3><p>The first approach put one large, unstructured instruction file inside an existing assistant, and the target customers never came through. The assistant's database was not built for the sales data, and the skill was too long for the agent to follow.</p><p>After studying how practitioners write agent instructions, I rebuilt the skill as short, direct steps and restructured how the data enters its database with the colleague who built the assistant. The daily run has finished without a failure since, in 20 to 40 minutes.</p></div></div>
       <div class="row"><div><span class="sticker c-mint" style="color:var(--ink)">66 → 80%</span><small>within three weeks</small></div><div><h3>Diagnosing a WhatsApp reachability ceiling</h3><p>Built a measurement framework that quantified contribution by failure type and exposed recurring platform defects, then drove the fix through a daily KPI and weekly close-out loop.</p></div></div>
       <div class="row"><div><span class="sticker c-blue" style="color:var(--ink)">Minutes → seconds</span><small>per lead, from 15–20 minutes</small></div><div><h3>AI-assisted lead qualification</h3><p>An n8n workflow connecting capture, eligibility checks, programme routing, tailored email, logging and model-assisted recommendations for sales review.</p></div></div>
@@ -424,8 +426,12 @@ ORDER BY day, template_name;</pre>
       <div class="job"><div class="d">Aug 2025 – May 2026</div><div><h3>Quality and Data Analyst · Creo Global (remote, Dubai)</h3><p>Built the measurement framework behind a reachability improvement, plus a daily KPI and weekly close-out system for a multi-timezone team.</p></div></div>
       <div class="job"><div class="d">Aug 2021 – Jan 2026</div><div><h3>Quality Evaluator · Concentrix</h3><p>Turned recurring performance problems into analyses and decision tools, and built automated Excel systems with multi-source validation.</p></div></div>
     </div>
-    <div class="chips">
-      <span>SQL (ClickHouse-style)</span><span>Python</span><span>pandas</span><span>JavaScript</span><span>ECharts</span><span>Playwright</span><span>Git &amp; GitHub</span><span>Cloudflare</span><span>n8n</span><span>Claude Code</span><span>Codex</span><span>Prompt and skill design</span><span>Multi-agent runs</span><span>Tableau-informed chart design</span><span>Power BI-style tables</span>
+    <div class="skillgrid">
+      <div class="cg"><h4>Revenue operations &amp; analysis</h4><div class="chips"><span>Funnel and cohort analysis</span><span>Attribution rules</span><span>KPI design</span><span>Forecasting and backtesting</span><span>Root-cause analysis</span></div></div>
+      <div class="cg"><h4>Data &amp; SQL</h4><div class="chips"><span>SQL (ClickHouse-style)</span><span>pandas</span><span>Data validation</span><span>Reconciliation controls</span><span>Power Query, Power Pivot and DAX</span></div></div>
+      <div class="cg"><h4>Engineering &amp; integration</h4><div class="chips"><span>Python</span><span>JavaScript</span><span>Reverse-engineered BI endpoints</span><span>Unattended pipelines</span><span>Playwright</span><span>Git &amp; GitHub</span><span>Cloudflare</span></div></div>
+      <div class="cg"><h4>AI &amp; automation</h4><div class="chips"><span>Claude Code</span><span>Codex</span><span>Multi-agent runs</span><span>Prompt and skill design</span><span>n8n</span><span>TRUST framework</span></div></div>
+      <div class="cg"><h4>Stakeholders &amp; presentation</h4><div class="chips"><span>Stakeholder management</span><span>Executive-ready data presentation</span><span>Remotion data video</span><span>ECharts</span><span>Tableau-informed chart design</span></div></div>
     </div>
   </div>
 </section>
