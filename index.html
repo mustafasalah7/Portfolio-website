@@ -380,10 +380,10 @@ ORDER BY day, template_name;</pre>
       </div>
     </div>
     <div class="stats" style="color:var(--ink)">
-      <div><b>~8 s</b><span>per authenticated SQL extraction</span></div>
-      <div><b>18–24</b><span>manual reports replaced per daily cycle</span></div>
-      <div><b>22</b><span>source inputs validated every run</span></div>
-      <div><b>100+</b><span>automated tests behind the pipeline</span></div>
+      <div><b>1 week</b><span>from handover to the official daily dashboard, built with agents</span></div>
+      <div><b>18–24</b><span>daily report builds replaced by one agent-built pipeline</span></div>
+      <div><b>~8 s</b><span>per pull straight from the BI platform: no API, no browser</span></div>
+      <div><b>22</b><span>source inputs validated and gated every run</span></div>
     </div>
   </div>
 </section>
@@ -392,8 +392,9 @@ ORDER BY day, template_name;</pre>
   <div class="wrap">
     <span class="tag">AI-native workflow</span>
     <h2>I run coding agents like an engineering lead runs a team</h2>
-    <p class="sub">The leverage is in the contract, not the prompt: who owns what, what must never change, and how a fresh session recovers context without guessing.</p>
+    <p class="sub"><b>Agents build it. Deterministic code runs it. I own the policy.</b> The leverage is in the contract, not the prompt: who owns what, what must never change, and how a fresh session recovers context without guessing.</p>
     <div class="ledger">
+      <div class="row"><h3>Agentic loop, with boundaries</h3><p>I used an <b>agentic loop</b> (inspect, implement, test, refine) to fix a data validator that kept halting the daily run on problems we had already reviewed, which hid new ones behind them. I set the boundaries: <b>regression tests plus a replay of real production exports</b> as the finish line, and a mode where nothing can be published or sent. The fix is a <b>defect register</b> that remembers each reviewed problem, record by record. The daily run itself is <b>deterministic Python</b> with no AI in it: it warns on known issues, emails the data engineering team to investigate any newly missing records, and still blocks on corrupted data. The agent builds and tests. I own the policy.</p></div>
       <div class="row"><h3>Two agents, two lanes</h3><p>One agent owns features, calculations and tooling. The other owns layout and presentation, and never touches calculations or release tooling. Two agents never edit the same branch.</p></div>
       <div class="row"><h3>Memoryless handoff</h3><p>A new session must produce a recovery summary (objective, privacy boundary, plan, open decisions) and wait for approval before writing code.</p></div>
       <div class="row"><h3>Invariants as rules</h3><p>Month-keyed targets, no hard-coded paths, generated folders never treated as source, and docs updated in the same change as logic.</p></div>
@@ -430,7 +431,7 @@ ORDER BY day, template_name;</pre>
       <div class="cg"><h4>Revenue operations &amp; analysis</h4><div class="chips"><span>Funnel and cohort analysis</span><span>Attribution rules</span><span>KPI design</span><span>Forecasting and backtesting</span><span>Root-cause analysis</span></div></div>
       <div class="cg"><h4>Data &amp; SQL</h4><div class="chips"><span>SQL (ClickHouse-style)</span><span>pandas</span><span>Data validation</span><span>Reconciliation controls</span><span>Power Query, Power Pivot and DAX</span></div></div>
       <div class="cg"><h4>Engineering &amp; integration</h4><div class="chips"><span>Python</span><span>JavaScript</span><span>Reverse-engineered BI endpoints</span><span>Unattended pipelines</span><span>Playwright</span><span>Git &amp; GitHub</span><span>Cloudflare</span></div></div>
-      <div class="cg"><h4>AI &amp; automation</h4><div class="chips"><span>Claude Code</span><span>Codex</span><span>Multi-agent runs</span><span>Prompt and skill design</span><span>n8n</span><span>TRUST framework</span></div></div>
+      <div class="cg"><h4>AI &amp; automation</h4><div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops (inspect, implement, test, refine)</span><span>Multi-agent runs</span><span>Prompt and skill design</span><span>n8n</span><span>TRUST framework</span></div></div>
       <div class="cg"><h4>Stakeholders &amp; presentation</h4><div class="chips"><span>Stakeholder management</span><span>Executive-ready data presentation</span><span>Remotion data video</span><span>ECharts</span><span>Tableau-informed chart design</span></div></div>
     </div>
   </div>
