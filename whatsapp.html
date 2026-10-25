@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>WhatsApp Data Unlock | Mustafa Mahmoud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/case.css">
+</head>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
+<header><div class="wrap nav"><a class="brand" href="index.html"><i></i>MUSTAFA MAHMOUD</a><a class="back" href="index.html#work">← All work</a><a class="btn sm primary" href="index.html#contact">Get in touch</a></div></header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow"><b>Case study 03</b> · Biggest unlock</div>
+    <h1>The data nobody could see. Now it arrives every morning.</h1>
+    <p class="lead">There was no API, and the usual answer was "it can't be done." I found another way in, and turned it into a daily pipeline nobody has to touch.</p>
+    <div class="kpis">
+      <div><b class="c">Daily</b><span>WhatsApp data, previously none</span></div>
+      <div><b>~8 s</b><span>per extraction</span></div>
+      <div><b>0</b><span>manual logins</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="first"><div class="wrap sh rv">
+  <div class="eyebrow">The problem</div>
+  <div class="prose">
+    <h2>A blocker everyone had accepted.</h2>
+    <p>WhatsApp is a core channel, but its message and registration data only lived inside the BI platform's own screens. There was <b>no API access</b>, so nobody could see WhatsApp performance day to day, and nobody knew how to get it.</p>
+    <p>Most people would stop there. I didn't.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">The move</div>
+  <div>
+    <h2>Use the door the interface already uses.</h2>
+    <p class="tabcap" style="margin:0 0 22px">The platform's screens load their data through internal calls. I traced those calls and rebuilt them as an automated step.</p>
+    <div class="steps" style="grid-template-columns:repeat(4,1fr)">
+      <div><div class="n">01</div><h4>Restore session</h4><p>A headless browser reopens a saved, authorised login. Nobody signs in.</p></div>
+      <div><div class="n">02</div><h4>Fresh token</h4><p>It takes a new security token for this run.</p></div>
+      <div><div class="n">03</div><h4>Direct call</h4><p>A bounded SQL query goes straight to the platform's own query endpoint.</p></div>
+      <div><div class="n">04</div><h4>Validate</h4><p>The result is accepted only if every check agrees.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Acceptance rules</div>
+  <div>
+    <h2>Fast, but never trusted blindly.</h2>
+    <ul class="checks">
+      <li>Date-bounded windows: inclusive start, exclusive end, in the source's timezone</li>
+      <li>Accepted only if schema, date coverage, row count and control totals all agree</li>
+      <li>Aggregates come back as one capped payload, with independent totals to check against</li>
+      <li>Conflicting duplicates are rejected, never resolved by silently taking the maximum</li>
+      <li>Rates are computed from summed counts, never averaged percentages</li>
+    </ul>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Why it matters</div>
+  <div class="prose">
+    <h2>From "not doable" to every morning.</h2>
+    <p>This was the difference between hitting the same wall again and actually getting daily WhatsApp data. It now flows into the platform's WhatsApp views with the rest of the morning run, in about <b>8 seconds</b> per extraction.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Under the hood</div>
+  <div>
+    <details class="code">
+      <summary>Dedupe first, then aggregate <span>SQL · generic names</span></summary>
+<pre><span class="kw">WITH</span> message_facts <span class="kw">AS</span> (
+  <span class="kw">SELECT</span>
+    message_id, template_name,
+    min(send_time)                       <span class="kw">AS</span> first_send,
+    max(send_status = 1)                 <span class="kw">AS</span> sent,
+    max(is_delivered = 1 <span class="kw">OR</span> is_read = 1) <span class="kw">AS</span> delivered,
+    max(is_read = 1)                     <span class="kw">AS</span> read,
+    uniqExact(tuple(send_status, is_delivered, is_read)) <span class="kw">AS</span> variants
+  <span class="kw">FROM</span>   analytics.message_send_log
+  <span class="kw">WHERE</span>  send_time &gt;= toDateTime(<span class="st">'&lt;START&gt;'</span>, <span class="st">'Asia/Shanghai'</span>)
+    <span class="kw">AND</span>  send_time &lt;  toDateTime(<span class="st">'&lt;END&gt;'</span>,   <span class="st">'Asia/Shanghai'</span>)
+  <span class="kw">GROUP BY</span> message_id, template_name
+)
+<span class="kw">SELECT</span>
+  toDate(first_send, <span class="st">'Asia/Shanghai'</span>) <span class="kw">AS</span> day, template_name,
+  sum(sent) <span class="kw">AS</span> sent_count, sum(delivered) <span class="kw">AS</span> delivered_count, sum(read) <span class="kw">AS</span> read_count,
+  countIf(variants != 1) <span class="kw">AS</span> conflicts   <span class="cm">-- must be 0, or the run is rejected</span>
+<span class="kw">FROM</span> message_facts
+<span class="kw">GROUP BY</span> day, template_name;</pre>
+      <p class="cap">Table and column names are generic. The pattern is real: one row per message first, so a message can never be counted twice.</p>
+    </details>
+  </div>
+</div></section>
+
+<section><div class="wrap next">
+  <a class="btn" href="forecasting.html">← Forecasting</a>
+  <a class="go" href="validator.html"><span>NEXT CASE STUDY →</span>AI builds it. Deterministic code runs it.</a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>No company data is shown on this page.</span></div></footer>
+<script src="assets/case.js"></script>
+</body>
+</html>

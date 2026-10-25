@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Forecasting Engine | Mustafa Mahmoud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/case.css">
+</head>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
+<header><div class="wrap nav"><a class="brand" href="index.html"><i></i>MUSTAFA MAHMOUD</a><a class="back" href="index.html#work">← All work</a><a class="btn sm primary" href="index.html#contact">Get in touch</a></div></header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow"><b>Case study 02</b> · Forecasting engine</div>
+    <h1>Six models compete. Evidence picks the winner.</h1>
+    <p class="lead">Instead of choosing a forecasting method by habit, I built an engine that makes six of them prove themselves on months they've never seen, then lets the results decide.</p>
+    <div class="kpis">
+      <div><b class="c">0.97%</b><span>error in the September backtest</span></div>
+      <div><b>6</b><span>methods competing</span></div>
+      <div><b>11 mo</b><span>of history in the evaluation window</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="first"><div class="wrap sh rv">
+  <div class="eyebrow">The problem</div>
+  <div class="prose">
+    <h2>A forecast nobody had tested.</h2>
+    <p>Most revenue forecasts are one method, chosen once and never checked. When it misses, nobody knows whether the method was wrong or the month was unusual.</p>
+    <p>I wanted the opposite: a forecast that has to <b>earn its place</b> against simpler alternatives, every time the data changes.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">How it works</div>
+  <div>
+    <h2>Rolling-origin backtesting.</h2>
+    <div class="steps">
+      <div><div class="n">01</div><h4>Train</h4><p>Fit every method on the months before a cutoff</p></div>
+      <div><div class="n">02</div><h4>Predict</h4><p>Forecast the next month, which the methods haven't seen</p></div>
+      <div><div class="n">03</div><h4>Score</h4><p>Compare to what actually happened</p></div>
+      <div><div class="n">04</div><h4>Roll</h4><p>Move the cutoff forward one month and repeat</p></div>
+      <div><div class="n">05</div><h4>Rank</h4><p>WAPE first, then MAE, then the simpler method wins ties</p></div>
+    </div>
+    <p class="note"><b>Same test for everyone:</b> every method is scored on exactly the same evaluation months, so no method gets an easier exam than another.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">The contenders</div>
+  <div>
+    <h2>From naive to driver-based.</h2>
+    <table class="t">
+      <thead><tr><th>Method</th><th>What it assumes</th></tr></thead>
+      <tbody>
+        <tr><td>Naive baseline</td><td>Next month looks like last month. Every other method has to beat this.</td></tr>
+        <tr><td>3-month average</td><td>The recent average is the best guide.</td></tr>
+        <tr class="win"><td>▶ Weighted 3-month</td><td>Recent average, with the latest month counting most. Selected for September.</td></tr>
+        <tr><td>Exponential smoothing</td><td>Every past month matters, decaying with age.</td></tr>
+        <tr><td>Damped trend</td><td>The current trend continues, but flattens out.</td></tr>
+        <tr><td>Driver-based</td><td>Revenue = predicted paid orders × predicted average order value.</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Key decisions</div>
+  <div>
+    <h2>Built to be believed.</h2>
+    <div class="cards">
+      <div class="card"><div class="k">Baselines</div><h4>Simple methods stay in the race</h4><p>A complex model only wins if it beats the naive baseline on the same months. Otherwise the simpler one is used.</p></div>
+      <div class="card"><div class="k">Bias</div><h4>Direction, not just size</h4><p>The engine tracks whether a method keeps over- or under-forecasting, not only how far off it is.</p></div>
+      <div class="card"><div class="k">Ranges</div><h4>Honest uncertainty</h4><p>Every forecast ships with a range built from the method's own historical errors.</p></div>
+      <div class="card"><div class="k">In-month</div><h4>A second, lead-aware model</h4><p>Inside the month, a separate model uses lead volume, conversion timing, weekday patterns and revenue already booked.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Result</div>
+  <div class="prose">
+    <h2>Within <span class="c">0.97%</span> of actual revenue.</h2>
+    <p>Using only data available before September, the engine picked the weighted three-month method and landed within <b>0.97%</b> of September's actual revenue, across an evaluation window of eleven months.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Under the hood</div>
+  <div>
+    <details class="code">
+      <summary>The selection loop <span>Python · simplified</span></summary>
+<pre><span class="kw">def</span> backtest(history, methods, first_cutoff):
+    scores = {m.name: [] <span class="kw">for</span> m <span class="kw">in</span> methods}
+    <span class="kw">for</span> cutoff <span class="kw">in</span> history.months_from(first_cutoff):
+        train, actual = history.before(cutoff), history.at(cutoff)
+        <span class="kw">for</span> m <span class="kw">in</span> methods:                     <span class="cm"># same months for every method</span>
+            scores[m.name].append((m.fit(train).predict(1), actual))
+    <span class="kw">return</span> scores
+
+<span class="kw">def</span> pick_winner(scores, simplicity):
+    <span class="kw">return</span> min(scores, key=<span class="kw">lambda</span> name: (
+        wape(scores[name]),                      <span class="cm"># 1. weighted absolute % error</span>
+        mae(scores[name]),                       <span class="cm"># 2. then absolute error</span>
+        simplicity[name],                        <span class="cm"># 3. then the simpler method</span>
+    ))</pre>
+      <p class="cap">A simplified sketch of the selection logic, not production code.</p>
+    </details>
+  </div>
+</div></section>
+
+<section><div class="wrap next">
+  <a class="btn" href="platform.html">← Platform</a>
+  <a class="go" href="whatsapp.html"><span>NEXT CASE STUDY →</span>The data nobody could see.</a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>Illustrations use synthetic data.</span></div></footer>
+<script src="assets/case.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Agentic Validator | Mustafa Mahmoud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/case.css">
+</head>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
+<header><div class="wrap nav"><a class="brand" href="index.html"><i></i>MUSTAFA MAHMOUD</a><a class="back" href="index.html#work">← All work</a><a class="btn sm primary" href="index.html#contact">Get in touch</a></div></header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow"><b>Case study 04</b> · Agentic AI</div>
+    <h1>AI builds it. Deterministic code runs it.</h1>
+    <p class="lead">I used an agentic loop to rebuild a production data validator, with boundaries I set. The daily run that came out of it has no AI in it at all, and that's the point.</p>
+    <div class="kpis">
+      <div><b class="c">Known</b><span>issues warn instead of stopping the run</span></div>
+      <div><b>New</b><span>losses emailed to data engineering automatically</span></div>
+      <div><b>Human</b><span>owns the acceptance policy</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="first"><div class="wrap sh rv">
+  <div class="eyebrow">The problem</div>
+  <div class="prose">
+    <h2>An old problem hiding new ones.</h2>
+    <p>A defect we had already reviewed kept halting the daily run. Approvals were tied to exact export files, dates and broad signatures, so the same known issue looked new every morning.</p>
+    <p>Worse, while the run was stopped on an old problem, <b>genuinely new missing records could slip by unseen</b>.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">The loop</div>
+  <div>
+    <h2>Inspect → implement → test → refine.</h2>
+    <div class="steps">
+      <div><div class="n">01</div><h4>Inspect</h4><p>The agent read the code, scheduler config, docs and past defect decisions</p></div>
+      <div><div class="n">02</div><h4>Diagnose</h4><p>Found why approvals didn't survive from one run to the next</p></div>
+      <div><div class="n">03</div><h4>Implement</h4><p>A defect register tracked record by record, with decisions reused</p></div>
+      <div><div class="n">04</div><h4>Test</h4><p>Regression tests, then a replay of real exports, with nothing published</p></div>
+      <div><div class="n">05</div><h4>Refine</h4><p>The replay showed three new missing records, not a repeat. Policy adjusted with me.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Boundaries</div>
+  <div>
+    <h2>The rules I gave the agent.</h2>
+    <div class="cards three">
+      <div class="card"><div class="k">Scope</div><h4>What it could read</h4><p>Code, scheduler configuration, documentation and the history of past decisions. Nothing else.</p></div>
+      <div class="card"><div class="k">Finish line</div><h4>What "done" meant</h4><p>Regression tests pass, then a replay of real production exports behaves correctly.</p></div>
+      <div class="card"><div class="k">Safety</div><h4>No side effects</h4><p>Replays ran in a mode where nothing could be published and no message could be sent.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Runtime</div>
+  <div>
+    <h2>Plain Python, every morning.</h2>
+    <table class="t">
+      <thead><tr><th>Situation</th><th>What the daily run does</th></tr></thead>
+      <tbody>
+        <tr><td>Known, reviewed issue</td><td>Warns and keeps running</td></tr>
+        <tr class="win"><td>Newly missing records</td><td>Emails the data engineering team automatically to investigate</td></tr>
+        <tr><td>Invalid keys or malformed files</td><td>Blocks the run</td></tr>
+      </tbody>
+    </table>
+    <p class="note"><b>Why no AI at runtime:</b> a daily check has to make the same decision every time. The agent's job was to build and test the rules. Plain code applies them, and the register remembers what was decided.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Under the hood</div>
+  <div>
+    <details class="code">
+      <summary>One entry in the defect register <span>JSON · illustrative</span></summary>
+<pre>{
+  <span class="st">"record_key"</span>: <span class="st">"&lt;record id&gt;"</span>,
+  <span class="st">"defect"</span>: <span class="st">"missing_from_export"</span>,
+  <span class="st">"first_seen"</span>: <span class="st">"2026-10-12"</span>,
+  <span class="st">"decision"</span>: <span class="st">"known_loss_accepted"</span>,
+  <span class="st">"decided_by"</span>: <span class="st">"owner"</span>,
+  <span class="st">"policy"</span>: <span class="st">"warn_only"</span>
+}</pre>
+      <p class="cap">An illustrative entry. Because decisions are stored per record, a known issue keeps its decision run after run, and anything not in the register is treated as new.</p>
+    </details>
+  </div>
+</div></section>
+
+<section><div class="wrap next">
+  <a class="btn" href="whatsapp.html">← WhatsApp data</a>
+  <a class="go" href="index.html#how"><span>NEXT →</span>How I work: TRUST</a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>No company data is shown on this page.</span></div></footer>
+<script src="assets/case.js"></script>
+</body>
+</html>

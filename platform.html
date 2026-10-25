@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Revenue Analytics Platform | Mustafa Mahmoud</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/case.css">
+</head>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
+<header><div class="wrap nav"><a class="brand" href="index.html"><i></i>MUSTAFA MAHMOUD</a><a class="back" href="index.html#work">← All work</a><a class="btn sm primary" href="index.html#contact">Get in touch</a></div></header>
+
+<main>
+<div class="wrap">
+  <div class="hero">
+    <div class="eyebrow"><b>Case study 01</b> · Revenue Analytics Platform</div>
+    <h1>Not a dashboard. A decision layer.</h1>
+    <p class="lead">A bilingual analytics platform that rebuilds itself every morning before 8 a.m., and tells a sales organisation whether it's on pace, where the month will land, and why the numbers moved.</p>
+    <div class="kpis">
+      <div><b class="c">16</b><span>reporting views, built automatically</span></div>
+      <div><b class="a">~50 h</b><span>of analyst work done every run</span></div>
+      <div><b>8</b><span>stakeholders using it, weekly average</span></div>
+    </div>
+  </div>
+</div>
+
+<section class="first"><div class="wrap sh rv">
+  <div class="eyebrow">Launch film</div>
+  <div class="frame film"><div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">76 S · SOUND ON</span><em>synthetic data</em></div><video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="none"></video></div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">The problem</div>
+  <div class="prose">
+    <h2>Lots of reports. No answers.</h2>
+    <p>The sales organisation ran on sixteen separate reporting views: daily sales updates, funnel and acquisition reports, team rankings and WhatsApp results. Built by hand, the full set is about <b>50 hours of analyst work</b>.</p>
+    <p>Even then, the question leadership actually asked, <b>"are we going to hit the month?"</b>, had no single answer. Each report was its own build, so there was no one place to see the whole picture, let alone where it was heading.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Inside the platform</div>
+  <div>
+    <h2>Every view answers a decision.</h2>
+    <div class="tabs" id="tabs" role="tablist" data-shots='[
+      {"id":"overview","t":"Command Center","p":"Are we on pace? A plain-language verdict against target and benchmark, a weekday-weighted month-end forecast with a range, and data health at a glance."},
+      {"id":"weekly","t":"Weekly Overview","p":"What happened this week, why, and the recommended action. Immature measures are held back until they can be judged fairly."},
+      {"id":"funnel","t":"Customer Journey","p":"Unique people through lead, booking, attendance and payment, with the loss at each step and cohort windows that exclude immature data."},
+      {"id":"forecasting","t":"Forecasting","p":"The month-ahead plan from the forecasting engine, with an 80% range and an honest record of how earlier forecasts performed."},
+      {"id":"gmvdrivers","t":"GMV Drivers","p":"Which team, channel and segment moved revenue, and by how much, so the conversation starts from the cause."}
+    ]'></div>
+    <div class="frame"><div class="bar"><i></i><i></i><i></i><span style="margin-left:8px" id="shottitle">COMMAND CENTER</span><em>synthetic data</em></div><img id="shot" src="assets/platform-overview.png" alt="Command Center screen, synthetic data"></div>
+    <p class="tabcap" id="shotcap"><b>Command Center.</b> Are we on pace? A plain-language verdict against target and benchmark, a weekday-weighted month-end forecast with a range, and data health at a glance.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">How it runs</div>
+  <div>
+    <h2>Built before the shift starts.</h2>
+    <div class="steps">
+      <div><div class="n">01</div><h4>Collect</h4><p>Email attachments and SQL extracts from the BI platform</p></div>
+      <div><div class="n">02</div><h4>Validate</h4><p>22 inputs checked: schema, dates, duplicates, control totals</p></div>
+      <div><div class="n">03</div><h4>Build</h4><p>One governed, reconciled, versioned snapshot</p></div>
+      <div><div class="n">04</div><h4>Publish</h4><p>The platform is regenerated and released</p></div>
+      <div><div class="n">05</div><h4>Notify</h4><p>Leadership groups get the link, with no duplicate sends</p></div>
+    </div>
+    <p class="note"><b>On failure:</b> the run classifies the cause, alerts the owner with evidence, keeps completed work, and never re-sends something that already went out. If the source data hasn't landed, it skips and says so instead of publishing stale numbers.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Tech stack</div>
+  <div>
+    <h2>How it's built.</h2>
+    <div class="stack">
+      <div><b>SQL</b><p>Pulls the data straight from the BI platform</p></div>
+      <div><b>Python</b><p>Reads exports, cleans, deduplicates, validates, calculates KPIs, forecasts</p></div>
+      <div><b>JSON</b><p>Passes prepared data and forecast snapshots between parts</p></div>
+      <div><b>HTML · CSS</b><p>Structure, dark theme and responsive layout</p></div>
+      <div><b>JavaScript</b><p>Filters, interactive tables, live recalculation in the browser</p></div>
+      <div><b>ECharts</b><p>Interactive charts, trends and heatmaps</p></div>
+      <div><b>Scheduler</b><p>Runs the whole pipeline every morning, unattended</p></div>
+      <div><b>Git · GitHub</b><p>Every change versioned, every release tracked</p></div>
+    </div>
+    <p class="flowline"><code>SQL → Python → JSON → HTML · CSS · JS</code></p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Key decisions</div>
+  <div>
+    <h2>Why it's trusted.</h2>
+    <div class="cards">
+      <div class="card"><div class="k">Rates</div><h4>Never average a percentage</h4><p>Every rate is recomputed from summed numerators and denominators at the level you're looking at, so totals and drill-downs always agree.</p></div>
+      <div class="card"><div class="k">Reconciliation</div><h4>Totals add up at every level</h4><p>Company, region, team and rep reconcile to each other. Records that don't match stay visible, instead of silently disappearing.</p></div>
+      <div class="card"><div class="k">Definitions</div><h4>One written rule per metric</h4><p>Cohorts, attribution and timezone conversion are written down before they're built, so the agents implement rules instead of guessing them.</p></div>
+      <div class="card"><div class="k">Releases</div><h4>Nothing ships unchecked</h4><p>Automated tests, real-browser checks and documentation sync, with production changes only through reviewed pull requests.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Results</div>
+  <div>
+    <h2>People actually use it.</h2>
+    <div class="cards four">
+      <div class="card"><div class="k">Weekly avg.</div><h4 style="font-family:var(--mono);font-size:32px" class="c">8</h4><p>stakeholders</p></div>
+      <div class="card"><div class="k">Weekly avg.</div><h4 style="font-family:var(--mono);font-size:32px">20</h4><p>opens</p></div>
+      <div class="card"><div class="k">Weekly avg.</div><h4 style="font-family:var(--mono);font-size:32px">130</h4><p>page views</p></div>
+      <div class="card"><div class="k">Weekly avg.</div><h4 style="font-family:var(--mono);font-size:32px">~27 h</h4><p>active use</p></div>
+    </div>
+    <p class="tabcap">Owner activity excluded. The official daily dashboard went live about a week after the handover.</p>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
+  <div class="eyebrow">Under the hood</div>
+  <div>
+    <details class="code">
+      <summary>How a rate stays honest at every level <span>JavaScript · simplified</span></summary>
+<pre><span class="cm">// Never average percentages: re-sum the parts for the current filter.</span>
+<span class="kw">function</span> rate(rows, num, den) {
+  <span class="kw">const</span> n = rows.reduce((s, r) =&gt; s + r[num], 0);
+  <span class="kw">const</span> d = rows.reduce((s, r) =&gt; s + r[den], 0);
+  <span class="kw">return</span> d ? n / d : <span class="kw">null</span>;   <span class="cm">// null, not 0: "no data" is not "0%"</span>
+}
+
+<span class="cm">// The same function serves Total, a region, a team or one rep,</span>
+<span class="cm">// so a drill-down can never disagree with the total above it.</span>
+<span class="kw">const</span> attendRate = rate(filtered, <span class="st">'attended'</span>, <span class="st">'booked'</span>);</pre>
+      <p class="cap">A simplified illustration of the rule the platform follows, not production code.</p>
+    </details>
+  </div>
+</div></section>
+
+<section><div class="wrap next">
+  <a class="btn" href="demo/" target="_blank" rel="noopener">Open the live demo ↗</a>
+  <a class="go" href="forecasting.html"><span>NEXT CASE STUDY →</span>Six models compete. Evidence picks the winner.</a>
+</div></section>
+</main>
+<footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>Screenshots, film and demo use synthetic data.</span></div></footer>
+<script src="assets/case.js"></script>
+</body>
+</html>
