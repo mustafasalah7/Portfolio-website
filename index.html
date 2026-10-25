@@ -106,6 +106,17 @@ h2{font-size:clamp(30px,4.2vw,50px);font-weight:900;line-height:1.02;letter-spac
 .stats b{display:block;font-size:30px;font-weight:900;letter-spacing:-.02em}
 .stats span{font-size:13px;font-weight:600}
 .stats.adopt{margin-top:40px}
+.film{max-width:640px;margin:8px 0 40px}.film .bd{padding:0;background:#05080f}.film video{display:block;width:100%;aspect-ratio:1/1;background:#05080f}
+.stackx{margin-top:56px}.stackx>h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:22px}
+.sx-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
+.sx{position:relative;box-shadow:6px 6px 0 var(--ink);animation:sxp 3.2s ease-in-out infinite}
+.sx .hd span{font-family:var(--mono);font-weight:700}.sx .bd{font-size:14px;font-weight:600;line-height:1.45}
+.sx:not(:nth-child(4n))::after{content:'→';position:absolute;right:-22px;top:50%;transform:translateY(-50%);font-weight:900;font-size:18px;color:var(--ink)}
+.sx:nth-child(1){animation-delay:0s}.sx:nth-child(2){animation-delay:.4s}.sx:nth-child(3){animation-delay:.8s}.sx:nth-child(4){animation-delay:1.2s}.sx:nth-child(5){animation-delay:1.6s}.sx:nth-child(6){animation-delay:2s}.sx:nth-child(7){animation-delay:2.4s}.sx:nth-child(8){animation-delay:2.8s}
+@keyframes sxp{0%,18%,100%{transform:none;box-shadow:6px 6px 0 var(--ink)}6%{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}}
+.sx-line{margin-top:22px;font-weight:700}.sx-line code{font-family:var(--mono);font-size:15px;background:var(--ink);color:var(--yellow);padding:6px 12px;display:inline-block}
+@media (max-width:1000px){.sx-flow{grid-template-columns:repeat(2,1fr)}.sx::after{display:none}}
+@media (prefers-reduced-motion:reduce){.sx{animation:none}}
 /* ledger */
 .ledger{margin-top:40px;border-top:3px solid var(--ink)}
 .row{display:grid;grid-template-columns:260px 1fr;gap:34px;padding:24px 0;border-bottom:3px solid var(--ink)}
@@ -275,7 +286,7 @@ canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
   <div class="wrap" style="display:block">
     <div class="facts">
       <div><b>12+</b><span>connected analytical modules in one platform</span></div>
-      <div><b>18–24</b><span>manual daily report builds replaced by one pipeline</span></div>
+      <div><b>16</b><span>reporting views that build themselves before 8 a.m.</span></div>
       <div><b>~8 s</b><span>per authenticated SQL extraction from the BI platform</span></div>
       <div><b>EN / 中文</b><span>fully bilingual interface</span></div>
     </div>
@@ -310,14 +321,29 @@ canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
 <section id="platform">
   <div class="wrap">
     <span class="tag">Flagship project</span>
-    <h2>A commercial analytics platform, built and verified end to end</h2>
-    <p class="sub">Governed metrics, drill-downs from region to team to individual, forecasting and a bilingual interface. Screenshots show a synthetic-data edition.</p>
+    <h2>Not a dashboard. A decision layer.</h2>
+    <p class="sub">Sixteen reporting views that build themselves every morning: are we on pace, where will the month land, is the data clean, and why did it move. Screenshots and film show a synthetic-data edition.</p>
+    <div class="win c-white film"><div class="hd"><span>Launch film</span><em>76 s · synthetic data · sound on</em></div><div class="bd"><video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="none"></video></div></div>
     <div class="tabs" role="tablist" id="tabs"></div>
     <div class="stage">
       <div class="win c-white"><div class="hd"><span id="st">Command Center</span><em>synthetic data</em></div><div class="bd"><img id="si" src="assets/platform-overview.png" alt=""></div></div>
       <div><h3 id="ct"></h3><p id="cp"></p></div>
     </div>
 
+    <div class="stackx">
+      <h3>How it's built</h3>
+      <div class="sx-flow">
+        <div class="win c-blue sx"><div class="hd"><span>SQL</span></div><div class="bd">Pulls the data straight from the BI platform</div></div>
+        <div class="win c-yellow sx"><div class="hd"><span>Python</span></div><div class="bd">Reads exports, cleans, deduplicates, validates, calculates KPIs, forecasts and backtests</div></div>
+        <div class="win c-mint sx"><div class="hd"><span>JSON</span></div><div class="bd">Passes prepared data and forecast snapshots between components</div></div>
+        <div class="win c-pink sx"><div class="hd"><span>HTML · CSS</span></div><div class="bd">Structure, dark theme and responsive layout</div></div>
+        <div class="win c-blue sx"><div class="hd"><span>JavaScript</span></div><div class="bd">Filters, interactive tables and live recalculation in the browser</div></div>
+        <div class="win c-yellow sx"><div class="hd"><span>ECharts</span></div><div class="bd">Interactive charts, trends and heatmaps</div></div>
+        <div class="win c-mint sx"><div class="hd"><span>Scheduler</span></div><div class="bd">Runs the whole pipeline every morning, unattended</div></div>
+        <div class="win c-pink sx"><div class="hd"><span>Git · GitHub</span></div><div class="bd">Every change versioned, every release tracked</div></div>
+      </div>
+      <p class="sx-line"><code>SQL → Python → JSON → HTML · CSS · JS</code></p>
+    </div>
     <div class="stats adopt" style="color:var(--ink)">
       <div><b>8</b><span>stakeholders using the platform, weekly average</span></div>
       <div><b>20</b><span>stakeholder opens a week</span></div>
@@ -335,7 +361,7 @@ canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
   <div class="wrap">
     <span class="tag">Case study</span>
     <h2>A daily pipeline that runs without anyone touching it</h2>
-    <p class="sub" style="color:#e8e4d8">Each morning, raw files and BI extracts arrive, are checked, turned into a governed snapshot, published and announced. Roughly 18–24 manual report builds a day no longer exist.</p>
+    <p class="sub" style="color:#e8e4d8">Each morning, raw files and BI extracts arrive, are checked, turned into a governed snapshot, published and announced. Sixteen reporting views, about 50 analyst hours of work if built by hand, now build themselves before the shift starts.</p>
     <div class="flow">
       <div class="win c-yellow"><div class="hd"><span>Collect</span></div><div class="bd">Email attachments and BI SQL extracts</div></div>
       <div class="win c-mint"><div class="hd"><span>Validate</span></div><div class="bd">Schema, dates, duplicates, control totals</div></div>
@@ -346,8 +372,8 @@ canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z
     <div class="fail" style="color:var(--ink)"><b>On failure:</b> classify the cause, alert the owner with evidence, keep completed work, and never replay a send that was accepted or is uncertain.</div>
     <div class="two">
       <div>
-        <h3>Direct BI access, no API, no browser</h3>
-        <p style="color:#e8e4d8;font-weight:600">The BI platform offered no API. I reverse-engineered the data calls its own interface makes and rebuilt them on the backend, so a Python query builder runs bounded SQL with no browser session open. Each extraction takes about <b>8 seconds</b>. <a href="#no-api" style="color:var(--yellow)">The full story ↓</a></p>
+        <h3>Direct BI access, no API, no manual login</h3>
+        <p style="color:#e8e4d8;font-weight:600">The BI platform offered no API. I reverse-engineered the data calls its own interface makes. A headless browser restores a saved login, takes a fresh security token and calls the SQL endpoint directly, so a Python query builder runs bounded SQL with nobody logging in. Each extraction takes about <b>8 seconds</b>. <a href="#no-api" style="color:var(--yellow)">The full story ↓</a></p>
         <ul style="color:#e8e4d8">
           <li>Date-bounded windows, inclusive start and exclusive end, in the source's timezone</li>
           <li>Accepted only if schema, date coverage, row count and control totals all agree</li>
@@ -388,8 +414,8 @@ ORDER BY day, template_name;</pre>
     </div>
     <div class="stats" style="color:var(--ink)">
       <div><b>1 week</b><span>from handover to the official daily dashboard, built with agents</span></div>
-      <div><b>18–24</b><span>daily report builds replaced by one agent-built pipeline</span></div>
-      <div><b>~8 s</b><span>per pull straight from the BI platform: no API, no browser</span></div>
+      <div><b>~50 h</b><span>of analyst work, done by one agent-built pipeline every run</span></div>
+      <div><b>~8 s</b><span>per pull straight from the BI platform: no API, no manual login</span></div>
       <div><b>22</b><span>source inputs validated and gated every run</span></div>
     </div>
   </div>
@@ -417,7 +443,7 @@ ORDER BY day, template_name;</pre>
     <span class="tag">Case studies</span>
     <h2>From ambiguous problem to a decision</h2>
     <div class="ledger">
-      <div class="row" id="no-api"><div><span class="sticker c-pink" style="color:var(--ink)">No API</span><small>my biggest unlock</small></div><div><h3>The data nobody could see. Now it arrives every morning.</h3><p><b>Dead end:</b> I had no API access to the BI platform, and nobody could see WhatsApp data on a daily basis. Nobody knew what to do, and the usual answer was that it couldn't be done.</p><p><b>The move:</b> I traced how the platform's own interface loads its data, then rebuilt those calls on the backend. My agent now reads the platform directly, with no browser session open, nobody logging in and no API.</p><p><b>Now:</b> WhatsApp data lands every morning, on a schedule, in front of the team. Each extraction takes about 8 seconds and is accepted only if schema, dates, row counts and control totals agree.</p></div></div>
+      <div class="row" id="no-api"><div><span class="sticker c-pink" style="color:var(--ink)">No API</span><small>my biggest unlock</small></div><div><h3>The data nobody could see. Now it arrives every morning.</h3><p><b>Dead end:</b> I had no API access to the BI platform, and nobody could see WhatsApp data on a daily basis. Nobody knew what to do, and the usual answer was that it couldn't be done.</p><p><b>The move:</b> I traced how the platform's own interface loads its data, then rebuilt those calls on the backend. A headless browser holds the session and calls the endpoint directly, so my agent reads the platform with no API and nobody logging in.</p><p><b>Now:</b> WhatsApp data lands every morning, on a schedule, in front of the team. Each extraction takes about 8 seconds and is accepted only if schema, dates, row counts and control totals agree.</p></div></div>
       <div class="row" id="forecast"><div><span class="sticker c-blue" style="color:var(--ink)">6 models compete</span><small>evidence picks the winner</small></div><div><h3>A forecasting engine that runs a contest, not a guess</h3><p>Most forecasts pick one method and hope. Mine makes six compete: a naive last-month baseline, two moving averages, exponential smoothing, a damped-trend model, and a <b>driver-based model</b> (paid orders × average order value). Each is scored with <b>rolling-origin backtesting</b>: train on earlier months, predict the next, move forward, repeat. The winner is chosen on <b>WAPE</b>, then MAE, then simplicity, with bias and historical error ranges shown beside it. In its September backtest it landed within <b>0.97%</b> of actual revenue.</p><p>A second, <b>lead-aware in-month model</b> adds lead volume, conversion timing, weekday patterns and revenue already booked. I built it in an agentic loop: the agent inspects the pipelines, implements and tests the logic, and every result is challenged against the simple baselines before it is trusted.</p></div></div>
       <div class="row"><div><span class="sticker c-yellow" style="color:var(--ink)">Less is more</span><small>short, ordered, direct steps</small></div><div><h3>Rebuilding an agent skill that failed</h3><p>The first approach put one large, unstructured instruction file inside an existing assistant, and the target customers never came through. The assistant's database was not built for the sales data, and the skill was too long for the agent to follow.</p><p>After studying how practitioners write agent instructions, I rebuilt the skill as short, direct steps and restructured how the data enters its database with the colleague who built the assistant. The daily run has finished without a failure since, in 20 to 40 minutes.</p></div></div>
       <div class="row"><div><span class="sticker c-mint" style="color:var(--ink)">66 → 80%</span><small>within three weeks</small></div><div><h3>Diagnosing a WhatsApp reachability ceiling</h3><p>Built a measurement framework that quantified contribution by failure type and exposed recurring platform defects, then drove the fix through a daily KPI and weekly close-out loop.</p></div></div>
@@ -462,7 +488,7 @@ ORDER BY day, template_name;</pre>
     {id:'overview',t:'Command Center',p:'Ranked action centre and headline KPIs against the target and benchmark, with every figure naming its calculation scope.'},
     {id:'funnel',t:'Funnel Performance',p:'Unique persons through lead, attendance and payment, with loss at each step and cohort windows that exclude immature data.'},
     {id:'forecasting',t:'Forecasting',p:'Six forecasting methods compete on rolling backtests and the best is picked on error and bias. The next-month plan comes with an 80% range and a sustain-or-improve recommendation per measure.'},
-    {id:'ccperf',t:'Sales Performance',p:'Team and individual productivity with sortable comparison tables and contribution to the total.'},
+    {id:'weekly',t:'Weekly Overview',p:'A plain-English weekly verdict: what happened, why, and the recommended action, with every measure checked for maturity before it is judged.'},
     {id:'gmvdrivers',t:'GMV Drivers',p:'Contribution breakdown showing which team and segment moved the number, and by how much.'}
   ];
   var tabs=document.getElementById('tabs');
