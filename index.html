@@ -4,610 +4,455 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="robots" content="noindex,nofollow">
-<title>Mustafa Mahmoud | Revenue Operations Analyst &amp; Analytics Engineer</title>
+<title>Mustafa Mahmoud | AI-Native Analytics Engineer</title>
+<meta name="description" content="Mustafa Mahmoud builds self-running analytics systems with agentic AI: a decision-layer platform, a forecasting engine and the pipelines behind them.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Montserrat:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700;800&display=swap" rel="stylesheet">
 <style>
-/* Original neobrutalist base adapted from a Uiverse.io card (MIT License) by vaibhavchandranv */
-:root{--paper:#f5f1e8;--ink:#111;--pink:#ff66a3;--yellow:#ffd84d;--mint:#6ee7b7;--blue:#8db4ff;--white:#fff;
---mono:'JetBrains Mono',ui-monospace,Consolas,monospace;--sans:'Montserrat',system-ui,sans-serif}
+:root{
+  --bg:#05080f;--bg2:#080d17;--surface:#0b1018;--surface2:#101827;--line:#1c2638;--line2:#26324a;
+  --ink:#e9eef7;--ink2:#b9c3d6;--dim:#7f8ba3;--cyan:#2de2e6;--amber:#ffb020;--red:#ff4d6d;
+  --sans:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Consolas,monospace;
+}
 *{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;scroll-padding-top:76px}
-body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:500;line-height:1.55;font-size:16px}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;font-size:16px;-webkit-font-smoothing:antialiased}
 a{color:inherit}
+img,video{display:block;max-width:100%}
 .wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.mono{font-family:var(--mono)}
+.eyebrow{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--dim)}
+.eyebrow b{color:var(--cyan);font-weight:700}
+h1,h2,h3{letter-spacing:-.035em;line-height:1.05}
+section{position:relative;padding:120px 0}
+.sec-head{margin-bottom:56px;max-width:760px}
+.sec-head h2{font-size:clamp(34px,4.6vw,56px);font-weight:800;margin-top:14px}
+.sec-head p{color:var(--ink2);font-size:18px;margin-top:16px}
+
+/* grid backdrop + scan line */
+.grid-bg{position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:linear-gradient(rgba(45,226,230,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,226,230,.04) 1px,transparent 1px);
+  background-size:56px 56px;mask-image:radial-gradient(ellipse at 50% 30%,#000 25%,transparent 80%)}
+main,header,footer{position:relative;z-index:1}
+
 /* nav */
-nav{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:3px solid var(--ink)}
-nav .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:20px}
-.word{font-weight:900;font-size:19px;letter-spacing:-.01em;text-decoration:none}
-.links{display:flex;gap:6px;align-items:center}
-.links a{font-weight:700;font-size:14px;text-decoration:none;padding:6px 12px;border:3px solid transparent}
-.links a:hover{border-color:var(--ink);background:var(--yellow)}
-.links a.cta{background:var(--ink);color:var(--paper);border-color:var(--ink)}
-.links a.cta:hover{background:var(--pink);color:var(--ink)}
-/* window card */
-.win{color:var(--ink);border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);background:var(--white);transition:transform .2s ease,box-shadow .2s ease}
-.win:hover{transform:translate(-3px,-3px);box-shadow:13px 13px 0 var(--ink)}
-.win .hd{background:var(--white);border-bottom:3px solid var(--ink);font-weight:900;font-size:14px;padding:6px 14px;display:flex;justify-content:space-between;gap:10px}
-.win .hd em{font-style:normal;font-family:var(--mono);font-weight:600;font-size:12px;opacity:.7}
-.win .bd{padding:16px 16px 18px}
-.c-pink{background:var(--pink)}.c-yellow{background:var(--yellow)}.c-mint{background:var(--mint)}.c-blue{background:var(--blue)}.c-white{background:var(--white)}
+header{position:sticky;top:0;z-index:20;background:rgba(5,8,15,.82);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;height:64px;gap:28px}
+.brand{font-family:var(--mono);font-weight:700;font-size:14px;letter-spacing:.12em;text-decoration:none}
+.brand i{display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--cyan);margin-right:10px;box-shadow:0 0 12px var(--cyan)}
+.nav nav{margin-left:auto;display:flex;gap:26px;font-size:14px;font-weight:600;color:var(--ink2)}
+.nav nav a{text-decoration:none}.nav nav a:hover{color:var(--ink)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:700;font-size:15px;text-decoration:none;border-radius:999px;padding:12px 22px;border:1.5px solid var(--line2);transition:border-color .2s,background .2s,transform .2s}
+.btn:hover{border-color:var(--cyan);transform:translateY(-1px)}
+.btn.primary{background:var(--cyan);border-color:var(--cyan);color:#041014}
+.btn.primary:hover{background:#5ff0f2}
+.btn.sm{padding:8px 16px;font-size:13.5px}
+
 /* hero */
-.hero{padding:64px 0 70px}
-.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.loc{font-family:var(--mono);font-size:13px;font-weight:600;margin-bottom:18px}
-h1{font-size:clamp(46px,7vw,92px);font-weight:900;line-height:.95;letter-spacing:-.04em;text-transform:uppercase}
-.role{display:inline-block;margin-top:22px;background:var(--yellow);border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);padding:8px 16px;font-weight:800;font-size:clamp(18px,2.2vw,26px)}
-.lead{margin-top:26px;font-size:18px;max-width:560px}
-.lead b{background:var(--pink);padding:0 4px}
-.btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
-.btn{display:inline-block;border:3px solid var(--ink);box-shadow:4px 4px 0 var(--ink);padding:10px 18px;font-weight:800;font-size:15px;text-decoration:none;background:var(--white);transition:transform .15s,box-shadow .15s}
-.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--ink)}
-.btn.p{background:var(--pink)}
-.hero-shot .bd{padding:0;background:#0b1020}
-.hero-shot img{display:block;width:100%}
-.facts{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border:3px solid var(--ink);background:var(--white)}
-.facts div{padding:16px 18px;border-right:3px solid var(--ink)}
-.facts div:last-child{border-right:0}
-.facts b{display:block;font-size:30px;font-weight:900;letter-spacing:-.02em}
-.facts span{font-size:13px;font-weight:600}
-/* sections */
-section{padding:84px 0;border-top:3px solid var(--ink)}
-.tag{display:inline-block;font-family:var(--mono);font-weight:600;font-size:12px;border:3px solid var(--ink);background:var(--white);padding:2px 10px;margin-bottom:16px;text-transform:uppercase;letter-spacing:.08em}
-h2{font-size:clamp(30px,4.2vw,50px);font-weight:900;line-height:1.02;letter-spacing:-.03em;max-width:860px}
-.sub{margin-top:16px;font-size:18px;max-width:760px}
-.dark{background:var(--ink);color:var(--paper)}
-.dark .tag{color:var(--ink)}
-/* trust */
-.trust{display:grid;grid-template-columns:repeat(5,1fr);gap:26px;margin-top:44px}
-.trust .win{box-shadow:8px 8px 0 var(--ink)}
-.trust .letter{font-size:76px;font-weight:900;line-height:.9;letter-spacing:-.05em;margin-bottom:10px}
-.trust p{font-size:13.5px;font-weight:600;line-height:1.5}
-.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px;border:3px solid var(--ink);background:var(--white)}
-.proof div{padding:18px 20px;border-right:3px solid var(--ink)}
-.proof div:last-child{border-right:0}
-.proof b{display:block;font-size:24px;line-height:1.15;margin-bottom:8px;font-weight:900;letter-spacing:-.02em}
-.proof span{font-size:14px;font-weight:600}
-/* platform */
-.tabs{display:flex;flex-wrap:wrap;gap:10px;margin:34px 0 22px}
-.tabs button{font:inherit;font-weight:800;font-size:14px;border:3px solid var(--ink);background:var(--white);padding:7px 14px;cursor:pointer;box-shadow:3px 3px 0 var(--ink)}
-.tabs button[aria-selected=true]{background:var(--yellow);transform:translate(2px,2px);box-shadow:1px 1px 0 var(--ink)}
-.stage{display:grid;grid-template-columns:1.5fr .8fr;gap:34px;align-items:start}
-.stage .bd{padding:0;background:#0b1020}
-.stage img{display:block;width:100%}
-.stage h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}
-/* pipeline */
-.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:34px;margin-top:40px;position:relative}
-.flow .win{box-shadow:7px 7px 0 var(--ink)}
-.flow .win::after{content:"→";position:absolute;right:-30px;top:50%;font-weight:900;font-size:24px;transform:translateY(-50%);color:var(--ink)}
-.flow .win:last-child::after{display:none}
-.flow .bd{font-size:13.5px;font-weight:600}
-.fail{margin-top:26px;border:3px dashed var(--ink);padding:12px 16px;font-weight:600;font-size:15px;background:var(--white)}
-.two{display:grid;grid-template-columns:1fr 1.1fr;gap:44px;margin-top:56px;align-items:start}
-.two>*{min-width:0}
-.two h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:10px}
-.two ul{list-style:none;display:grid;gap:10px;margin-top:14px}
-.two li{padding-left:26px;position:relative;font-weight:600;font-size:15px}
-.two li::before{content:"";position:absolute;left:0;top:7px;width:14px;height:14px;background:var(--mint);border:3px solid var(--ink)}
-.sqlwin{color:#e5ebf5;background:#14181f;box-shadow:10px 10px 0 var(--pink)}
-.sqlwin:hover{box-shadow:13px 13px 0 var(--pink)}
-.sqlwin .hd{background:#232a36;color:#e5ebf5;border-bottom:3px solid var(--ink);justify-content:flex-start;align-items:center;gap:8px}
-.dot{width:12px;height:12px;border-radius:50%;border:2px solid var(--ink);display:inline-block}
-.sqlwin pre{padding:16px 18px;overflow-x:auto;font-family:var(--mono);font-size:12.5px;line-height:1.6;color:#d6e0f2}
-.sqlwin .k{color:#ff8fbf;font-weight:600}.sqlwin .c{color:#7d8ba4;font-style:italic}.sqlwin .s{color:#7ff0bf}.sqlwin .p{color:#ffd84d}
-.alert{display:flex;align-items:stretch;border:3px solid var(--ink);box-shadow:6px 6px 0 var(--ink);background:var(--white);margin-top:26px;max-width:520px;cursor:default;overflow:hidden}
-.alert .ic{background:var(--pink);border-right:3px solid var(--ink);display:grid;place-items:center;width:64px;font-weight:900;font-size:24px}
-.alert .tx{padding:10px 16px;font-weight:800;font-size:15px}
-.alert .tx small{display:block;font-family:var(--mono);font-weight:600;font-size:12px;max-height:0;overflow:hidden;opacity:0;transition:max-height .3s,opacity .3s;margin-top:0}
-.alert:hover .tx small,.alert:focus-within .tx small{max-height:60px;opacity:1;margin-top:4px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);margin-top:56px;border:3px solid var(--ink);background:var(--white)}
-.stats div{padding:16px 18px;border-right:3px solid var(--ink)}
-.stats div:last-child{border-right:0}
-.stats b{display:block;font-size:30px;font-weight:900;letter-spacing:-.02em}
-.stats span{font-size:13px;font-weight:600}
-.stats.adopt{margin-top:40px}
-.film{max-width:640px;margin:8px 0 40px}.film .bd{padding:0;background:#05080f}.film video{display:block;width:100%;aspect-ratio:1/1;background:#05080f}
-.stackx{margin-top:56px}.stackx>h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:22px}
-.sx-flow{display:grid;grid-template-columns:repeat(4,1fr);gap:26px}
-.sx{position:relative;box-shadow:6px 6px 0 var(--ink);animation:sxp 3.2s ease-in-out infinite}
-.sx .hd span{font-family:var(--mono);font-weight:700}.sx .bd{font-size:14px;font-weight:600;line-height:1.45}
-.sx:not(:nth-child(4n))::after{content:'→';position:absolute;right:-22px;top:50%;transform:translateY(-50%);font-weight:900;font-size:18px;color:var(--ink)}
-.sx:nth-child(1){animation-delay:0s}.sx:nth-child(2){animation-delay:.4s}.sx:nth-child(3){animation-delay:.8s}.sx:nth-child(4){animation-delay:1.2s}.sx:nth-child(5){animation-delay:1.6s}.sx:nth-child(6){animation-delay:2s}.sx:nth-child(7){animation-delay:2.4s}.sx:nth-child(8){animation-delay:2.8s}
-@keyframes sxp{0%,18%,100%{transform:none;box-shadow:6px 6px 0 var(--ink)}6%{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--ink)}}
-.sx-line{margin-top:22px;font-weight:700}.sx-line code{font-family:var(--mono);font-size:15px;background:var(--ink);color:var(--yellow);padding:6px 12px;display:inline-block}
-@media (max-width:1000px){.sx-flow{grid-template-columns:repeat(2,1fr)}.sx::after{display:none}}
-@media (prefers-reduced-motion:reduce){.sx{animation:none}}
-/* ledger */
-.ledger{margin-top:40px;border-top:3px solid var(--ink)}
-.row{display:grid;grid-template-columns:260px 1fr;gap:34px;padding:24px 0;border-bottom:3px solid var(--ink)}
-.row h3{font-size:19px;font-weight:900;letter-spacing:-.01em}
-.row p{font-weight:600;font-size:15.5px;max-width:760px}
-.row p+p{margin-top:8px}
-.sticker{display:inline-block;border:3px solid var(--ink);box-shadow:5px 5px 0 var(--ink);padding:6px 12px;font-weight:900;font-size:22px;letter-spacing:-.02em;margin-bottom:8px}
-.row small{display:block;font-weight:600;font-size:13px}
-.dark .ledger,.dark .row{border-color:var(--paper)}
-.dark .row p{color:#e8e4d8}
-.dark .row h3{color:var(--paper)}
-/* experience */
-.job{display:grid;grid-template-columns:200px 1fr;gap:34px;padding:22px 0;border-bottom:3px solid var(--ink)}
-.job .d{font-family:var(--mono);font-weight:600;font-size:13px}
-.job h3{font-size:19px;font-weight:900}
-.job p{font-weight:600;font-size:15.5px;margin-top:4px;max-width:760px}
-.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}
-.skillgrid{margin-top:34px}.cg{margin-top:22px}.cg h4{font-family:var(--mono);font-weight:700;font-size:13px;text-transform:uppercase;letter-spacing:.08em}.cg .chips{margin-top:10px}
-.chips span{border:3px solid var(--ink);background:var(--white);padding:5px 12px;font-weight:800;font-size:14px;box-shadow:3px 3px 0 var(--ink)}
+.hero{padding:120px 0 96px}
+.hero h1{font-size:clamp(54px,9vw,118px);font-weight:800;letter-spacing:-.05em}
+.type{font-family:var(--mono);font-size:clamp(20px,2.6vw,30px);font-weight:700;margin-top:22px;min-height:1.5em;color:var(--ink2)}
+.type .arrow{color:var(--dim);margin:0 12px}
+.type .word{color:var(--cyan)}
+.type .caret{display:inline-block;width:.55em;height:1.05em;background:var(--cyan);vertical-align:-.15em;margin-left:4px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.hero .lead{max-width:640px;font-size:19px;color:var(--ink2);margin-top:26px}
+.hero .cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);margin-top:72px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:rgba(11,16,24,.7)}
+.kpis div{padding:26px 28px;border-right:1px solid var(--line)}
+.kpis div:last-child{border-right:0}
+.kpis b{display:block;font-family:var(--mono);font-size:clamp(34px,4vw,48px);font-weight:800;letter-spacing:-.04em;line-height:1.05}
+.kpis span{display:block;color:var(--dim);font-size:14.5px;margin-top:6px}
+.c{color:var(--cyan)}.a{color:var(--amber)}
+
+/* projects */
+.proj{display:grid;grid-template-columns:1.08fr 1fr;gap:64px;align-items:center;padding:64px 0;border-top:1px solid var(--line)}
+.proj:first-of-type{border-top:0;padding-top:0}
+.proj.rev .visual{order:2}
+.proj h3{font-size:clamp(30px,3.4vw,42px);font-weight:800;margin:14px 0 18px}
+.proj .story{display:grid;gap:14px}
+.proj .story p{color:var(--ink2);font-size:16.5px}
+.proj .story p b{color:var(--ink);font-weight:700}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.chips span{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--ink2);border:1px solid var(--line2);border-radius:999px;padding:5px 11px}
+.outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:10px;border-top:1px solid var(--line)}
+.outcome div{padding:16px 14px 0 0}
+.outcome b{display:block;font-family:var(--mono);font-size:26px;font-weight:800;letter-spacing:-.03em}
+.outcome span{display:block;font-size:13px;color:var(--dim);line-height:1.4;margin-top:4px}
+.links{display:flex;gap:12px;flex-wrap:wrap;margin-top:12px}
+.frame{position:relative;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(45,226,230,.04)}
+.frame .bar{display:flex;align-items:center;gap:8px;height:38px;padding:0 14px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:12px;color:var(--dim);letter-spacing:.08em}
+.frame .bar i{width:9px;height:9px;border-radius:50%;background:var(--line2)}
+.frame .bar em{margin-left:auto;font-style:normal}
+.frame video{width:100%;aspect-ratio:1/1;background:#05080f}
+
+/* forecast chart */
+.chart{padding:26px 26px 20px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .line{fill:none;stroke-linecap:round;stroke-linejoin:round}
+.chart .model{stroke:var(--amber);stroke-width:2;opacity:.55;stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset 1.4s ease, opacity .6s ease 1.6s}
+.chart .win{stroke:var(--cyan);stroke-width:4;stroke-dasharray:600;stroke-dashoffset:600;transition:stroke-dashoffset 1.6s ease .3s}
+.chart .act{stroke:var(--ink);stroke-width:3;stroke-dasharray:900;stroke-dashoffset:900;transition:stroke-dashoffset 1.2s ease}
+.in .chart .model{stroke-dashoffset:0;opacity:.12}
+.in .chart .win,.in .chart .act{stroke-dashoffset:0}
+.chart .legend{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:14px;font-family:var(--mono);font-size:12px;color:var(--dim)}
+.chart .legend s{color:#3d4964}
+.chart .legend b{color:var(--cyan)}
+.badge{position:absolute;right:22px;top:58px;text-align:right;font-family:var(--mono)}
+.badge b{display:block;font-size:44px;font-weight:800;color:var(--cyan);letter-spacing:-.04em;line-height:1}
+.badge span{font-size:11.5px;color:var(--dim);letter-spacing:.1em}
+
+/* flow diagram */
+.flow{padding:30px 26px;display:grid;gap:14px}
+.node{display:flex;align-items:center;gap:16px;border:1px solid var(--line2);border-radius:14px;padding:16px 18px;background:var(--surface2);position:relative}
+.node .ic{flex:none;width:42px;height:42px;border-radius:11px;display:grid;place-items:center;font-family:var(--mono);font-weight:800;font-size:13px;color:var(--cyan);border:1px solid rgba(45,226,230,.35);background:rgba(45,226,230,.07)}
+.node b{display:block;font-size:15.5px}.node span{font-size:13.5px;color:var(--dim)}
+.node.no{border-style:dashed;opacity:.75}.node.no .ic{color:var(--red);border-color:rgba(255,77,109,.4);background:rgba(255,77,109,.07)}
+.node.ok{border-color:rgba(45,226,230,.45);box-shadow:0 0 30px rgba(45,226,230,.08)}
+.pipe{height:22px;width:2px;margin-left:38px;background:var(--line2);position:relative;overflow:hidden}
+.pipe::after{content:'';position:absolute;left:0;top:-10px;width:2px;height:10px;background:var(--cyan);box-shadow:0 0 8px var(--cyan);animation:drop 1.4s linear infinite}
+@keyframes drop{to{top:22px}}
+
+/* terminal */
+.term{padding:24px 26px;font-family:var(--mono);font-size:13.5px;line-height:1.9}
+.term .r{display:flex;gap:14px}
+.term .p{color:var(--dim)}.term .k{color:var(--cyan);width:88px;flex:none}.term .v{color:var(--ink2);flex:1}.term .ok{color:var(--cyan);font-weight:800}
+.term hr{border:0;border-top:1px dashed var(--line2);margin:14px 0}
+.term .rt{color:var(--amber);font-weight:700}
+.term .rule{display:flex;gap:10px;color:var(--ink2)}.term .rule em{font-style:normal;width:76px;flex:none;color:var(--dim)}
+
+/* how I work */
+.band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(180deg,rgba(11,16,24,.6),rgba(5,8,15,0))}
+.trust{display:grid;grid-template-columns:repeat(5,1fr);border:1px solid var(--line);border-radius:18px;overflow:hidden}
+.trust>div{padding:26px 22px;border-right:1px solid var(--line);background:rgba(11,16,24,.55)}
+.trust>div:last-child{border-right:0}
+.trust .L{font-family:var(--mono);font-size:44px;font-weight:800;color:var(--cyan);line-height:1}
+.trust h4{font-size:16px;margin:12px 0 8px;letter-spacing:-.01em}
+.trust p{font-size:13.5px;color:var(--dim);line-height:1.5}
+.tagline{margin-top:34px;font-size:clamp(20px,2.4vw,28px);font-weight:800;letter-spacing:-.02em}
+.tagline span{color:var(--dim)}
+.rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:30px}
+.rules div{border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.rules b{display:block;font-size:15px;margin-bottom:4px}.rules span{font-size:14px;color:var(--dim)}
+
+/* more work */
+.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.tile{border:1px solid var(--line);border-radius:16px;padding:24px 22px;background:var(--surface);display:flex;flex-direction:column;gap:10px;text-decoration:none;transition:border-color .2s,transform .2s}
+.tile:hover{border-color:var(--line2);transform:translateY(-2px)}
+.tile b{font-family:var(--mono);font-size:30px;font-weight:800;letter-spacing:-.03em}
+.tile h4{font-size:16.5px;letter-spacing:-.01em}
+.tile p{font-size:14px;color:var(--dim)}
+.tile .go{margin-top:auto;font-family:var(--mono);font-size:12.5px;color:var(--cyan);font-weight:700}
+
+/* experience + skills */
+.xp{display:grid;grid-template-columns:1.1fr 1fr;gap:64px}
+.job{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:22px 0;border-top:1px solid var(--line)}
+.job:first-child{border-top:0;padding-top:0}
+.job .d{font-family:var(--mono);font-size:12.5px;color:var(--dim);padding-top:3px}
+.job h4{font-size:17px;letter-spacing:-.01em}.job h4 span{color:var(--dim);font-weight:600}
+.job p{font-size:14.5px;color:var(--ink2);margin-top:6px}
+.skills{display:grid;gap:22px}
+.skills h5{font-family:var(--mono);font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin-bottom:10px;font-weight:700}
+
 /* contact */
-.contact .win{max-width:760px;margin-top:34px}
-.contact .bd{padding:26px}
-.contact .em{font-size:clamp(20px,3vw,32px);font-weight:900;word-break:break-all}
-footer{border-top:3px solid var(--ink);padding:26px 0;font-weight:600;font-size:14px}
-/* card variants (switcher bottom-right) */
-.c-pink{--acc:var(--pink)}.c-yellow{--acc:var(--yellow)}.c-mint{--acc:var(--mint)}.c-blue{--acc:var(--blue)}.c-white{--acc:#cfd6e4}
-.switch{position:fixed;right:14px;bottom:14px;z-index:50;display:flex;gap:6px;background:var(--white);border:3px solid var(--ink);padding:6px;box-shadow:4px 4px 0 var(--ink);font-size:12px}
-.switch button{font:inherit;font-weight:800;border:2px solid var(--ink);background:var(--white);padding:4px 9px;cursor:pointer}
-.switch button[aria-pressed=true]{background:var(--yellow)}
-/* B: editorial line cards */
-body[data-cards=line] .win{background:transparent!important;border:0;border-top:6px solid var(--acc);box-shadow:none;transform:none}
-body[data-cards=line] .win:hover{transform:none;box-shadow:none}
-body[data-cards=line] .win .hd{background:transparent;border-bottom:1px solid currentColor;padding:8px 0}
-body[data-cards=line] .win .bd{padding:14px 0 6px}
-body[data-cards=line] .trust .letter{color:var(--acc);-webkit-text-stroke:2px var(--ink)}
-body[data-cards=line] .dark .win{color:var(--paper)}
-body[data-cards=line] .dark .trust .letter{-webkit-text-stroke:0}
-body[data-cards=line] .hero-shot,body[data-cards=line] .stage .win{border:3px solid var(--ink);box-shadow:8px 8px 0 var(--ink);background:var(--white)!important}
-body[data-cards=line] .sqlwin{background:#14181f!important;border:3px solid var(--ink);box-shadow:8px 8px 0 var(--pink);color:#e5ebf5}
-body[data-cards=line] .sqlwin .hd{padding:6px 14px;background:#232a36}
-body[data-cards=line] .contact .win{border:3px solid var(--ink);padding:0;background:var(--pink)!important;box-shadow:8px 8px 0 var(--ink)}
-body[data-cards=line] .contact .win .hd{padding:6px 14px}body[data-cards=line] .contact .bd{padding:26px}
-/* C: spec/terminal cards */
-body[data-cards=spec] .win{background:#171c26!important;color:#e5ebf5;border:1px solid #2c3546;border-left:5px solid var(--acc);box-shadow:none;transform:none}
-body[data-cards=spec] .win:hover{transform:none;border-color:var(--acc);box-shadow:0 0 0 1px var(--acc)}
-body[data-cards=spec] .win .hd{background:#1d2431;border-bottom:1px solid #2c3546;font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--acc)}
-body[data-cards=spec] .trust .letter{color:var(--acc)}
-body[data-cards=spec] .hero-shot .bd,body[data-cards=spec] .stage .bd{background:#0b1020}
-body[data-cards=spec] .contact .em{color:var(--acc)}
-body[data-cards=spec] .sqlwin{box-shadow:none;border-left-color:var(--pink)}
-body[data-cards=spec] .dark{background:#0d1118}
-body[data-cards=spec] .win .hd em{opacity:.6}
-/* D: impact cards */
-body[data-cards=impact] .win{position:relative;overflow:hidden;background:linear-gradient(160deg,#1b2231 0%,#10141d 70%)!important;color:#eef2fa;border:1px solid color-mix(in srgb,var(--acc) 55%,#10141d);border-radius:18px;box-shadow:0 0 0 0 transparent;transform:none;transition:transform .25s ease,box-shadow .25s ease,border-color .25s}
-body[data-cards=impact] .win::before{content:"";position:absolute;inset:0;background:radial-gradient(420px 220px at 100% 0%,color-mix(in srgb,var(--acc) 38%,transparent),transparent 70%);pointer-events:none}
-body[data-cards=impact] .win:hover{transform:translateY(-10px);border-color:var(--acc);box-shadow:0 26px 60px -12px color-mix(in srgb,var(--acc) 55%,transparent)}
-body[data-cards=impact] .win .hd{position:relative;background:transparent;border-bottom:0;padding:16px 20px 0;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc)}
-body[data-cards=impact] .win .bd{position:relative;padding:8px 20px 22px}
-body[data-cards=impact] .trust .letter{font-size:150px;line-height:.85;color:var(--acc);margin:4px 0 14px;text-shadow:0 0 40px color-mix(in srgb,var(--acc) 60%,transparent);transition:transform .3s}
-body[data-cards=impact] .trust .win:hover .letter{transform:scale(1.08) translateX(6px)}
-body[data-cards=impact] .trust p{font-size:14px;color:#cdd5e4;font-weight:500}
-body[data-cards=impact] .flow .win .hd{font-size:15px;color:#fff;letter-spacing:0;text-transform:none;font-family:var(--sans);font-weight:800}
-body[data-cards=impact] .flow .bd{color:#cdd5e4}
-body[data-cards=impact] .hero-shot .bd,body[data-cards=impact] .stage .bd{background:#0b1020;padding:0}
-body[data-cards=impact] .sqlwin{box-shadow:0 20px 60px -16px rgba(255,102,163,.5)}
-body[data-cards=impact] .win .btn{color:var(--ink)}body[data-cards=impact] .contact .em{color:var(--acc)}
-body[data-cards=impact] .flow .win::after{color:#fff}
-body[data-cards=impact] .proof,body[data-cards=impact] .facts,body[data-cards=impact] .stats{border-radius:18px;overflow:hidden}
-@media (max-width:1000px){
- .hero .wrap,.stage,.two{grid-template-columns:1fr}
- .trust{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.flow .win::after{display:none}
- .facts,.stats{grid-template-columns:1fr 1fr}.facts div:nth-child(2),.stats div:nth-child(2){border-right:0}.facts div:nth-child(-n+2),.stats div:nth-child(-n+2){border-bottom:3px solid var(--ink)}
- .proof{grid-template-columns:1fr}.proof div{border-right:0;border-bottom:3px solid var(--ink)}.proof div:last-child{border-bottom:0}
- .row,.job{grid-template-columns:1fr;gap:8px}
+.contact{text-align:left}
+.contact h2{font-size:clamp(40px,6vw,76px);font-weight:800}
+.contact .mail{display:inline-block;margin-top:26px;font-family:var(--mono);font-size:clamp(18px,2.4vw,26px);font-weight:700;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(45,226,230,.4)}
+footer{border-top:1px solid var(--line);padding:28px 0;color:var(--dim);font-size:13.5px}
+footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .8s ease,transform .8s ease}
+.rv.in{opacity:1;transform:none}
+
+@media (max-width:980px){
+  section{padding:84px 0}
+  .proj,.xp{grid-template-columns:1fr;gap:34px}
+  .proj.rev .visual{order:0}
+  .trust{grid-template-columns:1fr 1fr}.trust>div{border-bottom:1px solid var(--line)}
+  .tiles{grid-template-columns:1fr 1fr}
+  .rules{grid-template-columns:1fr}
+  .nav nav{display:none}
 }
-@media (max-width:640px){
- .wrap{padding:0 18px}.links a:not(.cta){display:none}.trust,.flow{grid-template-columns:1fr}
- section{padding:60px 0}.win{box-shadow:6px 6px 0 var(--ink)}
+@media (max-width:620px){
+  .wrap{padding:0 16px}
+  .hero{padding:72px 0 64px}
+  .kpis{grid-template-columns:1fr}.kpis div{border-right:0;border-bottom:1px solid var(--line)}
+  .tiles,.trust{grid-template-columns:1fr}
+  .outcome{grid-template-columns:1fr 1fr}
+  .job{grid-template-columns:1fr;gap:4px}
+  .badge b{font-size:32px}
+  .frame .bar em{display:none}
 }
-@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
-/* kinetic typography */
-.kin h1 .w{display:inline-block;white-space:nowrap}
-.kin h1 .ch{display:inline-block;will-change:transform;
-  animation:chIn .75s cubic-bezier(.2,.9,.25,1.2) backwards;animation-delay:calc(var(--i)*45ms + 120ms);
-  transform:translateY(calc(var(--d,0)*-16px)) rotate(calc(var(--d,0)*-7deg));transition:transform .18s ease-out}
-@keyframes chIn{from{opacity:0;transform:translateY(.7em) rotate(10deg) scale(.7)}to{opacity:1}}
-.kin .role{animation:roleIn .6s cubic-bezier(.2,.9,.25,1.1) .9s backwards}
-@keyframes roleIn{from{opacity:0;transform:translateX(-24px) rotate(-2deg)}}
-.marq{border-top:3px solid var(--ink);background:var(--yellow);overflow:hidden;padding:14px 0 10px;user-select:none}
-.marq .row{display:flex;width:max-content;white-space:nowrap}
-.marq .row+.row{margin-top:2px}
-.marq .trk{display:flex;flex:none;animation:mq 38s linear infinite}
-.marq .row.rev .trk{animation-direction:reverse;animation-duration:46s}
-.marq span{font-weight:900;text-transform:uppercase;letter-spacing:-.03em;font-size:clamp(34px,6vw,76px);line-height:1.05;padding-right:.45em}
-.marq .row.o span{color:#fff;text-shadow:4px 4px 0 var(--ink)}
-.marq i{font-style:normal;color:var(--pink);text-shadow:none!important;padding-right:.45em;font-size:.7em;align-self:center}
-@keyframes mq{to{transform:translateX(-100%)}}
-.kin h2 .rwo{display:inline-block;overflow:hidden;vertical-align:top;padding-bottom:.08em;margin-bottom:-.08em}
-.kin h2 .rwi{display:inline-block;transform:translateY(108%) rotate(4deg);transform-origin:0 100%;
-  transition:transform .7s cubic-bezier(.2,.9,.25,1) calc(var(--i)*55ms)}
-.kin h2.in .rwi{transform:none}
-.kin .trust .win{opacity:0;transform:translateY(34px);transition:opacity .5s ease calc(var(--k)*90ms),transform .6s cubic-bezier(.2,.9,.25,1.1) calc(var(--k)*90ms),box-shadow .2s}
-.kin .trust .win.in{opacity:1;transform:none}
-.kin .trust .win.in:hover{transform:translate(-3px,-3px)}
-.kin .trust .win.in .letter{animation:pop .85s cubic-bezier(.2,.9,.25,1.3) calc(var(--k)*90ms + 150ms) backwards}
-@keyframes pop{from{opacity:0;transform:scale(.2) rotate(-28deg) translateY(30px)}}
 @media (prefers-reduced-motion:reduce){
- .kin h1 .ch,.kin .role,.marq .trk,.kin .trust .win .letter{animation:none!important}
- .kin h1 .ch{transform:none!important}
- .kin h2 .rwi{transform:none!important;transition:none!important}
- .kin .trust .win{opacity:1!important;transform:none!important;transition:none!important}
+  *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+  .rv{opacity:1;transform:none}
+  .chart .model,.chart .win,.chart .act{stroke-dashoffset:0}
 }
-/* neon glow */
-.kin h1 .ch{color:color-mix(in srgb,var(--pink) min(100%,calc(var(--d,0)*200%)),var(--ink));
-  text-shadow:0 0 calc(var(--d,0)*10px) color-mix(in srgb,var(--pink) 90%,transparent),0 0 calc(var(--d,0)*28px) color-mix(in srgb,var(--pink) 70%,transparent),0 0 calc(var(--d,0)*60px) color-mix(in srgb,var(--pink) 45%,transparent);
-  transition:transform .18s ease-out,color .18s ease-out,text-shadow .18s ease-out}
-.dark h2{text-shadow:0 0 6px rgba(255,102,163,.55),0 0 22px rgba(255,102,163,.35),0 0 48px rgba(141,180,255,.25);animation:neonBreath 4.5s ease-in-out infinite}
-@keyframes neonBreath{50%{text-shadow:0 0 4px rgba(255,102,163,.35),0 0 14px rgba(255,102,163,.2),0 0 32px rgba(141,180,255,.15)}}
-.dark .tag{box-shadow:0 0 0 2px var(--ink),0 0 14px 3px rgba(255,216,77,.55),0 0 34px rgba(255,216,77,.3)}
-body[data-cards=impact] .trust .letter{text-shadow:0 0 8px var(--acc),0 0 30px color-mix(in srgb,var(--acc) 70%,transparent),0 0 70px color-mix(in srgb,var(--acc) 50%,transparent)}
-.kin .trust .win.in .letter{animation:pop .85s cubic-bezier(.2,.9,.25,1.3) calc(var(--k)*90ms + 150ms) backwards,
-  neonFlick 1.1s steps(1,end) calc(var(--k)*90ms + 250ms) backwards,neonPulse 3.6s ease-in-out calc(var(--k)*400ms + 1.5s) infinite}
-@keyframes neonFlick{0%{opacity:0}12%{opacity:1}22%{opacity:.25}34%{opacity:1}46%{opacity:.5}58%,100%{opacity:1}}
-@keyframes neonPulse{50%{text-shadow:0 0 5px var(--acc),0 0 18px color-mix(in srgb,var(--acc) 55%,transparent),0 0 40px color-mix(in srgb,var(--acc) 30%,transparent)}}
-body[data-cards=impact] .trust .win:hover{box-shadow:0 0 0 1px var(--acc),0 0 22px color-mix(in srgb,var(--acc) 60%,transparent),0 0 60px color-mix(in srgb,var(--acc) 35%,transparent)}
-.marq .row.o span{text-shadow:4px 4px 0 var(--ink),0 0 18px rgba(255,255,255,.9),0 0 42px rgba(255,102,163,.6)}
-@media (prefers-reduced-motion:reduce){.dark h2,.kin .trust .win.in .letter{animation:none!important}}
-/* halftone dots */
-.hero,section,.contact{position:relative}
-.hero,section{overflow:hidden}
-.hero>.wrap,section>.wrap{position:relative;z-index:1}
-canvas.ht{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0}
-@media (prefers-reduced-motion:reduce){canvas.ht{opacity:.9}}
-.demo{margin-top:44px}.demo h3{font-size:24px;font-weight:900;letter-spacing:-.02em;margin-bottom:8px}.demo p{max-width:780px;font-weight:600}
 </style>
 </head>
-<body data-cards="impact">
-<nav>
-  <div class="wrap">
-    <a class="word" href="#top">Mustafa Mahmoud</a>
-    <div class="links">
-      <a href="#trust">TRUST</a><a href="#platform">Platform</a><a href="#pipeline">Pipeline</a><a href="#process">Process</a>
-      <a class="cta" href="#contact">Contact</a>
-    </div>
-  </div>
-</nav>
+<body>
+<div class="grid-bg" aria-hidden="true"></div>
 
-<header class="hero" id="top">
-  <div class="wrap">
-    <div>
-      <p class="loc">Cairo, Egypt / Open to remote and relocation</p>
-      <h1>Mustafa<br>Mahmoud</h1>
-      <div class="role">Revenue Operations Analyst &amp; Analytics Engineer</div>
-      <p class="lead">I design the metrics, build the platforms and run the release process that show a revenue team where money is won or lost. I build AI-native: coding agents do the heavy lifting, and <b>TRUST</b>, the framework I created, is how the numbers stay right.</p>
-      <div class="btns">
-        <a class="btn p" href="#trust">How I work: TRUST</a>
-        <a class="btn" href="#platform">Platform</a>
-        <a class="btn" href="demo/" target="_blank" rel="noopener">Live demo ↗</a>
-        <a class="btn" href="mailto:mustafasalah5321@gmail.com">Email</a>
-      </div>
-    </div>
-    <div class="win c-pink hero-shot">
-      <div class="hd"><span>Analytics platform</span><em>synthetic data</em></div>
-      <div class="bd"><img src="assets/platform-overview.png" alt="Command Center of the analytics platform, synthetic data"></div>
-    </div>
-  </div>
-  <div class="wrap" style="display:block">
-    <div class="facts">
-      <div><b>12+</b><span>connected analytical modules in one platform</span></div>
-      <div><b>16</b><span>reporting views that build themselves before 8 a.m.</span></div>
-      <div><b>~8 s</b><span>per authenticated SQL extraction from the BI platform</span></div>
-      <div><b>EN / 中文</b><span>fully bilingual interface</span></div>
-    </div>
+<header>
+  <div class="wrap nav">
+    <a class="brand" href="#top"><i></i>MUSTAFA MAHMOUD</a>
+    <nav aria-label="Primary">
+      <a href="#work">Work</a><a href="#how">How I work</a><a href="#experience">Experience</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="btn sm primary" href="#contact">Get in touch</a>
   </div>
 </header>
 
-<div class="marq" aria-hidden="true">
-  <div class="row"><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div><div class="trk"><span>Trace</span><i>✦</i><span>Record</span><i>✦</i><span>Underwrite</span><i>✦</i><span>Ship</span><i>✦</i><span>Track</span><i>✦</i></div></div>
-  <div class="row o rev"><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i><span>No API? Found a way</span><i>✦</i></div><div class="trk"><span>Agents in production</span><i>✦</i><span>Org-wide pipelines</span><i>✦</i><span>Stakeholder-ready</span><i>✦</i><span>No API? Found a way</span><i>✦</i></div></div>
-</div>
-
-<section id="trust" class="dark">
+<main id="top">
+<section class="hero">
   <div class="wrap">
-    <span class="tag">My framework</span>
-    <h2>TRUST: how I make AI-assisted numbers trustworthy</h2>
-    <p class="sub" style="color:#e8e4d8">The working method I created and use on every analysis and build. AI makes the work fast. TRUST makes sure the speed never costs accuracy.</p>
-    <div class="trust">
-      <div class="win c-pink"><div class="hd"><span>Trace</span></div><div class="bd"><div class="letter">T</div><p>Profile the sources before writing logic: schemas, join keys and cardinality, grain, timezones, and what each column actually encodes.</p></div></div>
-      <div class="win c-yellow"><div class="hd"><span>Record</span></div><div class="bd"><div class="letter">R</div><p>Cleaning steps, join logic and metric definitions live in a versioned working document that the agents read as their spec. Agents implement written rules; they do not infer them.</p></div></div>
-      <div class="win c-mint"><div class="hd"><span>Underwrite</span></div><div class="bd"><div class="letter">U</div><p>Control totals against the source, row-level spot checks, impossible-value assertions, and a diff against a manually verified reference dataset whenever a rule changes. Release is blocked until every difference is explained.</p></div></div>
-      <div class="win c-blue"><div class="hd"><span>Ship</span></div><div class="bd"><div class="letter">S</div><p>The deliverable is built only after the checks pass, then goes through the release gate: tests, real-browser validation and documentation sync.</p></div></div>
-      <div class="win c-white"><div class="hd"><span>Track</span></div><div class="bd"><div class="letter">T</div><p>Freshness checks, failure alerts and idempotent retries watch every daily run. Each incident is written back into the record and, where possible, becomes a permanent test.</p></div></div>
+    <div class="eyebrow"><b>●</b> AI-native analytics engineer · Cairo</div>
+    <h1 style="margin-top:22px">Mustafa Mahmoud</h1>
+    <div class="type" aria-label="I build AI automations, agentic AI systems, revenue operations analytics, forecasting engines, data pipelines that run themselves, and dashboards leaders trust.">
+      <span aria-hidden="true">I build<span class="arrow">›</span><span class="word" id="tw"></span><span class="caret"></span></span>
     </div>
-    <div class="proof" style="color:var(--ink)">
-      <div><b>Org-wide pipelines</b><span>The daily numbers a whole sales organisation works from come out of pipelines I built and run: scheduled, unattended and monitored.</span></div>
-      <div><b>Stakeholder management</b><span>I take requests from managers and leadership across Egypt, China and the Gulf and turn them into metrics and views that people agree on and use.</span></div>
-      <div><b>Presentation-grade data</b><span>Findings delivered as designed dashboards and narrated video built with Remotion, so decision-makers see the story, not a spreadsheet.</span></div>
+    <p class="lead">I build analytics systems that run themselves. AI agents do the building, deterministic code does the running, and every number is verified before anyone sees it.</p>
+    <div class="cta">
+      <a class="btn primary" href="#work">See the work ↓</a>
+      <a class="btn" href="https://www.linkedin.com/in/mustafa-mahmoud-0bbb10228" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
+    <div class="kpis rv">
+      <div><b class="c">16</b><span>reporting views that build themselves before 8 a.m.</span></div>
+      <div><b class="a">~50 h</b><span>of analyst work done by the pipeline every run</span></div>
+      <div><b class="c">0.97%</b><span>forecast error in the September backtest</span></div>
     </div>
   </div>
 </section>
 
-<section id="platform">
+<section id="work">
   <div class="wrap">
-    <span class="tag">Flagship project</span>
-    <h2>Not a dashboard. A decision layer.</h2>
-    <p class="sub">Sixteen reporting views that build themselves every morning: are we on pace, where will the month land, is the data clean, and why did it move. Screenshots and film show a synthetic-data edition.</p>
-    <div class="win c-white film"><div class="hd"><span>Launch film</span><em>76 s · synthetic data · sound on</em></div><div class="bd"><video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="none"></video></div></div>
-    <div class="tabs" role="tablist" id="tabs"></div>
-    <div class="stage">
-      <div class="win c-white"><div class="hd"><span id="st">Command Center</span><em>synthetic data</em></div><div class="bd"><img id="si" src="assets/platform-overview.png" alt=""></div></div>
-      <div><h3 id="ct"></h3><p id="cp"></p></div>
+    <div class="sec-head rv">
+      <div class="eyebrow"><b>01</b> · Selected work</div>
+      <h2>Systems people run a business on.</h2>
     </div>
 
-    <div class="stackx">
-      <h3>How it's built</h3>
-      <div class="sx-flow">
-        <div class="win c-blue sx"><div class="hd"><span>SQL</span></div><div class="bd">Pulls the data straight from the BI platform</div></div>
-        <div class="win c-yellow sx"><div class="hd"><span>Python</span></div><div class="bd">Reads exports, cleans, deduplicates, validates, calculates KPIs, forecasts and backtests</div></div>
-        <div class="win c-mint sx"><div class="hd"><span>JSON</span></div><div class="bd">Passes prepared data and forecast snapshots between components</div></div>
-        <div class="win c-pink sx"><div class="hd"><span>HTML · CSS</span></div><div class="bd">Structure, dark theme and responsive layout</div></div>
-        <div class="win c-blue sx"><div class="hd"><span>JavaScript</span></div><div class="bd">Filters, interactive tables and live recalculation in the browser</div></div>
-        <div class="win c-yellow sx"><div class="hd"><span>ECharts</span></div><div class="bd">Interactive charts, trends and heatmaps</div></div>
-        <div class="win c-mint sx"><div class="hd"><span>Scheduler</span></div><div class="bd">Runs the whole pipeline every morning, unattended</div></div>
-        <div class="win c-pink sx"><div class="hd"><span>Git · GitHub</span></div><div class="bd">Every change versioned, every release tracked</div></div>
+    <!-- Project 1 -->
+    <article class="proj rv">
+      <div class="visual">
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">LAUNCH FILM</span><em>76 s · synthetic data</em></div>
+          <video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="none"></video>
+        </div>
       </div>
-      <p class="sx-line"><code>SQL → Python → JSON → HTML · CSS · JS</code></p>
-    </div>
-    <div class="stats adopt" style="color:var(--ink)">
-      <div><b>8</b><span>stakeholders using the platform, weekly average</span></div>
-      <div><b>20</b><span>stakeholder opens a week</span></div>
-      <div><b>130</b><span>page views a week</span></div>
-      <div><b>~27 h</b><span>active use a week, owner activity excluded</span></div>
-    </div>
-    <div class="win c-blue demo"><div class="hd"><span>Interactive demo</span><em>synthetic data</em></div>
-      <div class="bd"><h3>Regional Performance Dashboard</h3>
-      <p>The daily performance view for a sales floor: teams and reps, funnel conversion, targets against pace, ranking and an activity goal. Sort, filter, search and export, and step through every day of the month. All names and figures are generated.</p>
-      <div class="btns"><a class="btn p" href="demo/" target="_blank" rel="noopener">Open the live demo ↗</a></div></div></div>
+      <div class="story">
+        <div class="eyebrow"><b>Flagship</b> · Revenue Analytics Platform</div>
+        <h3>Not a dashboard. A decision layer.</h3>
+        <p><b>Problem.</b> Sixteen reporting views, about 50 analyst hours of work by hand, and still no single answer to "are we on pace?"</p>
+        <p><b>What I built.</b> A bilingual platform that rebuilds itself every morning before 8 a.m. It says whether we're on pace, where the month will land, whether the data is clean, and why the numbers moved, from region down to each rep.</p>
+        <div class="chips"><span>SQL</span><span>Python</span><span>JSON</span><span>JavaScript</span><span>ECharts</span><span>Scheduler</span><span>Git</span></div>
+        <div class="outcome">
+          <div><b class="c">16</b><span>views automated</span></div>
+          <div><b>~50 h</b><span>analyst work per run</span></div>
+          <div><b>8</b><span>stakeholders, weekly avg.</span></div>
+        </div>
+        <div class="links"><a class="btn sm primary" href="platform.html">Case study →</a><a class="btn sm" href="demo/" target="_blank" rel="noopener">Live demo ↗</a></div>
+      </div>
+    </article>
+
+    <!-- Project 2 -->
+    <article class="proj rev rv">
+      <div class="visual">
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">ROLLING-ORIGIN BACKTEST</span><em>illustrative</em></div>
+          <div class="badge"><b>0.97%</b><span>SEPT BACKTEST</span></div>
+          <div class="chart">
+            <svg viewBox="0 0 520 260" role="img" aria-label="Six forecasting methods tested against actual revenue; the weighted three-month method tracks actuals most closely.">
+              <g stroke="#1c2638" stroke-width="1"><line x1="0" x2="520" y1="60" y2="60"/><line x1="0" x2="520" y1="130" y2="130"/><line x1="0" x2="520" y1="200" y2="200"/></g>
+              <path class="line act" d="M0 210 L47 196 L94 202 L141 180 L188 185 L235 160 L282 167 L329 150 L376 154 L423 132 L470 136 L520 120"/>
+              <path class="line model" d="M141 150 L188 205 L235 135 L282 190 L329 128 L376 178 L423 110 L470 162 L520 98"/>
+              <path class="line model" d="M141 205 L188 160 L235 190 L282 140 L329 175 L376 128 L423 158 L470 112 L520 150"/>
+              <path class="line model" d="M141 170 L188 215 L235 150 L282 200 L329 140 L376 185 L423 120 L470 165 L520 110"/>
+              <path class="line model" d="M141 215 L188 175 L235 205 L282 155 L329 190 L376 140 L423 172 L470 125 L520 160"/>
+              <path class="line model" d="M141 160 L188 192 L235 170 L282 182 L329 160 L376 166 L423 142 L470 150 L520 132"/>
+              <path class="line win" d="M141 182 L188 186 L235 163 L282 168 L329 152 L376 155 L423 134 L470 137 L520 121"/>
+            </svg>
+            <div class="legend"><s>Naive</s><s>3-month avg</s><s>Exp. smoothing</s><s>Damped trend</s><s>Driver-based</s><b>▶ Weighted 3-month</b></div>
+          </div>
+        </div>
+      </div>
+      <div class="story">
+        <div class="eyebrow"><b>Data science</b> · Forecasting engine</div>
+        <h3>Six models compete. Evidence picks the winner.</h3>
+        <p><b>Problem.</b> Forecasts are usually one method picked by habit, with no proof it works on this business.</p>
+        <p><b>What I built.</b> A Python engine that tests six methods on months they have never seen (rolling-origin backtesting), ranks them by WAPE, then MAE, then simplicity, and shows bias and historical error ranges next to the winner. A second, lead-aware model updates the forecast inside the month.</p>
+        <div class="chips"><span>Python</span><span>pandas</span><span>Backtesting</span><span>WAPE · MAE</span><span>Exponential smoothing</span></div>
+        <div class="outcome">
+          <div><b class="c">0.97%</b><span>Sept backtest error</span></div>
+          <div><b>6</b><span>methods compared</span></div>
+          <div><b>11 mo</b><span>evaluation window</span></div>
+        </div>
+        <div class="links"><a class="btn sm primary" href="forecasting.html">Case study →</a></div>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="proj rv">
+      <div class="visual">
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">DATA ACCESS</span><em>every morning</em></div>
+          <div class="flow">
+            <div class="node no"><div class="ic">API</div><div><b>No API available</b><span>The data only existed inside the BI platform's interface</span></div></div>
+            <div class="pipe"></div>
+            <div class="node"><div class="ic">◎</div><div><b>Headless browser</b><span>Restores a saved login and takes a fresh security token</span></div></div>
+            <div class="pipe"></div>
+            <div class="node"><div class="ic">SQL</div><div><b>Direct endpoint call</b><span>Bounded SQL against the platform's own query endpoint</span></div></div>
+            <div class="pipe"></div>
+            <div class="node ok"><div class="ic">✓</div><div><b>Validated, daily</b><span>Schema, dates, row counts and control totals must agree</span></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="story">
+        <div class="eyebrow"><b>Biggest unlock</b> · WhatsApp data</div>
+        <h3>The data nobody could see. Now it arrives every morning.</h3>
+        <p><b>Problem.</b> No API access, and nobody could see WhatsApp performance day to day. The usual answer was "it can't be done."</p>
+        <p><b>What I built.</b> I traced how the platform's own interface loads its data and rebuilt those calls. A headless browser holds the session and calls the endpoint directly, so the data lands every morning with nobody logging in.</p>
+        <div class="chips"><span>Reverse engineering</span><span>Playwright</span><span>SQL</span><span>Python</span><span>Validation</span></div>
+        <div class="outcome">
+          <div><b class="c">Daily</b><span>WhatsApp data, previously none</span></div>
+          <div><b>~8 s</b><span>per extraction</span></div>
+          <div><b>0</b><span>manual logins</span></div>
+        </div>
+        <div class="links"><a class="btn sm primary" href="whatsapp.html">Case study →</a></div>
+      </div>
+    </article>
+
+    <!-- Project 4 -->
+    <article class="proj rev rv">
+      <div class="visual">
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">AGENTIC LOOP · VALIDATOR</span><em>dev → runtime</em></div>
+          <div class="term">
+            <div class="r"><span class="p">$</span><span class="k">inspect</span><span class="v">code · scheduler · decision history</span><span class="ok">OK</span></div>
+            <div class="r"><span class="p">$</span><span class="k">implement</span><span class="v">defect register, record by record</span><span class="ok">OK</span></div>
+            <div class="r"><span class="p">$</span><span class="k">test</span><span class="v">regression tests · real-export replay</span><span class="ok">OK</span></div>
+            <div class="r"><span class="p">$</span><span class="k">refine</span><span class="v">human-approved policy</span><span class="ok">OK</span></div>
+            <hr>
+            <div class="rt">runtime: deterministic Python · no AI</div>
+            <div class="rule"><em>known</em>warn, keep running</div>
+            <div class="rule"><em>new</em>email the data engineering team</div>
+            <div class="rule"><em>corrupt</em>block the run</div>
+          </div>
+        </div>
+      </div>
+      <div class="story">
+        <div class="eyebrow"><b>Agentic AI</b> · Data-quality validator</div>
+        <h3>AI builds it. Deterministic code runs it.</h3>
+        <p><b>Problem.</b> A defect we had already reviewed kept halting the daily run, and it hid new problems behind it.</p>
+        <p><b>What I built.</b> An agentic loop (inspect, implement, test, refine) with boundaries I set: regression tests and a replay of real exports as the finish line, and nothing published or sent while testing. The result is a defect register that remembers what was decided, run by plain Python with no AI in it.</p>
+        <div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops</span><span>Python</span><span>Regression tests</span></div>
+        <div class="outcome">
+          <div><b class="c">Known</b><span>issues no longer stop the run</span></div>
+          <div><b>New</b><span>losses emailed automatically</span></div>
+          <div><b>Human</b><span>owns the policy</span></div>
+        </div>
+        <div class="links"><a class="btn sm primary" href="validator.html">Case study →</a></div>
+      </div>
+    </article>
   </div>
 </section>
 
-<section id="pipeline" class="dark">
+<section id="how" class="band">
   <div class="wrap">
-    <span class="tag">Case study</span>
-    <h2>A daily pipeline that runs without anyone touching it</h2>
-    <p class="sub" style="color:#e8e4d8">Each morning, raw files and BI extracts arrive, are checked, turned into a governed snapshot, published and announced. Sixteen reporting views, about 50 analyst hours of work if built by hand, now build themselves before the shift starts.</p>
-    <div class="flow">
-      <div class="win c-yellow"><div class="hd"><span>Collect</span></div><div class="bd">Email attachments and BI SQL extracts</div></div>
-      <div class="win c-mint"><div class="hd"><span>Validate</span></div><div class="bd">Schema, dates, duplicates, control totals</div></div>
-      <div class="win c-blue"><div class="hd"><span>Build snapshot</span></div><div class="bd">Governed, reconciled, versioned</div></div>
-      <div class="win c-pink"><div class="hd"><span>Publish</span></div><div class="bd">Platform regenerated and released</div></div>
-      <div class="win c-white"><div class="hd"><span>Notify</span></div><div class="bd">Leadership groups, duplicate-safe</div></div>
+    <div class="sec-head rv">
+      <div class="eyebrow"><b>02</b> · How I work</div>
+      <h2>TRUST: AI speed, without losing accuracy.</h2>
+      <p>The method I created and use on every build. Agents implement written rules. They never infer them.</p>
     </div>
-    <div class="fail" style="color:var(--ink)"><b>On failure:</b> classify the cause, alert the owner with evidence, keep completed work, and never replay a send that was accepted or is uncertain.</div>
-    <div class="two">
+    <div class="trust rv">
+      <div><div class="L">T</div><h4>Trace</h4><p>Profile the sources first: schemas, join keys, grain, timezones.</p></div>
+      <div><div class="L">R</div><h4>Record</h4><p>Metric definitions live in a versioned spec the agents follow.</p></div>
+      <div><div class="L">U</div><h4>Underwrite</h4><p>Control totals, impossible-value checks and reference diffs before release.</p></div>
+      <div><div class="L">S</div><h4>Ship</h4><p>Only after the checks pass: tests, real-browser checks, docs in sync.</p></div>
+      <div><div class="L">T</div><h4>Track</h4><p>Freshness checks and alerts in production. Every incident becomes a test.</p></div>
+    </div>
+    <p class="tagline rv">Agents build it. <span>Deterministic code runs it.</span> I own the policy.</p>
+    <div class="rules rv">
+      <div><b>Two agents, two lanes</b><span>One owns logic and tooling, the other presentation. They never edit the same branch.</span></div>
+      <div><b>Release gates</b><span>Production changes ship through reviewed pull requests, never direct pushes.</span></div>
+      <div><b>Stakeholder-ready</b><span>Requests from leadership across Egypt, China and the Gulf, turned into metrics people agree on.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="more">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><b>03</b> · More work</div>
+      <h2>Smaller builds, real results.</h2>
+    </div>
+    <div class="tiles rv">
+      <div class="tile"><b class="c">Mins → secs</b><h4>AI lead qualification</h4><p>n8n workflow: capture, eligibility, routing, tailored email and model-assisted recommendations. From 15–20 minutes per lead to seconds.</p></div>
+      <div class="tile"><b>66 → 80%</b><h4>WhatsApp reachability</h4><p>A measurement framework that exposed recurring platform defects, then a daily KPI loop that fixed them within three weeks.</p></div>
+      <div class="tile"><b>0 failures</b><h4>Agent skill rebuild</h4><p>A failing AI skill rebuilt as short, ordered steps. It has run daily without a failure since 6 October, in 20–40 minutes.</p></div>
+      <a class="tile" href="demo/" target="_blank" rel="noopener"><b class="c">Live</b><h4>Regional performance demo</h4><p>The daily sales-floor view: teams, funnel, targets against pace and rankings. All data is synthetic.</p><span class="go">Open the demo ↗</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="experience" class="band">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div class="eyebrow"><b>04</b> · Experience</div>
+      <h2>Four years making performance measurable.</h2>
+    </div>
+    <div class="xp rv">
       <div>
-        <h3>Direct BI access, no API, no manual login</h3>
-        <p style="color:#e8e4d8;font-weight:600">The BI platform offered no API. I reverse-engineered the data calls its own interface makes. A headless browser restores a saved login, takes a fresh security token and calls the SQL endpoint directly, so a Python query builder runs bounded SQL with nobody logging in. Each extraction takes about <b>8 seconds</b>. <a href="#no-api" style="color:var(--yellow)">The full story ↓</a></p>
-        <ul style="color:#e8e4d8">
-          <li>Date-bounded windows, inclusive start and exclusive end, in the source's timezone</li>
-          <li>Accepted only if schema, date coverage, row count and control totals all agree</li>
-          <li>Results capped at 200 rows, so aggregates return as one payload with independent totals</li>
-          <li>Conflicting duplicates are rejected, never resolved by silently taking the maximum</li>
-          <li>Rates computed from summed counts, never averaged percentages</li>
-        </ul>
-        <div class="alert" tabindex="0" style="color:var(--ink)"><div class="ic">!</div><div class="tx">Alert to the data engineering team<small>malformed export · 24 fields, expected 133</small></div></div>
+        <div class="job"><div class="d">Jul 2026 – now</div><div><h4>Sales Strategy, Analytics Systems &amp; AI Automation Specialist <span>· Online education</span></h4><p>Built the regional analytics platform, its forecasting engine and the unattended pipelines behind it, for stakeholders across Egypt, China and the Gulf.</p></div></div>
+        <div class="job"><div class="d">Aug 2025 – May 2026</div><div><h4>Quality &amp; Data Analyst <span>· Creo Global, remote Dubai</span></h4><p>Measurement framework behind a 66% → 80% reachability gain, plus a daily KPI and weekly close-out system.</p></div></div>
+        <div class="job"><div class="d">Oct 2023 – Jan 2026</div><div><h4>Quality Evaluator <span>· Concentrix</span></h4><p>Turned recurring performance problems into analyses and decision tools, with automated Excel systems.</p></div></div>
       </div>
-      <div class="win sqlwin">
-        <div class="hd"><i class="dot" style="background:#ff6b6b"></i><i class="dot" style="background:#ffd84d"></i><i class="dot" style="background:#6ee7b7"></i><span style="margin-left:8px;font-family:var(--mono);font-size:12px;font-weight:600">dedupe_then_aggregate.sql</span></div>
-<pre id="sql">WITH message_facts AS (
-  SELECT
-    message_id,
-    template_name,
-    min(send_time)                       AS first_send,
-    max(send_status = 1)                 AS sent,
-    max(is_delivered = 1 OR is_read = 1) AS delivered,
-    max(is_read = 1)                     AS read,
-    uniqExact(tuple(send_status, is_delivered, is_read)) AS variants
-  FROM   analytics.message_send_log
-  WHERE  send_time &gt;= toDateTime('&lt;START&gt;', 'Asia/Shanghai')
-    AND  send_time &lt;  toDateTime('&lt;END&gt;',   'Asia/Shanghai')
-    AND  template_name IN (&lt;APPROVED_TEMPLATES&gt;)
-  GROUP BY message_id, template_name
-)
-SELECT
-  toDate(first_send, 'Asia/Shanghai') AS day,
-  template_name,
-  sum(sent)      AS sent_count,
-  sum(delivered) AS delivered_count,
-  sum(read)      AS read_count,
-  countIf(variants != 1) AS conflicts   -- must be 0
-FROM message_facts
-GROUP BY day, template_name
-ORDER BY day, template_name;</pre>
+      <div class="skills">
+        <div><h5>Analytics</h5><div class="chips"><span>Forecasting &amp; backtesting</span><span>Funnel &amp; cohort analysis</span><span>Attribution</span><span>KPI design</span></div></div>
+        <div><h5>Data &amp; engineering</h5><div class="chips"><span>SQL</span><span>Python</span><span>pandas</span><span>JavaScript</span><span>Playwright</span><span>Cloudflare</span><span>Git</span></div></div>
+        <div><h5>AI &amp; automation</h5><div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops</span><span>Multi-agent runs</span><span>n8n</span></div></div>
+        <div><h5>Presentation</h5><div class="chips"><span>ECharts</span><span>Remotion</span><span>Excel · DAX</span><span>Executive storytelling</span></div></div>
       </div>
-    </div>
-    <div class="stats" style="color:var(--ink)">
-      <div><b>1 week</b><span>from handover to the official daily dashboard, built with agents</span></div>
-      <div><b>~50 h</b><span>of analyst work, done by one agent-built pipeline every run</span></div>
-      <div><b>~8 s</b><span>per pull straight from the BI platform: no API, no manual login</span></div>
-      <div><b>22</b><span>source inputs validated and gated every run</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="wrap">
-    <span class="tag">AI-native workflow</span>
-    <h2>I run coding agents like an engineering lead runs a team</h2>
-    <p class="sub"><b>Agents build it. Deterministic code runs it. I own the policy.</b> The leverage is in the contract, not the prompt: who owns what, what must never change, and how a fresh session recovers context without guessing.</p>
-    <div class="ledger">
-      <div class="row"><h3>Agentic loop, with boundaries</h3><p>I used an <b>agentic loop</b> (inspect, implement, test, refine) to fix a data validator that kept halting the daily run on problems we had already reviewed, which hid new ones behind them. I set the boundaries: <b>regression tests plus a replay of real production exports</b> as the finish line, and a mode where nothing can be published or sent. The fix is a <b>defect register</b> that remembers each reviewed problem, record by record. The daily run itself is <b>deterministic Python</b> with no AI in it: it warns on known issues, emails the data engineering team to investigate any newly missing records, and still blocks on corrupted data. The agent builds and tests. I own the policy.</p></div>
-      <div class="row"><h3>Two agents, two lanes</h3><p>One agent owns features, calculations and tooling. The other owns layout and presentation, and never touches calculations or release tooling. Two agents never edit the same branch.</p></div>
-      <div class="row"><h3>Memoryless handoff</h3><p>A new session must produce a recovery summary (objective, privacy boundary, plan, open decisions) and wait for approval before writing code.</p></div>
-      <div class="row"><h3>Invariants as rules</h3><p>Month-keyed targets, no hard-coded paths, generated folders never treated as source, and docs updated in the same change as logic.</p></div>
-      <div class="row"><h3>Verify, don't trust</h3><p>Screenshot QA before any deploy, minimal reproductions for recurring alerts, and metrics checked against the documented formula, not a neighbouring row.</p></div>
-      <div class="row"><h3>Parallel agent runs</h3><p>Work fans out to sub-agents in batches of 20 with evidence checked at each stage. Runs are priced before launch so one job cannot exhaust the working budget.</p></div>
-      <div class="row"><h3>Release gates</h3><p>Preflight, calculation tests, real-browser checks, a language gate, a documentation-sync gate and a staged release. Production changes go through reviewed pull requests, never direct pushes.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="cases" class="dark">
-  <div class="wrap">
-    <span class="tag">Case studies</span>
-    <h2>From ambiguous problem to a decision</h2>
-    <div class="ledger">
-      <div class="row" id="no-api"><div><span class="sticker c-pink" style="color:var(--ink)">No API</span><small>my biggest unlock</small></div><div><h3>The data nobody could see. Now it arrives every morning.</h3><p><b>Dead end:</b> I had no API access to the BI platform, and nobody could see WhatsApp data on a daily basis. Nobody knew what to do, and the usual answer was that it couldn't be done.</p><p><b>The move:</b> I traced how the platform's own interface loads its data, then rebuilt those calls on the backend. A headless browser holds the session and calls the endpoint directly, so my agent reads the platform with no API and nobody logging in.</p><p><b>Now:</b> WhatsApp data lands every morning, on a schedule, in front of the team. Each extraction takes about 8 seconds and is accepted only if schema, dates, row counts and control totals agree.</p></div></div>
-      <div class="row" id="forecast"><div><span class="sticker c-blue" style="color:var(--ink)">6 models compete</span><small>evidence picks the winner</small></div><div><h3>A forecasting engine that runs a contest, not a guess</h3><p>Most forecasts pick one method and hope. Mine makes six compete: a naive last-month baseline, two moving averages, exponential smoothing, a damped-trend model, and a <b>driver-based model</b> (paid orders × average order value). Each is scored with <b>rolling-origin backtesting</b>: train on earlier months, predict the next, move forward, repeat. The winner is chosen on <b>WAPE</b>, then MAE, then simplicity, with bias and historical error ranges shown beside it. In its September backtest it landed within <b>0.97%</b> of actual revenue.</p><p>A second, <b>lead-aware in-month model</b> adds lead volume, conversion timing, weekday patterns and revenue already booked. I built it in an agentic loop: the agent inspects the pipelines, implements and tests the logic, and every result is challenged against the simple baselines before it is trusted.</p></div></div>
-      <div class="row"><div><span class="sticker c-yellow" style="color:var(--ink)">Less is more</span><small>short, ordered, direct steps</small></div><div><h3>Rebuilding an agent skill that failed</h3><p>The first approach put one large, unstructured instruction file inside an existing assistant, and the target customers never came through. The assistant's database was not built for the sales data, and the skill was too long for the agent to follow.</p><p>After studying how practitioners write agent instructions, I rebuilt the skill as short, direct steps and restructured how the data enters its database with the colleague who built the assistant. The daily run has finished without a failure since, in 20 to 40 minutes.</p></div></div>
-      <div class="row"><div><span class="sticker c-mint" style="color:var(--ink)">66 → 80%</span><small>within three weeks</small></div><div><h3>Diagnosing a WhatsApp reachability ceiling</h3><p>Built a measurement framework that quantified contribution by failure type and exposed recurring platform defects, then drove the fix through a daily KPI and weekly close-out loop.</p></div></div>
-      <div class="row"><div><span class="sticker c-blue" style="color:var(--ink)">Minutes → seconds</span><small>per lead, from 15–20 minutes</small></div><div><h3>AI-assisted lead qualification</h3><p>An n8n workflow connecting capture, eligibility checks, programme routing, tailored email, logging and model-assisted recommendations for sales review.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <span class="tag">Experience</span>
-    <h2>Four years, one thread: make performance measurable</h2>
-    <div class="ledger">
-      <div class="job"><div class="d">Jul 2026 – Present</div><div><h3>Sales Strategy, Analytics Systems and AI Automation Specialist</h3><p>Online education company. Designed and built the regional commercial analytics platform, its attribution rules, reconciliation controls and automated reporting, for stakeholders across Egypt, China and the Gulf.</p></div></div>
-      <div class="job"><div class="d">Aug 2025 – May 2026</div><div><h3>Quality and Data Analyst · Creo Global (remote, Dubai)</h3><p>Built the measurement framework behind a reachability improvement, plus a daily KPI and weekly close-out system for a multi-timezone team.</p></div></div>
-      <div class="job"><div class="d">Aug 2021 – Jan 2026</div><div><h3>Quality Evaluator · Concentrix</h3><p>Turned recurring performance problems into analyses and decision tools, and built automated Excel systems with multi-source validation.</p></div></div>
-    </div>
-    <div class="skillgrid">
-      <div class="cg"><h4>Revenue operations &amp; analysis</h4><div class="chips"><span>Funnel and cohort analysis</span><span>Attribution rules</span><span>KPI design</span><span>Forecasting and backtesting</span><span>Model selection (WAPE, MAE, bias)</span><span>Root-cause analysis</span></div></div>
-      <div class="cg"><h4>Data &amp; SQL</h4><div class="chips"><span>SQL (ClickHouse-style)</span><span>pandas</span><span>Data validation</span><span>Reconciliation controls</span><span>Power Query, Power Pivot and DAX</span></div></div>
-      <div class="cg"><h4>Engineering &amp; integration</h4><div class="chips"><span>Python</span><span>JavaScript</span><span>Reverse-engineered BI endpoints</span><span>Unattended pipelines</span><span>Playwright</span><span>Git &amp; GitHub</span><span>Cloudflare</span></div></div>
-      <div class="cg"><h4>AI &amp; automation</h4><div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops (inspect, implement, test, refine)</span><span>Multi-agent runs</span><span>Prompt and skill design</span><span>n8n</span><span>TRUST framework</span></div></div>
-      <div class="cg"><h4>Stakeholders &amp; presentation</h4><div class="chips"><span>Stakeholder management</span><span>Executive-ready data presentation</span><span>Remotion data video</span><span>ECharts</span><span>Tableau-informed chart design</span></div></div>
     </div>
   </div>
 </section>
 
 <section id="contact" class="contact">
-  <div class="wrap">
-    <span class="tag">Contact</span>
-    <h2>Let's talk about your revenue data.</h2>
-    <div class="win c-pink"><div class="hd"><span>Get in touch</span><em>Cairo · remote or relocation</em></div>
-      <div class="bd"><a class="em" href="mailto:mustafasalah5321@gmail.com">mustafasalah5321@gmail.com</a>
-      <div class="btns"><a class="btn" href="https://www.linkedin.com/in/mustafa-mahmoud-0bbb10228" target="_blank" rel="noopener">LinkedIn ↗</a></div></div></div>
+  <div class="wrap rv">
+    <div class="eyebrow"><b>05</b> · Contact</div>
+    <h2 style="margin-top:14px">Let's build what's next.</h2>
+    <a class="mail" href="mailto:mustafasalah5321@gmail.com">mustafasalah5321@gmail.com</a>
+    <div class="cta" style="display:flex;gap:14px;margin-top:30px;flex-wrap:wrap">
+      <a class="btn primary" href="mailto:mustafasalah5321@gmail.com">Email me</a>
+      <a class="btn" href="https://www.linkedin.com/in/mustafa-mahmoud-0bbb10228" target="_blank" rel="noopener">LinkedIn ↗</a>
+    </div>
   </div>
 </section>
-<footer><div class="wrap">© 2026 Mustafa Mahmoud. Portfolio screenshots use synthetic data.</div></footer>
+</main>
+
+<footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>Screenshots, film and demo use synthetic data.</span></div></footer>
 
 <script>
 (function(){
-  var shots=[
-    {id:'overview',t:'Command Center',p:'Ranked action centre and headline KPIs against the target and benchmark, with every figure naming its calculation scope.'},
-    {id:'funnel',t:'Funnel Performance',p:'Unique persons through lead, attendance and payment, with loss at each step and cohort windows that exclude immature data.'},
-    {id:'forecasting',t:'Forecasting',p:'Six forecasting methods compete on rolling backtests and the best is picked on error and bias. The next-month plan comes with an 80% range and a sustain-or-improve recommendation per measure.'},
-    {id:'weekly',t:'Weekly Overview',p:'A plain-English weekly verdict: what happened, why, and the recommended action, with every measure checked for maturity before it is judged.'},
-    {id:'gmvdrivers',t:'GMV Drivers',p:'Contribution breakdown showing which team and segment moved the number, and by how much.'}
-  ];
-  var tabs=document.getElementById('tabs');
-  function show(i){
-    var s=shots[i];
-    document.getElementById('si').src='assets/platform-'+s.id+'.png';
-    document.getElementById('si').alt=s.t+' view of the platform, synthetic data';
-    document.getElementById('st').textContent=s.t;
-    document.getElementById('ct').textContent=s.t;
-    document.getElementById('cp').textContent=s.p;
-    [].forEach.call(tabs.children,function(b,j){b.setAttribute('aria-selected',j===i)});
-  }
-  shots.forEach(function(s,i){var b=document.createElement('button');b.type='button';b.textContent=s.t;b.setAttribute('role','tab');b.onclick=function(){show(i)};tabs.appendChild(b)});
-  show(0);
-  var q=document.getElementById('sql');
-  q.innerHTML=q.innerHTML
-    .replace(/(--[^\n]*)/g,'<span class="c">$1</span>')
-    .replace(/('[^']*')/g,'<span class="s">$1</span>')
-    .replace(/\b(WITH|AS|SELECT|FROM|WHERE|AND|OR|IN|GROUP BY|ORDER BY)\b/g,'<span class="k">$1</span>')
-    .replace(/\b(min|max|sum|uniqExact|tuple|toDateTime|toDate|countIf)(?=\()/g,'<span class="p">$1</span>');
-})();
-(function(){
+  var words=['AI automations','agentic AI systems','revenue operations analytics','forecasting engines','data pipelines that run themselves','dashboards leaders trust'];
+  var el=document.getElementById('tw');
   var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.body.classList.add('kin');
-  /* hero name: split into letters */
-  var h1=document.querySelector('h1');
-  if(h1){
-    var words=h1.innerHTML.split('<br>'),n=0;
-    h1.setAttribute('aria-label',words.join(' ').replace(/\s+/g,' ').trim());
-    h1.innerHTML=words.map(function(w){
-      return '<span class="w" aria-hidden="true">'+w.split('').map(function(c){return '<span class="ch" style="--i:'+(n++)+'">'+c+'</span>'}).join('')+'</span>';
-    }).join('<br>');
-    if(!reduce && window.matchMedia('(hover:hover)').matches){
-      var chs=[].slice.call(h1.querySelectorAll('.ch')),raf=0,mx=0,my=0,on=false;
-      function frame(){raf=0;
-        chs.forEach(function(c){var r=c.getBoundingClientRect(),dx=mx-(r.left+r.width/2),dy=my-(r.top+r.height/2),d=Math.sqrt(dx*dx+dy*dy);
-          c.style.setProperty('--d',d<170?((1-d/170)).toFixed(3):0)});
-      }
-      document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;if(!raf)raf=requestAnimationFrame(frame)});
-      h1.addEventListener('mouseleave',function(){chs.forEach(function(c){c.style.setProperty('--d',0)})});
-    }
+  if(reduce){el.textContent=words[1];}
+  else{
+    var w=0,i=0,del=false;
+    (function tick(){
+      var cur=words[w];
+      i+=del?-1:1;
+      el.textContent=cur.slice(0,i);
+      var wait=del?32:62;
+      if(!del&&i===cur.length){del=true;wait=1500}
+      else if(del&&i===0){del=false;w=(w+1)%words.length;wait=280}
+      setTimeout(tick,wait);
+    })();
   }
-  /* headings: words rise into place on scroll */
-  var heads=[].slice.call(document.querySelectorAll('h2')).filter(function(h){return !h.children.length});
-  heads.forEach(function(h){
-    var txt=h.textContent;h.setAttribute('aria-label',txt);
-    h.innerHTML=txt.split(' ').map(function(w,i){return '<span class="rwo" aria-hidden="true"><span class="rwi" style="--i:'+i+'">'+w+'</span></span>'}).join(' ');
-  });
-  var tw=[].slice.call(document.querySelectorAll('.trust .win'));
-  tw.forEach(function(w,i){w.style.setProperty('--k',i)});
-  var targets=heads.concat(tw);
-  if('IntersectionObserver' in window && !reduce){
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.25,rootMargin:'0px 0px -6% 0px'});
-    targets.forEach(function(t){io.observe(t)});
-  }else{targets.forEach(function(t){t.classList.add('in')})}
-  /* marquee speeds up with scroll velocity */
-  if(!reduce){
-    var last=window.scrollY,rate=1,tick=0;
-    function loop(){
-      var y=window.scrollY,v=Math.abs(y-last);last=y;
-      var target=1+Math.min(v/6,7);rate+=(target-rate)*(target>rate?.25:.04);
-      document.querySelectorAll('.marq .trk').forEach(function(el){el.getAnimations().forEach(function(a){a.playbackRate=rate})});
-      requestAnimationFrame(loop);
-    }
-    requestAnimationFrame(loop);
-  }
-})();
-/* halftone dot fields (canvas): dot size follows a gradient from a corner */
-(function(){
-  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var fields=[];
-  function mk(host,anchors,interactive){
-    var c=document.createElement('canvas');c.className='ht';c.setAttribute('aria-hidden','true');
-    host.insertBefore(c,host.firstChild);
-    var f={host:host,c:c,ctx:c.getContext('2d'),anchors:anchors,mx:-999,my:-999,interactive:interactive,w:0,h:0};
-    fields.push(f);return f;
-  }
-  function draw(f){
-    var host=f.host,w=host.clientWidth,h=host.clientHeight,dpr=Math.min(window.devicePixelRatio||1,2);
-    if(f.w!==w||f.h!==h){f.w=w;f.h=h;f.c.width=w*dpr;f.c.height=h*dpr}
-    var x=f.ctx;x.setTransform(dpr,0,0,dpr,0,0);x.clearRect(0,0,w,h);
-    var s=w<700?13:17,rowH=s*0.866,diag=Math.sqrt(w*w+h*h);
-    for(var ai=0;ai<f.anchors.length;ai++){
-      var a=f.anchors[ai],ax=a.x*w,ay=a.y*h,reach=a.reach*diag,maxR=s*0.52*(a.size||1);
-      x.fillStyle=a.color;
-      var r0=Math.floor(h/rowH)+1,c0=Math.floor(w/s)+1;
-      for(var j=0;j<=r0;j++){
-        var py=j*rowH,off=(j%2)*s/2;
-        if(Math.abs(py-ay)>reach)continue;
-        for(var i=0;i<=c0;i++){
-          var px=i*s+off,dx=px-ax,dy=py-ay,d=Math.sqrt(dx*dx+dy*dy);
-          var tt=1-d/reach;if(tt<=0)continue;
-          var rad=maxR*Math.pow(tt,1.15);
-          if(f.interactive){var mx=px-f.mx,my=py-f.my,md=Math.sqrt(mx*mx+my*my);if(md<150){rad=Math.min(maxR*1.05,rad+maxR*0.8*(1-md/150))}}
-          if(rad<0.4)continue;
-          x.beginPath();x.arc(px,py,rad,0,6.2832);x.fill();
-        }
-      }
-    }
-  }
-  function drawAll(){fields.forEach(draw)}
-  var hero=document.querySelector('.hero');
-  var P='#ff66a3',Y='#ffd84d',B='#8db4ff',I='#111';
-  if(hero){
-    var hf=mk(hero,[{x:1,y:0,reach:.52,color:P,size:1.1},{x:0,y:1,reach:.3,color:Y,size:.8}],true);
-    if(!reduce && window.matchMedia('(hover:hover)').matches){
-      var raf=0;
-      hero.addEventListener('mousemove',function(e){var r=hero.getBoundingClientRect();hf.mx=e.clientX-r.left;hf.my=e.clientY-r.top;if(!raf)raf=requestAnimationFrame(function(){raf=0;draw(hf)})});
-      hero.addEventListener('mouseleave',function(){hf.mx=hf.my=-999;draw(hf)});
-    }
-  }
-  var cfg={trust:[{x:1,y:0,reach:.5,color:'rgba(255,102,163,.55)'},{x:0,y:1,reach:.4,color:'rgba(141,180,255,.45)'}],
-           pipeline:[{x:0,y:0,reach:.5,color:'rgba(110,231,183,.45)'},{x:1,y:1,reach:.4,color:'rgba(255,216,77,.4)'}],
-           cases:[{x:1,y:0,reach:.5,color:'rgba(141,180,255,.5)'},{x:0,y:1,reach:.4,color:'rgba(255,102,163,.45)'}],
-           contact:[{x:1,y:1,reach:.55,color:'rgba(17,17,17,.9)',size:1},{x:0,y:0,reach:.3,color:'rgba(255,255,255,.7)',size:.8}]};
-  Object.keys(cfg).forEach(function(id){var el=document.getElementById(id);if(el)mk(el,cfg[id],false)});
-  drawAll();
-  var rt=0;window.addEventListener('resize',function(){clearTimeout(rt);rt=setTimeout(drawAll,120)});
-  if(document.fonts&&document.fonts.ready)document.fonts.ready.then(drawAll);
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.18});
+  document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
 })();
 </script>
 </body>
