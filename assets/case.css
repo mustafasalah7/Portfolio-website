@@ -128,3 +128,4 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 .sh>*{min-width:0}
 @media (max-width:620px){.nav .btn.sm{display:none}.nav{gap:14px}}
+.brand{display:inline-flex;align-items:center}.brand svg.logo{width:32px;height:32px;margin-right:12px;flex:none;transition:transform .25s}.brand:hover svg.logo{transform:rotate(-6deg) scale(1.06)}
