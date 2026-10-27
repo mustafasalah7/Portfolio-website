@@ -186,6 +186,20 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   .badge b{font-size:32px}
   .frame .bar em{display:none}
 }
+/* launch film */
+.frame.filmframe{box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 0 1px rgba(45,226,230,.28),0 0 70px rgba(45,226,230,.16)}
+.filmwrap{position:relative}
+.filmwrap video{width:100%;aspect-ratio:1/1;background:#05080f;display:block}
+.rec{display:inline-flex;align-items:center;gap:8px;margin-left:8px;color:var(--ink);font-weight:700}
+.rec b{width:8px;height:8px;border-radius:50%;background:#ff4d6d;box-shadow:0 0 8px #ff4d6d;animation:recblink 1.4s infinite}
+@keyframes recblink{50%{opacity:.25}}
+.soundon{position:absolute;left:50%;bottom:22px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:8px;font:700 15px/1 var(--sans);color:#041014;background:var(--cyan);border:0;border-radius:999px;padding:13px 22px;cursor:pointer;white-space:nowrap;animation:soundpulse 2.2s infinite}
+.soundon:hover{filter:brightness(1.12)}
+.soundon.big{bottom:50%;transform:translate(-50%,50%);font-size:18px;padding:17px 30px}
+.soundon[hidden]{display:none}
+@keyframes soundpulse{0%{box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 0 rgba(45,226,230,.55)}70%{box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 18px rgba(45,226,230,0)}100%{box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 0 rgba(45,226,230,0)}}
+.filmlink{align-self:center;font-family:var(--mono);font-size:13.5px;font-weight:700;letter-spacing:.06em;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(45,226,230,.35);padding-bottom:2px}
+.filmlink:hover{border-color:var(--cyan)}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
@@ -219,6 +233,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <div class="cta">
       <a class="btn primary" href="#work">See the work ↓</a>
       <a class="btn" href="https://www.linkedin.com/in/mustafa-mahmoud-0bbb10228" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a class="filmlink" href="#film">▶ Watch the 50-second film</a>
     </div>
     <div class="kpis rv">
       <div><b class="c">16</b><span>reporting views in one connected daily workflow</span></div>
@@ -238,10 +253,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <!-- Project 1 -->
     <article class="proj rv">
       <div class="visual">
-        <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">LAUNCH FILM</span><em>50 s · synthetic data</em></div>
-          <video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="none"></video>
-        </div>
+        <div class="frame filmframe" data-film id="film"><div class="bar"><i></i><i></i><i></i><span class="rec"><b></b>FILM · 50 S</span><em>synthetic data</em></div><div class="filmwrap"><video src="assets/launch.mp4" poster="assets/launch-poster.jpg" muted loop playsinline preload="none"></video><button class="soundon" type="button">▶ Watch with sound · 50 s</button></div></div>
       </div>
       <div class="story">
         <div class="eyebrow"><b>Flagship</b> · Operations Intelligence &amp; Planning Platform</div>
@@ -457,5 +469,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
   document.querySelectorAll('.rv').forEach(function(n){io.observe(n)});
 })();
 </script>
+<script src="assets/film.js"></script>
 </body>
 </html>
