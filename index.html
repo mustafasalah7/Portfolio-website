@@ -282,7 +282,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
             <div class="r"><span class="p">$</span><span class="k">inspect</span><span class="v">code · scheduler · decision history</span><span class="ok">OK</span></div>
             <div class="r"><span class="p">$</span><span class="k">implement</span><span class="v">defect register, record by record</span><span class="ok">OK</span></div>
             <div class="r"><span class="p">$</span><span class="k">test</span><span class="v">regression tests · real-export replay</span><span class="ok">OK</span></div>
-            <div class="r"><span class="p">$</span><span class="k">refine</span><span class="v">human-approved policy</span><span class="ok">OK</span></div>
+            <div class="r"><span class="p">$</span><span class="k">refine</span><span class="v">rules approved by me</span><span class="ok">OK</span></div>
             <hr>
             <div class="rt">runtime: deterministic Python · no AI</div>
             <div class="rule"><em>known</em>warn, keep running</div>
@@ -296,12 +296,12 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <h3>AI builds it. Deterministic code runs it.</h3>
         <p><b>Problem.</b> A defect we had already reviewed kept halting the daily run, and it hid new problems behind it.</p>
         <p><b>What I built.</b> An agentic loop (inspect, implement, test, refine) with boundaries I set: regression tests and a replay of real exports as the finish line, and nothing published or sent while testing. The result is a defect register that remembers what was decided, run by plain Python with no AI in it.</p>
-        <div class="built"><b>HOW IT WAS BUILT</b>I set the boundaries and the finish line. An agent ran inspect → implement → test → refine until a replay of real exports passed, and I approved the policy.</div>
+        <div class="built"><b>HOW IT WAS BUILT</b>I set the boundaries and the finish line. An agent ran inspect → implement → test → refine until a replay of real exports passed, and I decided which issues stop the run.</div>
         <div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops</span><span>Python</span><span>Regression tests</span></div>
         <div class="outcome">
           <div><b class="c">Known</b><span>issues no longer stop the run</span></div>
           <div><b>New</b><span>losses emailed automatically</span></div>
-          <div><b>Human</b><span>owns the policy</span></div>
+          <div><b>Human</b><span>decides what stops a run</span></div>
         </div>
         <div class="links"><a class="btn sm primary" href="validator.html">Case study →</a></div>
       </div>
@@ -392,7 +392,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div><div class="L">S</div><h4>Ship</h4><p>Only after the checks pass: tests, real-browser checks, docs in sync.</p></div>
       <div><div class="L">T</div><h4>Track</h4><p>Freshness checks and alerts in production. Every incident becomes a test.</p></div>
     </div>
-    <p class="tagline rv">Agents build it. <span>Deterministic code runs it.</span> I own the policy.</p>
+    <p class="tagline rv">I design the system and configure the agent harness. <span>The agents turn my ideas into reliable systems that run every day.</span></p>
     <div class="rules rv">
       <div><b>Two agents, two lanes</b><span>One owns logic and tooling, the other presentation. They never edit the same branch.</span></div>
       <div><b>Release gates</b><span>Production changes ship through reviewed pull requests, never direct pushes.</span></div>
