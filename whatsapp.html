@@ -43,9 +43,9 @@
     <h2>Use the door the interface already uses.</h2>
     <p class="tabcap" style="margin:0 0 22px">The platform's screens load their data through internal calls. I traced those calls and rebuilt them as an automated step.</p>
     <div class="steps" style="grid-template-columns:repeat(4,1fr)">
-      <div><div class="n">01</div><h4>Restore session</h4><p>A headless browser reopens a saved, authorised login. Nobody signs in.</p></div>
+      <div><div class="n">01</div><h4>Restore session</h4><p>Headless Chrome reopens a saved, authorised login. Nobody signs in.</p></div>
       <div><div class="n">02</div><h4>Fresh token</h4><p>It takes a new security token for this run.</p></div>
-      <div><div class="n">03</div><h4>Direct call</h4><p>A bounded SQL query goes straight to the platform's own query endpoint.</p></div>
+      <div><div class="n">03</div><h4>In-session call</h4><p>A bounded SQL query is sent to the platform's query endpoint from inside that browser session.</p></div>
       <div><div class="n">04</div><h4>Validate</h4><p>The result is accepted only if every check agrees.</p></div>
     </div>
   </div>

@@ -219,8 +219,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <a class="btn" href="https://www.linkedin.com/in/mustafa-mahmoud-0bbb10228" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
     <div class="kpis rv">
-      <div><b class="c">16</b><span>reporting views that build themselves before 8 a.m.</span></div>
-      <div><b class="a">~50 h</b><span>of analyst work done by the pipeline every run</span></div>
+      <div><b class="c">16</b><span>reporting views in one connected daily workflow</span></div>
+      <div><b class="a">8</b><span>stakeholders using it, weekly average</span></div>
       <div><b class="c">0.97%</b><span>forecast error in the September backtest</span></div>
     </div>
   </div>
@@ -237,19 +237,19 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
     <article class="proj rv">
       <div class="visual">
         <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">LAUNCH FILM</span><em>76 s · synthetic data</em></div>
+          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">LAUNCH FILM</span><em>50 s · synthetic data</em></div>
           <video src="assets/launch.mp4" poster="assets/launch-poster.jpg" controls playsinline preload="none"></video>
         </div>
       </div>
       <div class="story">
-        <div class="eyebrow"><b>Flagship</b> · Revenue Analytics Platform</div>
-        <h3>Not a dashboard. A decision layer.</h3>
-        <p><b>Problem.</b> Sixteen reporting views, about 50 analyst hours of work by hand, and still no single answer to "are we on pace?"</p>
-        <p><b>What I built.</b> A bilingual platform that rebuilds itself every morning before 8 a.m. It says whether we're on pace, where the month will land, whether the data is clean, and why the numbers moved, from region down to each rep.</p>
-        <div class="chips"><span>SQL</span><span>Python</span><span>JSON</span><span>JavaScript</span><span>ECharts</span><span>Scheduler</span><span>Git</span></div>
+        <div class="eyebrow"><b>Flagship</b> · Operations Intelligence &amp; Planning Platform</div>
+        <h3>Understand performance. Diagnose gaps. Plan the next move.</h3>
+        <p><b>Problem.</b> Reporting was spread across exports, screenshots and one-off analyses. Every time someone wanted to dig into a gap or plan a strategy, the work started again from scratch.</p>
+        <p><b>What I built.</b> One daily workflow that connects revenue, acquisition, conversion, referrals, team performance and WhatsApp. Business rules, extraction, data checks and forecasting are built in, so operations and leadership can investigate and plan without asking for a new report.</p>
+        <div class="chips"><span>SQL</span><span>Python</span><span>openpyxl</span><span>JavaScript</span><span>ECharts</span><span>Scheduler</span><span>Git</span></div>
         <div class="outcome">
-          <div><b class="c">16</b><span>views automated</span></div>
-          <div><b>~50 h</b><span>analyst work per run</span></div>
+          <div><b class="c">16</b><span>views, one workflow</span></div>
+          <div><b>6</b><span>business areas connected</span></div>
           <div><b>8</b><span>stakeholders, weekly avg.</span></div>
         </div>
         <div class="links"><a class="btn sm primary" href="platform.html">Case study →</a><a class="btn sm" href="demo/" target="_blank" rel="noopener">Live demo ↗</a></div>
@@ -282,7 +282,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <h3>Six models compete. Evidence picks the winner.</h3>
         <p><b>Problem.</b> Forecasts are usually one method picked by habit, with no proof it works on this business.</p>
         <p><b>What I built.</b> A Python engine that tests six methods on months they have never seen (rolling-origin backtesting), ranks them by WAPE, then MAE, then simplicity, and shows bias and historical error ranges next to the winner. A second, lead-aware model updates the forecast inside the month.</p>
-        <div class="chips"><span>Python</span><span>pandas</span><span>Backtesting</span><span>WAPE · MAE</span><span>Exponential smoothing</span></div>
+        <div class="chips"><span>Python</span><span>Backtesting</span><span>WAPE · MAE</span><span>Exponential smoothing</span></div>
         <div class="outcome">
           <div><b class="c">0.97%</b><span>Sept backtest error</span></div>
           <div><b>6</b><span>methods compared</span></div>
@@ -302,7 +302,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
             <div class="pipe"></div>
             <div class="node"><div class="ic">◎</div><div><b>Headless browser</b><span>Restores a saved login and takes a fresh security token</span></div></div>
             <div class="pipe"></div>
-            <div class="node"><div class="ic">SQL</div><div><b>Direct endpoint call</b><span>Bounded SQL against the platform's own query endpoint</span></div></div>
+            <div class="node"><div class="ic">SQL</div><div><b>In-session SQL call</b><span>Bounded SQL sent to the query endpoint from inside the browser session</span></div></div>
             <div class="pipe"></div>
             <div class="node ok"><div class="ic">✓</div><div><b>Validated, daily</b><span>Schema, dates, row counts and control totals must agree</span></div></div>
           </div>
@@ -312,7 +312,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="eyebrow"><b>Biggest unlock</b> · WhatsApp data</div>
         <h3>The data nobody could see. Now it arrives every morning.</h3>
         <p><b>Problem.</b> No API access, and nobody could see WhatsApp performance day to day. The usual answer was "it can't be done."</p>
-        <p><b>What I built.</b> I traced how the platform's own interface loads its data and rebuilt those calls. A headless browser holds the session and calls the endpoint directly, so the data lands every morning with nobody logging in.</p>
+        <p><b>What I built.</b> I traced how the platform's own interface loads its data and rebuilt those calls. A headless Chrome session reuses an authorised login, takes a fresh security token and runs the query from inside the browser, so the data lands every morning with nobody logging in.</p>
         <div class="chips"><span>Reverse engineering</span><span>Playwright</span><span>SQL</span><span>Python</span><span>Validation</span></div>
         <div class="outcome">
           <div><b class="c">Daily</b><span>WhatsApp data, previously none</span></div>
@@ -410,7 +410,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </div>
       <div class="skills">
         <div><h5>Analytics</h5><div class="chips"><span>Forecasting &amp; backtesting</span><span>Funnel &amp; cohort analysis</span><span>Attribution</span><span>KPI design</span></div></div>
-        <div><h5>Data &amp; engineering</h5><div class="chips"><span>SQL</span><span>Python</span><span>pandas</span><span>JavaScript</span><span>Playwright</span><span>Cloudflare</span><span>Git</span></div></div>
+        <div><h5>Data &amp; engineering</h5><div class="chips"><span>SQL</span><span>Python</span><span>openpyxl</span><span>JavaScript</span><span>Playwright</span><span>Cloudflare</span><span>Git</span></div></div>
         <div><h5>AI &amp; automation</h5><div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops</span><span>Multi-agent runs</span><span>n8n</span></div></div>
         <div><h5>Presentation</h5><div class="chips"><span>ECharts</span><span>Remotion</span><span>Excel · DAX</span><span>Executive storytelling</span></div></div>
       </div>
@@ -431,7 +431,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 </section>
 </main>
 
-<footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>Screenshots, film and demo use synthetic data.</span></div></footer>
+<footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>Synthetic data · operational integrations disconnected.</span></div></footer>
 
 <script>
 (function(){
