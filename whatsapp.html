@@ -18,7 +18,7 @@
 <main>
 <div class="wrap">
   <div class="hero">
-    <div class="eyebrow"><b>Case study 03</b> · Biggest unlock</div>
+    <div class="eyebrow"><b>Case study 04</b> · Biggest unlock</div>
     <h1>The data nobody could see. Now it arrives every morning.</h1>
     <p class="lead">There was no API, and the usual answer was "it can't be done." I found another way in, and turned it into a daily pipeline nobody has to touch.</p>
     <div class="kpis">
@@ -39,10 +39,22 @@
 </div></section>
 
 <section><div class="wrap sh rv">
+  <div class="eyebrow">How it was built</div>
+  <div>
+    <h2>The idea the AI didn't have.</h2>
+    <p class="tabcap" style="margin:0 0 22px">Agents are fast, but they work inside the options they can see. This one needed a different question.</p>
+    <div class="cards">
+      <div class="card"><div class="k">My part</div><p>Proposed reverse-engineering the BI platform's own query endpoints. None of the AI tools had suggested it.</p></div>
+      <div class="card"><div class="k">The agents' part</div><p>Once pointed there, audited how the interface loads its data on the backend, rebuilt the endpoint call and turned it into a validated daily step.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<section><div class="wrap sh rv">
   <div class="eyebrow">The move</div>
   <div>
     <h2>Use the door the interface already uses.</h2>
-    <p class="tabcap" style="margin:0 0 22px">The platform's screens load their data through internal calls. I traced those calls and rebuilt them as an automated step.</p>
+    <p class="tabcap" style="margin:0 0 22px">The platform's screens load their data through internal calls. Those calls were traced and rebuilt as an automated step.</p>
     <div class="steps" style="grid-template-columns:repeat(4,1fr)">
       <div><div class="n">01</div><h4>Restore session</h4><p>Headless Chrome reopens a saved, authorised login. Nobody signs in.</p></div>
       <div><div class="n">02</div><h4>Fresh token</h4><p>It takes a new security token for this run.</p></div>
@@ -105,7 +117,7 @@
 
 <section><div class="wrap next">
   <a class="btn" href="forecasting.html">← Forecasting</a>
-  <a class="go" href="validator.html"><span>NEXT CASE STUDY →</span>AI builds it. Deterministic code runs it.</a>
+  <a class="go" href="index.html#how"><span>NEXT →</span>How I work: TRUST</a>
 </div></section>
 </main>
 <footer><div class="wrap"><span>© 2026 Mustafa Mahmoud</span><span>No company data is shown on this page.</span></div></footer>

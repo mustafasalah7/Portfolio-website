@@ -75,6 +75,8 @@ header{position:sticky;top:0;z-index:20;background:rgba(5,8,15,.82);backdrop-fil
 .proj .story{display:grid;gap:14px}
 .proj .story p{color:var(--ink2);font-size:16.5px}
 .proj .story p b{color:var(--ink);font-weight:700}
+.built{border-left:2px solid var(--cyan);background:rgba(45,226,230,.05);border-radius:0 10px 10px 0;padding:11px 15px;font-size:15px;color:var(--ink2);line-height:1.55}
+.built b{display:block;font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:var(--cyan);margin-bottom:4px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
 .chips span{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--ink2);border:1px solid var(--line2);border-radius:999px;padding:5px 11px}
 .outcome{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:10px;border-top:1px solid var(--line)}
@@ -260,6 +262,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <h3>Understand performance. Diagnose gaps. Plan the next move.</h3>
         <p><b>Problem.</b> Reporting was spread across exports, screenshots and one-off analyses. Every time someone wanted to dig into a gap or plan a strategy, the work started again from scratch.</p>
         <p><b>What I built.</b> One daily workflow that connects revenue, acquisition, conversion, referrals, team performance and WhatsApp. Business rules, extraction, data checks and forecasting are built in, so operations and leadership can investigate and plan without asking for a new report.</p>
+        <div class="built"><b>HOW IT WAS BUILT</b>I wrote the business rules and metric definitions. Claude Code and Codex built it in separate lanes, and every change went through tests and review.</div>
         <div class="chips"><span>SQL</span><span>Python</span><span>openpyxl</span><span>JavaScript</span><span>ECharts</span><span>Scheduler</span><span>Git</span></div>
         <div class="outcome">
           <div><b class="c">16</b><span>views, one workflow</span></div>
@@ -272,6 +275,40 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 
     <!-- Project 2 -->
     <article class="proj rev rv">
+      <div class="visual">
+        <div class="frame">
+          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">AGENTIC LOOP · VALIDATOR</span><em>dev → runtime</em></div>
+          <div class="term">
+            <div class="r"><span class="p">$</span><span class="k">inspect</span><span class="v">code · scheduler · decision history</span><span class="ok">OK</span></div>
+            <div class="r"><span class="p">$</span><span class="k">implement</span><span class="v">defect register, record by record</span><span class="ok">OK</span></div>
+            <div class="r"><span class="p">$</span><span class="k">test</span><span class="v">regression tests · real-export replay</span><span class="ok">OK</span></div>
+            <div class="r"><span class="p">$</span><span class="k">refine</span><span class="v">human-approved policy</span><span class="ok">OK</span></div>
+            <hr>
+            <div class="rt">runtime: deterministic Python · no AI</div>
+            <div class="rule"><em>known</em>warn, keep running</div>
+            <div class="rule"><em>new</em>email the data engineering team</div>
+            <div class="rule"><em>corrupt</em>block the run</div>
+          </div>
+        </div>
+      </div>
+      <div class="story">
+        <div class="eyebrow"><b>Agentic AI</b> · Data-quality validator</div>
+        <h3>AI builds it. Deterministic code runs it.</h3>
+        <p><b>Problem.</b> A defect we had already reviewed kept halting the daily run, and it hid new problems behind it.</p>
+        <p><b>What I built.</b> An agentic loop (inspect, implement, test, refine) with boundaries I set: regression tests and a replay of real exports as the finish line, and nothing published or sent while testing. The result is a defect register that remembers what was decided, run by plain Python with no AI in it.</p>
+        <div class="built"><b>HOW IT WAS BUILT</b>I set the boundaries and the finish line. An agent ran inspect → implement → test → refine until a replay of real exports passed, and I approved the policy.</div>
+        <div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops</span><span>Python</span><span>Regression tests</span></div>
+        <div class="outcome">
+          <div><b class="c">Known</b><span>issues no longer stop the run</span></div>
+          <div><b>New</b><span>losses emailed automatically</span></div>
+          <div><b>Human</b><span>owns the policy</span></div>
+        </div>
+        <div class="links"><a class="btn sm primary" href="validator.html">Case study →</a></div>
+      </div>
+    </article>
+
+    <!-- Project 3 -->
+    <article class="proj rv">
       <div class="visual">
         <div class="frame">
           <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">ROLLING-ORIGIN BACKTEST</span><em>illustrative</em></div>
@@ -295,8 +332,9 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="eyebrow"><b>Data science</b> · Forecasting engine</div>
         <h3>Six models compete. Evidence picks the winner.</h3>
         <p><b>Problem.</b> Forecasts are usually one method picked by habit, with no proof it works on this business.</p>
-        <p><b>What I built.</b> A Python engine that tests six methods on months they have never seen (rolling-origin backtesting), ranks them by WAPE, then MAE, then simplicity, and shows bias and historical error ranges next to the winner. A second, lead-aware model updates the forecast inside the month.</p>
-        <div class="chips"><span>Python</span><span>Backtesting</span><span>WAPE · MAE</span><span>Exponential smoothing</span></div>
+        <p><b>What I built.</b> An engine where six models compete: naive baseline, 3-month average, exponential smoothing, damped trend, driver-based and weighted 3-month. Each is tested on months it has never seen (rolling-origin backtesting), ranked by WAPE, then MAE, then simplicity, and shown with its bias and historical error range. A second, lead-aware model updates the forecast inside the month.</p>
+        <div class="built"><b>HOW IT WAS BUILT</b>I designed the structure, chose the competing methods and made backtesting on past months the test. Agents wrote the code.</div>
+        <div class="chips"><span>Rolling-origin backtesting</span><span>WAPE · MAE</span><span>Exponential smoothing</span><span>Damped trend</span><span>Driver-based</span></div>
         <div class="outcome">
           <div><b class="c">0.97%</b><span>Sept backtest error</span></div>
           <div><b>6</b><span>methods compared</span></div>
@@ -306,8 +344,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       </div>
     </article>
 
-    <!-- Project 3 -->
-    <article class="proj rv">
+    <!-- Project 4 -->
+    <article class="proj rev rv">
       <div class="visual">
         <div class="frame">
           <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">DATA ACCESS</span><em>every morning</em></div>
@@ -326,7 +364,8 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
         <div class="eyebrow"><b>Biggest unlock</b> · WhatsApp data</div>
         <h3>The data nobody could see. Now it arrives every morning.</h3>
         <p><b>Problem.</b> No API access, and nobody could see WhatsApp performance day to day. The usual answer was "it can't be done."</p>
-        <p><b>What I built.</b> I traced how the platform's own interface loads its data and rebuilt those calls. A headless Chrome session reuses an authorised login, takes a fresh security token and runs the query from inside the browser, so the data lands every morning with nobody logging in.</p>
+        <p><b>What I built.</b> A daily extraction through the door the interface already uses: its own query endpoints. A headless Chrome session reuses an authorised login, takes a fresh security token and runs the query from inside the browser, so the data lands every morning with nobody logging in.</p>
+        <div class="built"><b>HOW IT WAS BUILT</b>The AI never suggested it. I proposed reverse-engineering the platform's own endpoints. The agents then audited how the interface loads its data and rebuilt the call.</div>
         <div class="chips"><span>Reverse engineering</span><span>Playwright</span><span>SQL</span><span>Python</span><span>Validation</span></div>
         <div class="outcome">
           <div><b class="c">Daily</b><span>WhatsApp data, previously none</span></div>
@@ -334,39 +373,6 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
           <div><b>0</b><span>manual logins</span></div>
         </div>
         <div class="links"><a class="btn sm primary" href="whatsapp.html">Case study →</a></div>
-      </div>
-    </article>
-
-    <!-- Project 4 -->
-    <article class="proj rev rv">
-      <div class="visual">
-        <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">AGENTIC LOOP · VALIDATOR</span><em>dev → runtime</em></div>
-          <div class="term">
-            <div class="r"><span class="p">$</span><span class="k">inspect</span><span class="v">code · scheduler · decision history</span><span class="ok">OK</span></div>
-            <div class="r"><span class="p">$</span><span class="k">implement</span><span class="v">defect register, record by record</span><span class="ok">OK</span></div>
-            <div class="r"><span class="p">$</span><span class="k">test</span><span class="v">regression tests · real-export replay</span><span class="ok">OK</span></div>
-            <div class="r"><span class="p">$</span><span class="k">refine</span><span class="v">human-approved policy</span><span class="ok">OK</span></div>
-            <hr>
-            <div class="rt">runtime: deterministic Python · no AI</div>
-            <div class="rule"><em>known</em>warn, keep running</div>
-            <div class="rule"><em>new</em>email the data engineering team</div>
-            <div class="rule"><em>corrupt</em>block the run</div>
-          </div>
-        </div>
-      </div>
-      <div class="story">
-        <div class="eyebrow"><b>Agentic AI</b> · Data-quality validator</div>
-        <h3>AI builds it. Deterministic code runs it.</h3>
-        <p><b>Problem.</b> A defect we had already reviewed kept halting the daily run, and it hid new problems behind it.</p>
-        <p><b>What I built.</b> An agentic loop (inspect, implement, test, refine) with boundaries I set: regression tests and a replay of real exports as the finish line, and nothing published or sent while testing. The result is a defect register that remembers what was decided, run by plain Python with no AI in it.</p>
-        <div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops</span><span>Python</span><span>Regression tests</span></div>
-        <div class="outcome">
-          <div><b class="c">Known</b><span>issues no longer stop the run</span></div>
-          <div><b>New</b><span>losses emailed automatically</span></div>
-          <div><b>Human</b><span>owns the policy</span></div>
-        </div>
-        <div class="links"><a class="btn sm primary" href="validator.html">Case study →</a></div>
       </div>
     </article>
   </div>
