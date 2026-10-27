@@ -77,7 +77,7 @@ header{position:sticky;top:0;z-index:20;background:rgba(5,8,15,.82);backdrop-fil
 
 /* projects */
 .proj{display:grid;grid-template-columns:1.08fr 1fr;gap:64px;align-items:center;padding:64px 0;border-top:1px solid var(--line)}
-.proj:first-of-type{border-top:0;padding-top:0}
+.proj:first-of-type{border-top:0;padding-top:0;padding-bottom:40px}
 .proj.rev .visual{order:2}
 .proj h3{font-size:clamp(30px,3.4vw,42px);font-weight:800;margin:14px 0 18px}
 .proj .story{display:grid;gap:14px}
@@ -210,6 +210,34 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
 @keyframes soundpulse{0%{box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 0 rgba(45,226,230,.55)}70%{box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 18px rgba(45,226,230,0)}100%{box-shadow:0 10px 30px rgba(0,0,0,.5),0 0 0 0 rgba(45,226,230,0)}}
 .filmlink{align-self:center;font-family:var(--mono);font-size:13.5px;font-weight:700;letter-spacing:.06em;color:var(--cyan);text-decoration:none;border-bottom:1px solid rgba(45,226,230,.35);padding-bottom:2px}
 .filmlink:hover{border-color:var(--cyan)}
+/* compact project cards */
+.outcome.two{grid-template-columns:repeat(2,1fr)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:8px}
+.pcard{display:flex;flex-direction:column;border:1px solid var(--line2);border-radius:18px;background:var(--surface);overflow:hidden;text-decoration:none;color:inherit;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.pcard:hover{transform:translateY(-4px);border-color:var(--cyan);box-shadow:0 24px 60px rgba(0,0,0,.45),0 0 40px rgba(45,226,230,.1)}
+.pv{height:176px;border-bottom:1px solid var(--line);background:#070b13;position:relative;overflow:hidden;display:flex;align-items:center}
+.pb{padding:20px 22px 22px;display:flex;flex-direction:column;gap:10px;flex:1}
+.pcard h4{font-size:21px;font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.pcard p{font-size:14.5px;color:var(--ink2);line-height:1.55}
+.pcard .hb{font-size:13.5px;border-left:2px solid var(--cyan);padding:6px 0 6px 12px;color:var(--ink2)}
+.pcard .hb b{display:block;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--cyan);margin-bottom:2px}
+.ps{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line);padding-top:12px;margin-top:auto}
+.ps b{display:block;font-family:var(--mono);font-size:22px;font-weight:800;letter-spacing:-.03em}
+.ps span{font-size:12.5px;color:var(--dim)}
+.pcard .go{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--cyan);margin-top:6px}
+.pcard:hover .go{text-decoration:underline}
+.mterm{padding:16px 18px;font-family:var(--mono);font-size:11.5px;line-height:1.85;width:100%;color:var(--ink2)}
+.mterm div{display:flex;gap:8px}.mterm i{font-style:normal;color:var(--dim)}.mterm em{font-style:normal;color:var(--cyan);width:70px;flex:none}
+.mterm u{text-decoration:none;margin-left:auto;color:var(--cyan);font-weight:800}
+.mterm .rt{color:var(--amber);font-weight:700;margin-top:6px;border-top:1px dashed var(--line2);padding-top:6px}
+.mchart{padding:14px 16px;width:100%}.mchart svg{height:148px;width:100%}
+.mbadge{position:absolute;right:16px;top:12px;font-family:var(--mono);font-weight:800;font-size:26px;color:var(--cyan);letter-spacing:-.03em}
+.mflow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:18px;font-family:var(--mono);font-size:12px;font-weight:700}
+.mflow span{border:1px solid var(--line2);border-radius:10px;padding:8px 10px;background:var(--surface2);color:var(--ink)}
+.mflow span.no{border-style:dashed;color:var(--red);border-color:rgba(255,77,109,.45)}
+.mflow span.ok{color:var(--cyan);border-color:rgba(45,226,230,.5)}
+.mflow b{color:var(--cyan)}
+@media (max-width:1000px){.pgrid{grid-template-columns:1fr}.pv{height:auto;min-height:150px}}
 @media (prefers-reduced-motion:reduce){
   *{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .rv{opacity:1;transform:none}
@@ -261,7 +289,7 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <h2>Systems people run a business on.</h2>
     </div>
 
-    <!-- Project 1 -->
+    <!-- Flagship -->
     <article class="proj rv">
       <div class="visual">
         <div class="frame filmframe" data-film id="film"><div class="bar"><i></i><i></i><i></i><span class="rec"><b></b>FILM · 50 S</span><em>synthetic data</em></div><div class="filmwrap"><video src="assets/launch.mp4" poster="assets/launch-poster.jpg" muted loop playsinline preload="none"></video><button class="soundon" type="button">▶ Watch with sound · 50 s</button></div></div>
@@ -269,61 +297,31 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
       <div class="story">
         <div class="eyebrow"><b>Flagship</b> · Operations Intelligence &amp; Planning Platform</div>
         <h3>Understand performance. Diagnose gaps. Plan the next move.</h3>
-        <p><b>Problem.</b> Reporting was spread across exports, screenshots and one-off analyses. Every time someone wanted to dig into a gap or plan a strategy, the work started again from scratch.</p>
-        <p><b>What I built.</b> One daily workflow that connects revenue, acquisition, conversion, referrals, team performance and WhatsApp. Business rules, extraction, data checks and forecasting are built in, so operations and leadership can investigate and plan without asking for a new report.</p>
+        <p>Reporting was spread across exports, screenshots and one-off analyses, so every deep-dive started from scratch. This connects revenue, acquisition, conversion, referrals, team performance and WhatsApp in one daily workflow, so operations and leadership can investigate gaps and plan without asking for a new report.</p>
         <div class="built"><b>HOW IT WAS BUILT</b>I wrote the business rules and metric definitions. Claude Code and Codex built it in separate lanes, and every change went through tests and review.</div>
         <div class="chips"><span>SQL</span><span>Python</span><span>openpyxl</span><span>JavaScript</span><span>ECharts</span><span>Scheduler</span><span>Git</span></div>
-        <div class="outcome">
+        <div class="outcome two">
           <div><b class="c">16</b><span>views, one workflow</span></div>
-          <div><b>6</b><span>business areas connected</span></div>
-          <div><b>8</b><span>stakeholders, weekly avg.</span></div>
+                    <div><b>8 · ~27 h</b><span>stakeholders · active use, weekly avg.</span></div>
         </div>
         <div class="links"><a class="btn sm primary" href="platform.html">Case study →</a><a class="btn sm" href="demo/" target="_blank" rel="noopener">Live demo ↗</a></div>
       </div>
     </article>
 
-    <!-- Project 2 -->
-    <article class="proj rev rv">
-      <div class="visual">
-        <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">AGENTIC LOOP · VALIDATOR</span><em>dev → runtime</em></div>
-          <div class="term">
-            <div class="r"><span class="p">$</span><span class="k">inspect</span><span class="v">code · scheduler · decision history</span><span class="ok">OK</span></div>
-            <div class="r"><span class="p">$</span><span class="k">implement</span><span class="v">defect register, record by record</span><span class="ok">OK</span></div>
-            <div class="r"><span class="p">$</span><span class="k">test</span><span class="v">regression tests · real-export replay</span><span class="ok">OK</span></div>
-            <div class="r"><span class="p">$</span><span class="k">refine</span><span class="v">rules approved by me</span><span class="ok">OK</span></div>
-            <hr>
-            <div class="rt">runtime: deterministic Python · no AI</div>
-            <div class="rule"><em>known</em>warn, keep running</div>
-            <div class="rule"><em>new</em>email the data engineering team</div>
-            <div class="rule"><em>corrupt</em>block the run</div>
-          </div>
+    <div class="pgrid rv">
+      <a class="pcard" href="validator.html">
+        <div class="pv"><div class="mterm"><div><i>$</i><em>inspect</em>code · history<u>OK</u></div><div><i>$</i><em>implement</em>defect register<u>OK</u></div><div><i>$</i><em>test</em>real-export replay<u>OK</u></div><div><i>$</i><em>refine</em>rules approved by me<u>OK</u></div><div class="rt">runtime: deterministic Python · no AI</div></div></div>
+        <div class="pb">
+          <div class="eyebrow"><b>Agentic AI · Validator</b></div>
+          <h4>AI builds it. Deterministic code runs it.</h4>
+          <p>A defect we had already reviewed kept halting the daily run and hid new problems behind it.</p>
+          <p class="hb"><b>HOW IT WAS BUILT</b>I set the boundaries and the finish line. An agent looped until a replay of real exports passed.</p>
+          <div class="ps"><div><b class="c">Known</b><span>issues warn, not stop</span></div><div><b>New</b><span>losses emailed</span></div></div>
+          <span class="go">Explore the case study →</span>
         </div>
-      </div>
-      <div class="story">
-        <div class="eyebrow"><b>Agentic AI</b> · Data-quality validator</div>
-        <h3>AI builds it. Deterministic code runs it.</h3>
-        <p><b>Problem.</b> A defect we had already reviewed kept halting the daily run, and it hid new problems behind it.</p>
-        <p><b>What I built.</b> An agentic loop (inspect, implement, test, refine) with boundaries I set: regression tests and a replay of real exports as the finish line, and nothing published or sent while testing. The result is a defect register that remembers what was decided, run by plain Python with no AI in it.</p>
-        <div class="built"><b>HOW IT WAS BUILT</b>I set the boundaries and the finish line. An agent ran inspect → implement → test → refine until a replay of real exports passed, and I decided which issues stop the run.</div>
-        <div class="chips"><span>Claude Code</span><span>Codex</span><span>Agentic loops</span><span>Python</span><span>Regression tests</span></div>
-        <div class="outcome">
-          <div><b class="c">Known</b><span>issues no longer stop the run</span></div>
-          <div><b>New</b><span>losses emailed automatically</span></div>
-          <div><b>Human</b><span>decides what stops a run</span></div>
-        </div>
-        <div class="links"><a class="btn sm primary" href="validator.html">Case study →</a></div>
-      </div>
-    </article>
-
-    <!-- Project 3 -->
-    <article class="proj rv">
-      <div class="visual">
-        <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">ROLLING-ORIGIN BACKTEST</span><em>illustrative</em></div>
-          <div class="badge"><b>0.97%</b><span>SEPT BACKTEST</span></div>
-          <div class="chart">
-            <svg viewBox="0 0 520 260" role="img" aria-label="Six forecasting methods tested against actual revenue; the weighted three-month method tracks actuals most closely.">
+      </a>
+      <a class="pcard" href="forecasting.html">
+        <div class="pv"><div class="chart mchart"><svg viewBox="0 0 520 260" role="img" aria-label="Six forecasting methods tested against actual revenue; the weighted three-month method tracks actuals most closely.">
               <g stroke="#1c2638" stroke-width="1"><line x1="0" x2="520" y1="60" y2="60"/><line x1="0" x2="520" y1="130" y2="130"/><line x1="0" x2="520" y1="200" y2="200"/></g>
               <path class="line act" d="M0 210 L47 196 L94 202 L141 180 L188 185 L235 160 L282 167 L329 150 L376 154 L423 132 L470 136 L520 120"/>
               <path class="line model" d="M141 150 L188 205 L235 135 L282 190 L329 128 L376 178 L423 110 L470 162 L520 98"/>
@@ -332,58 +330,28 @@ footer .wrap{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
               <path class="line model" d="M141 215 L188 175 L235 205 L282 155 L329 190 L376 140 L423 172 L470 125 L520 160"/>
               <path class="line model" d="M141 160 L188 192 L235 170 L282 182 L329 160 L376 166 L423 142 L470 150 L520 132"/>
               <path class="line win" d="M141 182 L188 186 L235 163 L282 168 L329 152 L376 155 L423 134 L470 137 L520 121"/>
-            </svg>
-            <div class="legend"><s>Naive</s><s>3-month avg</s><s>Exp. smoothing</s><s>Damped trend</s><s>Driver-based</s><b>▶ Weighted 3-month</b></div>
-          </div>
+            </svg><div class="mbadge">0.97%</div></div></div>
+        <div class="pb">
+          <div class="eyebrow"><b>Data science · Forecasting</b></div>
+          <h4>Six models compete. Evidence picks the winner.</h4>
+          <p>Naive, moving average, exponential smoothing, damped trend, driver-based and weighted 3-month, all backtested on unseen months.</p>
+          <p class="hb"><b>HOW IT WAS BUILT</b>I designed the structure, chose the methods and made backtesting the test. Agents wrote the code.</p>
+          <div class="ps"><div><b class="c">0.97%</b><span>Sept backtest error</span></div><div><b>6</b><span>models compared</span></div></div>
+          <span class="go">Explore the case study →</span>
         </div>
-      </div>
-      <div class="story">
-        <div class="eyebrow"><b>Data science</b> · Forecasting engine</div>
-        <h3>Six models compete. Evidence picks the winner.</h3>
-        <p><b>Problem.</b> Forecasts are usually one method picked by habit, with no proof it works on this business.</p>
-        <p><b>What I built.</b> An engine where six models compete: naive baseline, 3-month average, exponential smoothing, damped trend, driver-based and weighted 3-month. Each is tested on months it has never seen (rolling-origin backtesting), ranked by WAPE, then MAE, then simplicity, and shown with its bias and historical error range. A second, lead-aware model updates the forecast inside the month.</p>
-        <div class="built"><b>HOW IT WAS BUILT</b>I designed the structure, chose the competing methods and made backtesting on past months the test. Agents wrote the code.</div>
-        <div class="chips"><span>Rolling-origin backtesting</span><span>WAPE · MAE</span><span>Exponential smoothing</span><span>Damped trend</span><span>Driver-based</span></div>
-        <div class="outcome">
-          <div><b class="c">0.97%</b><span>Sept backtest error</span></div>
-          <div><b>6</b><span>methods compared</span></div>
-          <div><b>11 mo</b><span>evaluation window</span></div>
+      </a>
+      <a class="pcard" href="whatsapp.html">
+        <div class="pv"><div class="mflow"><span class="no">No API</span><b>→</b><span>Headless Chrome</span><b>→</b><span>In-session SQL</span><b>→</b><span class="ok">✓ Every morning</span></div></div>
+        <div class="pb">
+          <div class="eyebrow"><b>Biggest unlock · WhatsApp data</b></div>
+          <h4>The data nobody could see, now every morning.</h4>
+          <p>No API, and the usual answer was "it can't be done."</p>
+          <p class="hb"><b>HOW IT WAS BUILT</b>The AI never suggested it. I proposed reverse-engineering the endpoints; agents rebuilt the call.</p>
+          <div class="ps"><div><b class="c">Daily</b><span>previously none</span></div><div><b>~8 s</b><span>per extraction</span></div></div>
+          <span class="go">Explore the case study →</span>
         </div>
-        <div class="links"><a class="btn sm primary" href="forecasting.html">Case study →</a></div>
-      </div>
-    </article>
-
-    <!-- Project 4 -->
-    <article class="proj rev rv">
-      <div class="visual">
-        <div class="frame">
-          <div class="bar"><i></i><i></i><i></i><span style="margin-left:8px">DATA ACCESS</span><em>every morning</em></div>
-          <div class="flow">
-            <div class="node no"><div class="ic">API</div><div><b>No API available</b><span>The data only existed inside the BI platform's interface</span></div></div>
-            <div class="pipe"></div>
-            <div class="node"><div class="ic">◎</div><div><b>Headless browser</b><span>Restores a saved login and takes a fresh security token</span></div></div>
-            <div class="pipe"></div>
-            <div class="node"><div class="ic">SQL</div><div><b>In-session SQL call</b><span>Bounded SQL sent to the query endpoint from inside the browser session</span></div></div>
-            <div class="pipe"></div>
-            <div class="node ok"><div class="ic">✓</div><div><b>Validated, daily</b><span>Schema, dates, row counts and control totals must agree</span></div></div>
-          </div>
-        </div>
-      </div>
-      <div class="story">
-        <div class="eyebrow"><b>Biggest unlock</b> · WhatsApp data</div>
-        <h3>The data nobody could see. Now it arrives every morning.</h3>
-        <p><b>Problem.</b> No API access, and nobody could see WhatsApp performance day to day. The usual answer was "it can't be done."</p>
-        <p><b>What I built.</b> A daily extraction through the door the interface already uses: its own query endpoints. A headless Chrome session reuses an authorised login, takes a fresh security token and runs the query from inside the browser, so the data lands every morning with nobody logging in.</p>
-        <div class="built"><b>HOW IT WAS BUILT</b>The AI never suggested it. I proposed reverse-engineering the platform's own endpoints. The agents then audited how the interface loads its data and rebuilt the call.</div>
-        <div class="chips"><span>Reverse engineering</span><span>Playwright</span><span>SQL</span><span>Python</span><span>Validation</span></div>
-        <div class="outcome">
-          <div><b class="c">Daily</b><span>WhatsApp data, previously none</span></div>
-          <div><b>~8 s</b><span>per extraction</span></div>
-          <div><b>0</b><span>manual logins</span></div>
-        </div>
-        <div class="links"><a class="btn sm primary" href="whatsapp.html">Case study →</a></div>
-      </div>
-    </article>
+      </a>
+    </div>
   </div>
 </section>
 
